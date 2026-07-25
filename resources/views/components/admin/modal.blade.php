@@ -1,4 +1,4 @@
-@props(['id', 'title' => 'Confirm Action', 'confirmText' => 'Confirm', 'confirmColor' => 'red'])
+@props(['id', 'title' => 'Confirm Action', 'confirmText' => 'Confirm', 'confirmColor' => 'red', 'showIcon' => false])
 
 <div id="{{ $id }}" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <!-- Overlay -->
@@ -7,9 +7,10 @@
     <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
         <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
             <!-- Modal panel -->
-            <div class="relative transform overflow-hidden rounded-2xl bg-slate-800 border border-slate-700 text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-md opacity-0 scale-95 modal-content duration-300">
+            <div class="relative transform overflow-hidden rounded-2xl bg-slate-900/95 backdrop-blur-xl border border-slate-700/50 text-left shadow-2xl shadow-black/50 transition-all sm:my-8 sm:w-full sm:max-w-md opacity-0 scale-95 modal-content duration-300">
                 <div class="px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                     <div class="sm:flex sm:items-start">
+                        @if($showIcon)
                         @if($confirmColor === 'rose' || $confirmColor === 'red')
                         <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-rose-500/10 sm:mx-0 sm:h-10 sm:w-10 border border-rose-500/20">
                             <svg class="h-6 w-6 text-rose-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -23,6 +24,7 @@
                             </svg>
                         </div>
                         @endif
+                        @endif
                         <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                             <h3 class="text-lg font-semibold leading-6 text-white" id="modal-title">{{ $title }}</h3>
                             <div class="mt-2">
@@ -33,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-slate-800/50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t border-slate-700/50">
+                <div class="bg-slate-900/50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t border-slate-700/50">
                     <button type="button" onclick="submitModalForm(this, '{{ $id }}')" class="inline-flex w-full justify-center rounded-lg bg-{{ $confirmColor }}-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-{{ $confirmColor }}-400 sm:ml-3 sm:w-auto transition-colors focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-{{ $confirmColor }}-500 border border-transparent">
                         {{ $confirmText }}
                     </button>

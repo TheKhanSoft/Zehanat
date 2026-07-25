@@ -10,9 +10,9 @@
             {{ $slot }}
         @else
             @if($type === 'textarea')
-                <textarea name="{{ $name }}" id="{{ $name }}" rows="{{ $rows }}" {{ $required ? 'required' : '' }} class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-colors" placeholder="{{ $placeholder }}">{{ old($name, $value) }}</textarea>
+                <textarea name="{{ $name }}" id="{{ $name }}" rows="{{ $rows }}" {{ $required ? 'required' : '' }} class="w-full bg-slate-950 border border-slate-700/80 rounded-xl px-4 py-2.5 text-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/30 outline-none transition-colors" placeholder="{{ $placeholder }}">{{ old($name, $value) }}</textarea>
             @else
-                <input type="{{ $type }}" name="{{ $name }}" id="{{ $name }}" value="{{ old($name, $value) }}" {{ $required ? 'required' : '' }} class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-colors {{ $type === 'date' ? '[color-scheme:dark]' : '' }}" placeholder="{{ $placeholder }}">
+                <input type="{{ $type }}" name="{{ $name }}" id="{{ $name }}" value="{{ old($name, $value) }}" {{ $required ? 'required' : '' }} class="w-full bg-slate-950 border border-slate-700/80 rounded-xl px-4 py-2.5 text-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/30 outline-none transition-colors {{ $type === 'date' ? '[color-scheme:dark]' : '' }}" placeholder="{{ $placeholder }}">
             @endif
         @endif
     </div>
