@@ -1,0 +1,70 @@
+/* Admin sidebar */
+.admin-sidebar {
+    width: 260px;
+    transition: width 0.3s ease;
+}
+.admin-sidebar.collapsed {
+    width: 72px;
+}
+.admin-sidebar.collapsed .sidebar-label {
+    display: none;
+}
+
+/* Admin content area */
+.admin-content {
+    margin-left: 260px;
+    transition: margin-left 0.3s ease;
+}
+.admin-sidebar.collapsed ~ .admin-content {
+    margin-left: 72px;
+}
+
+/* Table styles */
+.admin-table th {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.admin-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: #cbd5e1;
+}
+.admin-table tr:hover td {
+    background: rgba(255,255,255,0.02);
+}
+
+/* Status badges */
+.badge-pending { background: rgba(245,158,11,0.15); color: #fbbf24; }
+.badge-approved { background: rgba(16,185,129,0.15); color: #34d399; }
+.badge-rejected { background: rgba(239,68,68,0.15); color: #f87171; }
+.badge-unread { background: rgba(20,184,166,0.15); color: #2dd4bf; }
+
+/* Mobile overlay for sidebar */
+@media (max-width: 768px) {
+    .admin-sidebar {
+        position: fixed;
+        left: -260px;
+        z-index: 50;
+        height: 100vh;
+    }
+    .admin-sidebar.mobile-open {
+        left: 0;
+    }
+    .admin-content {
+        margin-left: 0;
+    }
+    .sidebar-overlay {
+        display: none;
+    }
+    .admin-sidebar.mobile-open ~ .sidebar-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 40;
+    }
+}

@@ -151,47 +151,60 @@
             <x-public.alert type="info">Registration will be fully functional once the membership portal launches. For now, please contact us directly.</x-public.alert>
         </div>
 
-        <form class="glass-card p-8 md:p-10 rounded-2xl border border-slate-700 bg-slate-800/40 animate-fade-up stagger-2">
+        @if(session('success'))
+            <div class="mb-6 p-4 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        <form method="POST" action="{{ route('membership.store') }}" class="glass-card p-8 md:p-10 rounded-2xl border border-slate-700 bg-slate-800/40 animate-fade-up stagger-2">
+            @csrf
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                     <label for="name" class="block text-sm font-medium text-slate-300 mb-1">Full Name</label>
-                    <input type="text" id="name" placeholder="John Doe" class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-colors">
+                    <input type="text" name="name" id="name" value="{{ old('name') }}" placeholder="John Doe" class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-colors">
+                    @error('name')<span class="text-red-400 text-xs mt-1 block">{{ $message }}</span>@enderror
                 </div>
                 <div>
                     <label for="email" class="block text-sm font-medium text-slate-300 mb-1">Email Address</label>
-                    <input type="email" id="email" placeholder="john@example.com" class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-colors">
+                    <input type="email" name="email" id="email" value="{{ old('email') }}" placeholder="john@example.com" class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-colors">
+                    @error('email')<span class="text-red-400 text-xs mt-1 block">{{ $message }}</span>@enderror
                 </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                     <label for="phone" class="block text-sm font-medium text-slate-300 mb-1">Phone Number</label>
-                    <input type="tel" id="phone" placeholder="+92 300 1234567" class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-colors">
+                    <input type="tel" name="phone" id="phone" value="{{ old('phone') }}" placeholder="+92 300 1234567" class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-colors">
+                    @error('phone')<span class="text-red-400 text-xs mt-1 block">{{ $message }}</span>@enderror
                 </div>
                 <div>
                     <label for="category" class="block text-sm font-medium text-slate-300 mb-1">Category</label>
-                    <select id="category" class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-colors appearance-none">
-                        <option value="" disabled selected>Select Category</option>
-                        <option value="individual">Individual</option>
-                        <option value="institution">Institution</option>
-                        <option value="industry">Industry</option>
-                        <option value="student">Student</option>
+                    <select name="category" id="category" class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-colors appearance-none">
+                        <option value="" disabled {{ old('category') ? '' : 'selected' }}>Select Category</option>
+                        <option value="individual" {{ old('category') == 'individual' ? 'selected' : '' }}>Individual</option>
+                        <option value="institution" {{ old('category') == 'institution' ? 'selected' : '' }}>Institution</option>
+                        <option value="industry" {{ old('category') == 'industry' ? 'selected' : '' }}>Industry</option>
+                        <option value="student" {{ old('category') == 'student' ? 'selected' : '' }}>Student</option>
                     </select>
+                    @error('category')<span class="text-red-400 text-xs mt-1 block">{{ $message }}</span>@enderror
                 </div>
             </div>
 
             <div class="mb-6">
                 <label for="institution" class="block text-sm font-medium text-slate-300 mb-1">Institution/Organization Name</label>
-                <input type="text" id="institution" placeholder="University Name / Company Name" class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-colors">
+                <input type="text" name="institution" id="institution" value="{{ old('institution') }}" placeholder="University Name / Company Name" class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-colors">
+                @error('institution')<span class="text-red-400 text-xs mt-1 block">{{ $message }}</span>@enderror
             </div>
 
             <div class="mb-8">
                 <label for="message" class="block text-sm font-medium text-slate-300 mb-1">Message/Reason for Joining</label>
-                <textarea id="message" rows="4" placeholder="Tell us a little bit about why you're joining..." class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-colors"></textarea>
+                <textarea name="message" id="message" rows="4" placeholder="Tell us a little bit about why you're joining..." class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-colors">{{ old('message') }}</textarea>
+                @error('message')<span class="text-red-400 text-xs mt-1 block">{{ $message }}</span>@enderror
             </div>
 
             <div class="text-right">
-                <button type="button" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-slate-950 bg-teal-500 hover:bg-teal-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 focus:ring-offset-slate-950 transition-colors shadow-[0_0_20px_-5px_rgba(20,184,166,0.4)] hover:shadow-[0_0_25px_-5px_rgba(20,184,166,0.6)]">
+                <button type="submit" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-slate-950 bg-teal-500 hover:bg-teal-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 focus:ring-offset-slate-950 transition-colors shadow-[0_0_20px_-5px_rgba(20,184,166,0.4)] hover:shadow-[0_0_25px_-5px_rgba(20,184,166,0.6)]">
                     Submit Application
                 </button>
             </div>

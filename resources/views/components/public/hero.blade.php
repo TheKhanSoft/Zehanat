@@ -18,7 +18,7 @@
     <!-- Content -->
     <div class="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6">
         <!-- Hosted by badge -->
-        <div class="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-5 py-2 mb-8 text-sm text-slate-300">
+        <div class="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-5 py-2 mt-12 mb-5 text-sm text-slate-300">
             <span class="w-2 h-2 bg-teal-400 rounded-full animate-pulse"></span>
             Abdul Wali Khan University Mardan
         </div>

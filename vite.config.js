@@ -11,6 +11,7 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/css/public.css',
+                'resources/css/admin.css',
                 'resources/js/app.js',
                 'resources/js/passkeys.js',
                 'resources/js/public.js',
