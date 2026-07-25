@@ -90,21 +90,24 @@
     <form action="{{ route('admin.faqs.store') }}" method="POST">
         @csrf
         <x-admin.form-group label="Question" name="question" required>
-            <input type="text" name="question" id="question" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-sm">
+            <input type="text" name="question" id="question" required class="w-full bg-slate-950 border border-slate-700/80 rounded-xl px-4 py-2.5 text-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/30 outline-none text-sm transition-colors shadow-inner">
         </x-admin.form-group>
         <x-admin.form-group label="Answer" name="answer" required>
-            <textarea name="answer" id="answer" rows="4" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-sm"></textarea>
+            <textarea name="answer" id="answer" rows="4" required class="w-full bg-slate-950 border border-slate-700/80 rounded-xl px-4 py-2.5 text-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/30 outline-none text-sm transition-colors shadow-inner"></textarea>
         </x-admin.form-group>
         <div class="flex items-center space-x-4">
             <div class="w-1/2">
                 <x-admin.form-group label="Sort Order" name="sort_order">
-                    <input type="number" name="sort_order" id="sort_order" value="0" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-sm">
+                    <input type="number" name="sort_order" id="sort_order" value="0" class="w-full bg-slate-950 border border-slate-700/80 rounded-xl px-4 py-2.5 text-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/30 outline-none text-sm transition-colors shadow-inner">
                 </x-admin.form-group>
             </div>
             <div class="w-1/2 mt-3">
-                <label class="flex items-center space-x-3 cursor-pointer">
-                    <input type="checkbox" name="is_active" value="1" checked class="form-checkbox h-5 w-5 text-teal-500 rounded border-slate-700 bg-slate-900 focus:ring-teal-500 focus:ring-offset-slate-900">
-                    <span class="text-sm font-medium text-slate-300">Is Active</span>
+                <label class="flex items-center space-x-3 cursor-pointer group">
+                    <div class="relative">
+                        <input type="checkbox" name="is_active" value="1" checked class="sr-only peer">
+                        <div class="w-11 h-6 bg-slate-700 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-teal-500/50 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-teal-500 shadow-inner"></div>
+                    </div>
+                    <span class="text-sm font-medium text-slate-300 group-hover:text-white transition-colors">Is Active</span>
                 </label>
             </div>
         </div>
@@ -117,21 +120,24 @@
         @csrf
         @method('PUT')
         <x-admin.form-group label="Question" name="question" required>
-            <input type="text" name="question" id="edit_question" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-sm">
+            <input type="text" name="question" id="edit_question" required class="w-full bg-slate-950 border border-slate-700/80 rounded-xl px-4 py-2.5 text-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/30 outline-none text-sm transition-colors shadow-inner">
         </x-admin.form-group>
         <x-admin.form-group label="Answer" name="answer" required>
-            <textarea name="answer" id="edit_answer" rows="4" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-sm"></textarea>
+            <textarea name="answer" id="edit_answer" rows="4" required class="w-full bg-slate-950 border border-slate-700/80 rounded-xl px-4 py-2.5 text-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/30 outline-none text-sm transition-colors shadow-inner"></textarea>
         </x-admin.form-group>
         <div class="flex items-center space-x-4">
             <div class="w-1/2">
                 <x-admin.form-group label="Sort Order" name="sort_order">
-                    <input type="number" name="sort_order" id="edit_sort_order" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-sm">
+                    <input type="number" name="sort_order" id="edit_sort_order" class="w-full bg-slate-950 border border-slate-700/80 rounded-xl px-4 py-2.5 text-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/30 outline-none text-sm transition-colors shadow-inner">
                 </x-admin.form-group>
             </div>
             <div class="w-1/2 mt-3">
-                <label class="flex items-center space-x-3 cursor-pointer">
-                    <input type="checkbox" name="is_active" id="edit_is_active" value="1" class="form-checkbox h-5 w-5 text-teal-500 rounded border-slate-700 bg-slate-900 focus:ring-teal-500 focus:ring-offset-slate-900">
-                    <span class="text-sm font-medium text-slate-300">Is Active</span>
+                <label class="flex items-center space-x-3 cursor-pointer group">
+                    <div class="relative">
+                        <input type="checkbox" name="is_active" id="edit_is_active" value="1" class="sr-only peer">
+                        <div class="w-11 h-6 bg-slate-700 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-teal-500/50 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-teal-500 shadow-inner"></div>
+                    </div>
+                    <span class="text-sm font-medium text-slate-300 group-hover:text-white transition-colors">Is Active</span>
                 </label>
             </div>
         </div>

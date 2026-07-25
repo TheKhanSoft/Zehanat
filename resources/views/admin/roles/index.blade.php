@@ -70,87 +70,49 @@
 </div>
 
 <!-- Add Modal -->
-<div id="addModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-        <div class="fixed inset-0 bg-slate-900 bg-opacity-75 transition-opacity" aria-hidden="true" onclick="closeModal('addModal')"></div>
-        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-        <div class="inline-block align-bottom bg-slate-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full border border-slate-700">
-            <form action="{{ route('admin.roles.store') }}" method="POST">
-                @csrf
-                <div class="bg-slate-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                    <h3 class="text-lg leading-6 font-medium text-white mb-4" id="modal-title">Add New Role</h3>
-                    
-                    <div class="mb-6">
-                        <label for="name" class="block text-sm font-medium text-slate-300 mb-1">Role Name</label>
-                        <input type="text" name="name" id="name" required class="w-full bg-slate-900 border border-slate-700 rounded-md py-2 px-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-3">Permissions</label>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 max-h-60 overflow-y-auto p-2 bg-slate-900/50 rounded-lg border border-slate-700">
-                            @foreach($permissions as $permission)
-                            <label class="inline-flex items-center">
-                                <input type="checkbox" name="permissions[]" value="{{ $permission->name }}" class="rounded bg-slate-900 border-slate-600 text-teal-500 focus:ring-teal-500 focus:ring-offset-slate-800">
-                                <span class="ml-2 text-sm text-slate-300">{{ $permission->name }}</span>
-                            </label>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-slate-700/50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                    <button type="submit" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-teal-600 text-base font-medium text-white hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 sm:ml-3 sm:w-auto sm:text-sm">
-                        Save
-                    </button>
-                    <button type="button" onclick="closeModal('addModal')" class="mt-3 w-full inline-flex justify-center rounded-md border border-slate-600 shadow-sm px-4 py-2 bg-slate-800 text-base font-medium text-slate-300 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
-                        Cancel
-                    </button>
-                </div>
-            </form>
+<x-admin.modal id="addModal" title="Add New Role" confirmText="Save Role" confirmColor="teal">
+    <form action="{{ route('admin.roles.store') }}" method="POST">
+        @csrf
+        <x-admin.form-group label="Role Name" name="name" required>
+            <input type="text" name="name" id="name" required class="w-full bg-slate-950 border border-slate-700/80 rounded-xl px-4 py-2.5 text-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/30 outline-none text-sm transition-colors shadow-inner">
+        </x-admin.form-group>
+        
+        <div class="mt-4">
+            <label class="block text-sm font-medium text-slate-300 mb-3">Permissions</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-60 overflow-y-auto p-3 bg-slate-950/50 rounded-xl border border-slate-700/80 shadow-inner">
+                @foreach($permissions as $permission)
+                <label class="inline-flex items-center group cursor-pointer">
+                    <input type="checkbox" name="permissions[]" value="{{ $permission->name }}" class="rounded bg-slate-900 border-slate-600 text-teal-500 focus:ring-teal-500/50 focus:ring-offset-slate-900 h-4 w-4 transition-colors">
+                    <span class="ml-2 text-sm text-slate-400 group-hover:text-white transition-colors">{{ $permission->name }}</span>
+                </label>
+                @endforeach
+            </div>
         </div>
-    </div>
-</div>
+    </form>
+</x-admin.modal>
 
 <!-- Edit Modal -->
-<div id="editModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-        <div class="fixed inset-0 bg-slate-900 bg-opacity-75 transition-opacity" aria-hidden="true" onclick="closeModal('editModal')"></div>
-        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-        <div class="inline-block align-bottom bg-slate-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full border border-slate-700">
-            <form id="editForm" method="POST">
-                @csrf
-                @method('PUT')
-                <div class="bg-slate-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                    <h3 class="text-lg leading-6 font-medium text-white mb-4" id="modal-title">Edit Role</h3>
-                    
-                    <div class="mb-6">
-                        <label for="edit_name" class="block text-sm font-medium text-slate-300 mb-1">Role Name</label>
-                        <input type="text" name="name" id="edit_name" required class="w-full bg-slate-900 border border-slate-700 rounded-md py-2 px-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-3">Permissions</label>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 max-h-60 overflow-y-auto p-2 bg-slate-900/50 rounded-lg border border-slate-700">
-                            @foreach($permissions as $permission)
-                            <label class="inline-flex items-center">
-                                <input type="checkbox" name="permissions[]" id="perm_{{ Str::slug($permission->name) }}" value="{{ $permission->name }}" class="edit-perm-checkbox rounded bg-slate-900 border-slate-600 text-teal-500 focus:ring-teal-500 focus:ring-offset-slate-800">
-                                <span class="ml-2 text-sm text-slate-300">{{ $permission->name }}</span>
-                            </label>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-slate-700/50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                    <button type="submit" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-teal-600 text-base font-medium text-white hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 sm:ml-3 sm:w-auto sm:text-sm">
-                        Update
-                    </button>
-                    <button type="button" onclick="closeModal('editModal')" class="mt-3 w-full inline-flex justify-center rounded-md border border-slate-600 shadow-sm px-4 py-2 bg-slate-800 text-base font-medium text-slate-300 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
-                        Cancel
-                    </button>
-                </div>
-            </form>
+<x-admin.modal id="editModal" title="Edit Role" confirmText="Update Role" confirmColor="teal">
+    <form id="editForm" method="POST">
+        @csrf
+        @method('PUT')
+        <x-admin.form-group label="Role Name" name="name" required>
+            <input type="text" name="name" id="edit_name" required class="w-full bg-slate-950 border border-slate-700/80 rounded-xl px-4 py-2.5 text-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/30 outline-none text-sm transition-colors shadow-inner">
+        </x-admin.form-group>
+        
+        <div class="mt-4">
+            <label class="block text-sm font-medium text-slate-300 mb-3">Permissions</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-60 overflow-y-auto p-3 bg-slate-950/50 rounded-xl border border-slate-700/80 shadow-inner">
+                @foreach($permissions as $permission)
+                <label class="inline-flex items-center group cursor-pointer">
+                    <input type="checkbox" name="permissions[]" id="perm_{{ Str::slug($permission->name) }}" value="{{ $permission->name }}" class="edit-perm-checkbox rounded bg-slate-900 border-slate-600 text-teal-500 focus:ring-teal-500/50 focus:ring-offset-slate-900 h-4 w-4 transition-colors">
+                    <span class="ml-2 text-sm text-slate-400 group-hover:text-white transition-colors">{{ $permission->name }}</span>
+                </label>
+                @endforeach
+            </div>
         </div>
-    </div>
-</div>
+    </form>
+</x-admin.modal>
 
 @push('scripts')
 <script>
