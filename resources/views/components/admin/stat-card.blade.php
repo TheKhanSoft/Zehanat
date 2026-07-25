@@ -30,7 +30,18 @@
             @endif
         </div>
         
-        <div class="h-12 w-12 rounded-xl bg-{{ $color }}-500/10 text-{{ $color }}-400 flex items-center justify-center text-2xl shadow-inner border border-{{ $color }}-500/20 group-hover:bg-{{ $color }}-500/20 group-hover:scale-110 transition-all duration-300">
+        @php
+            $colorClasses = match($color) {
+                'teal' => 'bg-teal-500/10 text-teal-400 border-teal-500/20 group-hover:bg-teal-500/20',
+                'amber' => 'bg-amber-500/10 text-amber-400 border-amber-500/20 group-hover:bg-amber-500/20',
+                'rose' => 'bg-rose-500/10 text-rose-400 border-rose-500/20 group-hover:bg-rose-500/20',
+                'blue' => 'bg-blue-500/10 text-blue-400 border-blue-500/20 group-hover:bg-blue-500/20',
+                'emerald' => 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20 group-hover:bg-emerald-500/20',
+                'purple' => 'bg-purple-500/10 text-purple-400 border-purple-500/20 group-hover:bg-purple-500/20',
+                default => 'bg-teal-500/10 text-teal-400 border-teal-500/20 group-hover:bg-teal-500/20',
+            };
+        @endphp
+        <div class="h-12 w-12 rounded-xl {{ $colorClasses }} flex items-center justify-center text-2xl shadow-inner border group-hover:scale-110 transition-all duration-300">
             @if(preg_match('/<svg|<\/svg>/i', $icon))
                 <div class="w-6 h-6">{!! $icon !!}</div>
             @else

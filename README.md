@@ -18,6 +18,8 @@ This repository contains the source code for the public-facing website of Zehana
 - **Frontend**: [Tailwind CSS v4](https://tailwindcss.com/)
 - **Build Tool**: [Vite](https://vitejs.dev/)
 - **Templating**: Laravel Blade
+- **Authentication**: Laravel Fortify + Livewire
+- **Roles & Permissions**: [Spatie Laravel Permission](https://spatie.be/docs/laravel-permission)
 
 ## Prerequisites
 
@@ -102,6 +104,26 @@ The key directories and files customized for the public website:
 - `resources/views/components/public/`: Contains all reusable UI components.
 - `resources/css/public.css`: Custom styles, animations, and Tailwind directives.
 - `resources/js/public.js`: Vanilla JavaScript for interactivity (menu, animations, canvas).
+- `app/Http/Controllers/Admin/` - Admin panel controllers
+- `app/Models/` - Eloquent models (Member, Faq, NewsEvent, ContactMessage)
+- `resources/views/admin/` - Admin panel page views
+- `resources/views/components/admin/` - Reusable admin UI components
+- `resources/views/emails/` - Email templates
+- `resources/css/admin.css` - Admin panel styles
+- `app/Http/Middleware/AdminMiddleware.php` - Admin access control
+
+## Admin Panel
+
+- **Access**: Navigate to `/admin` after logging in.
+- **Default Credentials**: Email: `admin@zehanat.org`, Password: `password` (change after first login)
+- **Features**:
+  - Dashboard with key statistics (members, messages, news)
+  - Member management (view, approve, reject membership applications)
+  - FAQ management (full CRUD - create, read, update, delete)
+  - News & Events management (full CRUD)
+  - Contact message management (view, mark as read)
+- **Roles & Permissions**: Uses [Spatie Laravel Permission](https://spatie.be/docs/laravel-permission) for role-based access control. Default roles: `admin`, `editor`.
+- **Email Notifications**: Members receive a beautifully designed welcome email upon registration.
 
 ## Development Guidelines
 

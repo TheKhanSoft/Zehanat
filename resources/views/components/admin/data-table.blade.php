@@ -1,17 +1,25 @@
 @props(['headers' => []])
 
-<div class="bg-slate-800/50 backdrop-blur-sm border border-slate-700/80 rounded-xl overflow-hidden shadow-sm">
+<div {{ $attributes->merge(['class' => 'overflow-hidden']) }}>
     <div class="overflow-x-auto">
-        <table class="w-full admin-table text-left whitespace-nowrap">
+        <table class="w-full admin-table text-left">
             <thead class="bg-slate-800/80">
-                <tr>
-                    @foreach($headers as $header)
-                        <th scope="col">{{ $header }}</th>
-                    @endforeach
-                </tr>
+                @if(isset($head))
+                    {{ $head }}
+                @else
+                    <tr>
+                        @foreach($headers as $header)
+                            <th scope="col" class="px-6 py-4 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">{{ $header }}</th>
+                        @endforeach
+                    </tr>
+                @endif
             </thead>
-            <tbody class="divide-y divide-slate-700/50">
-                {{ $slot }}
+            <tbody class="divide-y divide-slate-700/30">
+                @if(isset($body))
+                    {{ $body }}
+                @else
+                    {{ $slot }}
+                @endif
             </tbody>
         </table>
     </div>

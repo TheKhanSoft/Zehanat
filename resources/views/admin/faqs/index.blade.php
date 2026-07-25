@@ -54,7 +54,16 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="4" class="px-6 py-8 text-center text-sm text-slate-400">No FAQs found. Create one!</td>
+                    <td colspan="4" class="px-6 py-16 text-center">
+                        <div class="flex flex-col items-center">
+                            <div class="w-16 h-16 rounded-full bg-slate-700/50 flex items-center justify-center mb-4">
+                                <svg class="w-8 h-8 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" /></svg>
+                            </div>
+                            <p class="text-slate-400 font-medium mb-1">No FAQs yet</p>
+                            <p class="text-slate-500 text-sm">Create an FAQ to help your users find answers quickly.</p>
+                            <a href="{{ route('admin.faqs.create') }}" class="mt-4 text-teal-400 hover:text-teal-300 text-sm font-medium">Add New FAQ &rarr;</a>
+                        </div>
+                    </td>
                 </tr>
                 @endforelse
             </x-slot>

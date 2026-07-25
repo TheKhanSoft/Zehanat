@@ -67,14 +67,16 @@
                         <a href="{{ route('admin.members.show', $member) }}" class="text-teal-400 hover:text-teal-300">View</a>
                         
                         @if($member->status === 'pending')
-                            <form action="{{ route('admin.members.approve', $member) }}" method="POST" class="inline-block">
+                            <form action="{{ route('admin.members.status', $member) }}" method="POST" class="inline-block">
                                 @csrf
                                 @method('PATCH')
+                                <input type="hidden" name="status" value="approved">
                                 <button type="submit" class="text-emerald-400 hover:text-emerald-300">Approve</button>
                             </form>
-                            <form action="{{ route('admin.members.reject', $member) }}" method="POST" class="inline-block">
+                            <form action="{{ route('admin.members.status', $member) }}" method="POST" class="inline-block">
                                 @csrf
                                 @method('PATCH')
+                                <input type="hidden" name="status" value="rejected">
                                 <button type="submit" class="text-rose-400 hover:text-rose-300">Reject</button>
                             </form>
                         @endif
@@ -82,7 +84,15 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="6" class="px-6 py-8 text-center text-sm text-slate-400">No members found.</td>
+                    <td colspan="6" class="px-6 py-16 text-center">
+                        <div class="flex flex-col items-center">
+                            <div class="w-16 h-16 rounded-full bg-slate-700/50 flex items-center justify-center mb-4">
+                                <svg class="w-8 h-8 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0Zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0Z"/></svg>
+                            </div>
+                            <p class="text-slate-400 font-medium mb-1">No members found</p>
+                            <p class="text-slate-500 text-sm">Members will appear here when they register through the website.</p>
+                        </div>
+                    </td>
                 </tr>
                 @endforelse
             </x-slot>

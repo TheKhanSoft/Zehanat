@@ -66,7 +66,16 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="6" class="px-6 py-8 text-center text-sm text-slate-400">No news or events found. Create one!</td>
+                    <td colspan="6" class="px-6 py-16 text-center">
+                        <div class="flex flex-col items-center">
+                            <div class="w-16 h-16 rounded-full bg-slate-700/50 flex items-center justify-center mb-4">
+                                <svg class="w-8 h-8 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 6h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5h1.875c.621 0 1.125-.504 1.125-1.125V3.375c0-.621-.504-1.125-1.125-1.125h-1.5A1.125 1.125 0 0015 3.375V7.5z" /></svg>
+                            </div>
+                            <p class="text-slate-400 font-medium mb-1">No news or events yet</p>
+                            <p class="text-slate-500 text-sm">Publish news updates or upcoming events for your community.</p>
+                            <a href="{{ route('admin.news.create') }}" class="mt-4 text-teal-400 hover:text-teal-300 text-sm font-medium">Add New &rarr;</a>
+                        </div>
+                    </td>
                 </tr>
                 @endforelse
             </x-slot>
