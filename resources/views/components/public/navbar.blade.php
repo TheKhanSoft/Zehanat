@@ -110,7 +110,7 @@
             <a href="/" class="block py-3 border-b border-slate-800 text-lg font-medium text-slate-300 hover:text-teal-400">Home</a>
             
             <div class="border-b border-slate-800">
-                <button class="mobile-dropdown-trigger w-full flex items-center justify-between py-3 text-lg font-medium text-slate-300 hover:text-teal-400" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                <button class="mobile-dropdown-trigger w-full flex items-center justify-between py-3 text-lg font-medium text-slate-300 hover:text-teal-400">
                     About
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
@@ -124,7 +124,7 @@
             <a href="/pillars" class="block py-3 border-b border-slate-800 text-lg font-medium text-slate-300 hover:text-teal-400">Our Six Pillars</a>
 
             <div class="border-b border-slate-800">
-                <button class="mobile-dropdown-trigger w-full flex items-center justify-between py-3 text-lg font-medium text-slate-300 hover:text-teal-400" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                <button class="mobile-dropdown-trigger w-full flex items-center justify-between py-3 text-lg font-medium text-slate-300 hover:text-teal-400">
                     Programs
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
@@ -138,7 +138,7 @@
             </div>
 
             <div class="border-b border-slate-800">
-                <button class="mobile-dropdown-trigger w-full flex items-center justify-between py-3 text-lg font-medium text-slate-300 hover:text-teal-400" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                <button class="mobile-dropdown-trigger w-full flex items-center justify-between py-3 text-lg font-medium text-slate-300 hover:text-teal-400">
                     Membership
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
@@ -149,7 +149,7 @@
             </div>
 
             <div class="border-b border-slate-800">
-                <button class="mobile-dropdown-trigger w-full flex items-center justify-between py-3 text-lg font-medium text-slate-300 hover:text-teal-400" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                <button class="mobile-dropdown-trigger w-full flex items-center justify-between py-3 text-lg font-medium text-slate-300 hover:text-teal-400">
                     News & Events
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
@@ -161,7 +161,7 @@
             </div>
 
             <div class="border-b border-slate-800">
-                <button class="mobile-dropdown-trigger w-full flex items-center justify-between py-3 text-lg font-medium text-slate-300 hover:text-teal-400" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                <button class="mobile-dropdown-trigger w-full flex items-center justify-between py-3 text-lg font-medium text-slate-300 hover:text-teal-400">
                     Resources
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
