@@ -35,8 +35,14 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::get('/members/{member}', [\App\Http\Controllers\Admin\MemberController::class, 'show'])->name('members.show');
     Route::patch('/members/{member}/status', [\App\Http\Controllers\Admin\MemberController::class, 'updateStatus'])->name('members.status');
     
+    Route::patch('/faqs/{faq}/toggle-status', [\App\Http\Controllers\Admin\FaqController::class, 'toggleStatus'])->name('faqs.toggle-status');
     Route::resource('faqs', \App\Http\Controllers\Admin\FaqController::class);
+    
+    Route::patch('/news/{news}/toggle-publish', [\App\Http\Controllers\Admin\NewsEventController::class, 'togglePublish'])->name('news.toggle-publish');
     Route::resource('news', \App\Http\Controllers\Admin\NewsEventController::class);
+    
+    Route::resource('roles', \App\Http\Controllers\Admin\RoleController::class)->except(['create', 'show', 'edit']);
+    Route::resource('permissions', \App\Http\Controllers\Admin\PermissionController::class)->except(['create', 'show', 'edit']);
     
     Route::get('/contacts', [\App\Http\Controllers\Admin\ContactController::class, 'index'])->name('contacts.index');
     Route::get('/contacts/{contact}', [\App\Http\Controllers\Admin\ContactController::class, 'show'])->name('contacts.show');

@@ -12,7 +12,7 @@
 
 /* Admin content area */
 .admin-content {
-    margin-left: 260px;
+    margin-left: 0px;
     transition: margin-left 0.3s ease;
 }
 .admin-sidebar.collapsed ~ .admin-content {

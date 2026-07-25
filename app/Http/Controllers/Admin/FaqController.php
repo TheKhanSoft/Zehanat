@@ -68,4 +68,13 @@ class FaqController extends Controller
 
         return redirect()->route('admin.faqs.index')->with('success', 'FAQ deleted successfully.');
     }
+
+    public function toggleStatus($id)
+    {
+        $faq = Faq::findOrFail($id);
+        $faq->is_active = !$faq->is_active;
+        $faq->save();
+
+        return redirect()->route('admin.faqs.index')->with('success', 'FAQ status updated successfully.');
+    }
 }

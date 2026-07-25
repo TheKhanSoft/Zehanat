@@ -1,15 +1,20 @@
-@props(['label', 'name', 'error' => null, 'required' => false])
+@props(['label', 'name', 'type' => 'text', 'value' => '', 'placeholder' => '', 'required' => false, 'rows' => 4, 'error' => null])
 
 <div class="mb-5">
     <label for="{{ $name }}" class="block text-sm font-medium text-slate-300 mb-2">
-        {{ $label }} 
-        @if($required)
-            <span class="text-rose-400 ml-1" title="Required">*</span>
-        @endif
+        {{ $label }} @if($required)<span class="text-rose-400 ml-1" title="Required">*</span>@endif
     </label>
     
     <div class="relative">
-        {{ $slot }}
+        @if($slot->isNotEmpty())
+            {{ $slot }}
+        @else
+            @if($type === 'textarea')
+                <textarea name="{{ $name }}" id="{{ $name }}" rows="{{ $rows }}" {{ $required ? 'required' : '' }} class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-colors" placeholder="{{ $placeholder }}">{{ old($name, $value) }}</textarea>
+            @else
+                <input type="{{ $type }}" name="{{ $name }}" id="{{ $name }}" value="{{ old($name, $value) }}" {{ $required ? 'required' : '' }} class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-colors {{ $type === 'date' ? '[color-scheme:dark]' : '' }}" placeholder="{{ $placeholder }}">
+            @endif
+        @endif
     </div>
     
     @if($error || $errors->has($name))

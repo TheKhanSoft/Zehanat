@@ -85,4 +85,13 @@ class NewsEventController extends Controller
 
         return redirect()->route('admin.news.index')->with('success', 'News/Event deleted successfully.');
     }
+
+    public function togglePublish($id)
+    {
+        $newsEvent = NewsEvent::findOrFail($id);
+        $newsEvent->is_published = !$newsEvent->is_published;
+        $newsEvent->save();
+
+        return redirect()->route('admin.news.index')->with('success', 'News/Event publish status updated successfully.');
+    }
 }
