@@ -114,7 +114,7 @@ The key directories and files customized for the public website:
 
 ## Credits
 
-Developed by **Kashif Ahmad Khan** & **Dr. Muhammad Ilyas Khalil**, Directorate of IT, Abdul Wali Khan University Mardan.
+Developed by [**Kashif Ahmad Khan** ](https://github.com/TheKhanSoft) & **Dr. Muhammad Ilyas Khalil**, Directorate of IT, Abdul Wali Khan University Mardan.
 
 ## License
 
