@@ -20,4 +20,5 @@ enum EmailTemplateKey: string
     case TwoFactorDisabled = 'auth.two_factor.disabled';
     case TwoFactorReset = 'auth.two_factor.reset';
     case TwoFactorOtp = 'auth.two_factor.otp';
+    case AccountDeletionOtp = 'auth.account_deletion_otp';
 }

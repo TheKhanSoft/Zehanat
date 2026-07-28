@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MembershipController;
 use App\Livewire\Admin\ContactManager;
 use App\Livewire\Admin\DashboardManager;
+use App\Livewire\Admin\DeleteAccountVerify;
 use App\Livewire\Admin\EmailTemplateManager;
 use App\Livewire\Admin\FaqManager;
 use App\Livewire\Admin\MemberManager;
@@ -79,6 +80,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::get('/email-templates', EmailTemplateManager::class)->name('email-templates.index');
 
     Route::get('/profile', ProfileManager::class)->name('profile');
+    Route::get('/profile/delete/{user}/verify', DeleteAccountVerify::class)->name('profile.delete.verify')->middleware('signed');
 });
 
 require __DIR__.'/settings.php';

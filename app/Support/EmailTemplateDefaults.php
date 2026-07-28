@@ -159,6 +159,15 @@ final class EmailTemplateDefaults
                 ),
                 'is_active' => false,
             ],
+            EmailTemplateKey::AccountDeletionOtp->value => self::definition(
+                'Account deletion OTP',
+                'Accounts',
+                'Sent when a user requests to permanently delete their account.',
+                'Confirm your account deletion',
+                'Use this unique code and link to delete your account.',
+                '<h1>Confirm Account Deletion</h1><p>Hello {{ recipient_name }},</p><p>You requested to delete your account. To proceed, click the link below and enter the following verification code:</p><div class="otp">{{ otp }}</div><p><a class="button" href="{{ action_url }}">Verify Deletion</a></p><p class="muted">This link and code expire in {{ expires_in }} minutes. If you did not request this, you can safely ignore this email.</p>',
+                ['recipient_name', 'otp', 'expires_in', 'action_url'],
+            ),
         ];
     }
 

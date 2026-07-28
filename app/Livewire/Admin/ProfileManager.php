@@ -7,7 +7,9 @@ use App\Services\ManagedEmailSender;
 use Exception;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 use Laravel\Fortify\Actions\ConfirmTwoFactorAuthentication;
@@ -337,19 +339,32 @@ class ProfileManager extends Component
 
         $user = Auth::user();
 
-        app(ManagedEmailSender::class)->send($user->email, EmailTemplateKey::AccountDeleted, [
+        // Generate 6-digit OTP
+        $otp = (string) random_int(100000, 999999);
+        $expiresIn = 10; // minutes
+
+        // Cache OTP
+        Cache::put('delete_account_otp_' . $user->id, Hash::make($otp), now()->addMinutes($expiresIn));
+
+        // Generate Signed URL
+        $actionUrl = URL::temporarySignedRoute(
+            'admin.profile.delete.verify',
+            now()->addMinutes($expiresIn),
+            ['user' => $user->id]
+        );
+
+        // Send Email
+        app(ManagedEmailSender::class)->send($user->email, EmailTemplateKey::AccountDeletionOtp, [
             'recipient_name' => $user->name,
-            'recipient_email' => $user->email,
-            'occurred_at' => now()->format('F j, Y \a\t g:i A T'),
-            'action_url' => route('contact'),
+            'otp' => $otp,
+            'expires_in' => (string) $expiresIn,
+            'action_url' => $actionUrl,
         ]);
-        Auth::logout();
-        $user->delete();
 
-        request()->session()->invalidate();
-        request()->session()->regenerateToken();
+        $this->showDeleteModal = false;
+        $this->delete_password = '';
 
-        return redirect('/');
+        $this->dispatch('notify', message: 'A verification code and link has been sent to your email to confirm deletion.', type: 'success');
     }
 
     public function render()
