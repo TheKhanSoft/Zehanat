@@ -2,7 +2,11 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Enums\EmailTemplateKey;
+use App\Services\EmailTemplateRenderer;
+use Illuminate\Auth\Notifications\ResetPassword;
+use Illuminate\Auth\Notifications\VerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
@@ -31,7 +35,7 @@ use Spatie\Permission\Traits\HasRoles;
  */
 #[Fillable(['name', 'email', 'password'])]
 #[Hidden(['password', 'two_factor_secret', 'two_factor_recovery_codes', 'remember_token'])]
-class User extends Authenticatable implements PasskeyUser
+class User extends Authenticatable implements PasskeyUser, MustVerifyEmail
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable, PasskeyAuthenticatable, TwoFactorAuthenticatable, HasRoles;
@@ -59,5 +63,19 @@ class User extends Authenticatable implements PasskeyUser
         return Str::length($initials) > 1
             ? Str::substr($initials, 0, 1).Str::substr($initials, -1)
             : $initials;
+    }
+
+    public function sendPasswordResetNotification($token): void
+    {
+        if (app(EmailTemplateRenderer::class)->isActive(EmailTemplateKey::PasswordResetForgot)) {
+            $this->notify(new ResetPassword($token));
+        }
+    }
+
+    public function sendEmailVerificationNotification(): void
+    {
+        if (app(EmailTemplateRenderer::class)->isActive(EmailTemplateKey::EmailVerification)) {
+            $this->notify(new VerifyEmail);
+        }
     }
 }

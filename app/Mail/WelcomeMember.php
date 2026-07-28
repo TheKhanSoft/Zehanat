@@ -2,55 +2,25 @@
 
 namespace App\Mail;
 
+use App\Enums\EmailTemplateKey;
 use App\Models\Member;
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
-use Illuminate\Queue\SerializesModels;
 
-class WelcomeMember extends Mailable
+class WelcomeMember extends ManagedTemplateMail
 {
-    use Queueable, SerializesModels;
+    public Member $member;
 
-    public $member;
-
-    /**
-     * Create a new message instance.
-     */
     public function __construct(Member $member)
     {
         $this->member = $member;
-    }
 
-    /**
-     * Get the message envelope.
-     */
-    public function envelope(): Envelope
-    {
-        return new Envelope(
-            subject: 'Welcome to Zehanat — KP Society for AI in Education',
-        );
-    }
-
-    /**
-     * Get the message content definition.
-     */
-    public function content(): Content
-    {
-        return new Content(
-            view: 'emails.welcome-member',
-        );
-    }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
-    public function attachments(): array
-    {
-        return [];
+        parent::__construct(EmailTemplateKey::MembershipRegistration, [
+            'recipient_name' => $member->name,
+            'recipient_email' => $member->email,
+            'member_email' => $member->email,
+            'phone' => $member->phone ?: 'Not provided',
+            'category' => ucfirst($member->category),
+            'institution' => $member->institution ?: 'Not provided',
+            'action_url' => route('home'),
+        ]);
     }
 }

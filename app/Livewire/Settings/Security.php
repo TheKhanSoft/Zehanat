@@ -3,6 +3,8 @@
 namespace App\Livewire\Settings;
 
 use App\Concerns\PasswordValidationRules;
+use App\Enums\EmailTemplateKey;
+use App\Services\ManagedEmailSender;
 use Exception;
 use Flux\Flux;
 use Illuminate\Support\Facades\Auth;
@@ -185,6 +187,7 @@ class Security extends Component
 
         if (! $this->requiresConfirmation) {
             $this->twoFactorEnabled = auth()->user()->hasEnabledTwoFactorAuthentication();
+            $this->sendTwoFactorEmail(EmailTemplateKey::TwoFactorEnabled);
         }
 
         $this->loadSetupData();
@@ -237,6 +240,7 @@ class Security extends Component
         $this->closeModal();
 
         $this->twoFactorEnabled = true;
+        $this->sendTwoFactorEmail(EmailTemplateKey::TwoFactorEnabled);
     }
 
     /**
@@ -257,6 +261,7 @@ class Security extends Component
         $disableTwoFactorAuthentication(auth()->user());
 
         $this->twoFactorEnabled = false;
+        $this->sendTwoFactorEmail(EmailTemplateKey::TwoFactorDisabled);
     }
 
     /**
@@ -277,6 +282,18 @@ class Security extends Component
         if (! $this->requiresConfirmation) {
             $this->twoFactorEnabled = auth()->user()->hasEnabledTwoFactorAuthentication();
         }
+    }
+
+    private function sendTwoFactorEmail(EmailTemplateKey $key): void
+    {
+        $user = auth()->user();
+
+        app(ManagedEmailSender::class)->send($user->email, $key, [
+            'recipient_name' => $user->name,
+            'recipient_email' => $user->email,
+            'occurred_at' => now()->format('F j, Y \a\t g:i A T'),
+            'action_url' => route('security.edit'),
+        ]);
     }
 
     /**

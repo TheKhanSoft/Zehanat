@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
-#[Fillable(['name', 'email', 'phone', 'category', 'institution', 'message', 'status'])]
+#[Fillable(['name', 'email', 'phone', 'category', 'institution', 'message', 'status', 'banned_at', 'ban_reason'])]
 class Member extends Model
 {
     /**
@@ -19,6 +19,7 @@ class Member extends Model
         return [
             'status' => 'string',
             'category' => 'string',
+            'banned_at' => 'datetime',
         ];
     }
 
@@ -30,5 +31,15 @@ class Member extends Model
     public function scopeApproved(Builder $query): void
     {
         $query->where('status', 'approved');
+    }
+
+    public function scopeBanned(Builder $query): void
+    {
+        $query->whereNotNull('banned_at');
+    }
+
+    public function isBanned(): bool
+    {
+        return $this->banned_at !== null;
     }
 }

@@ -29,6 +29,24 @@
     @stack('head')
 </head>
 <body class="bg-slate-950 text-slate-200 font-['Inter'] antialiased min-h-screen flex flex-col">
+    <x-user-impersonation-banner />
+    @if(session()->has('member_impersonation') && auth()->check())
+        <div class="sticky top-0 z-[100] border-b border-amber-300/20 bg-amber-400 px-4 py-2 text-slate-950 shadow-xl shadow-amber-950/20">
+            <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 sm:flex-row">
+                <div class="flex items-center gap-2 text-center text-xs font-bold sm:text-left">
+                    <svg class="h-4 w-4 flex-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m3-3v6m9-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+                    Impersonation preview: you are viewing the site as {{ session('member_impersonation.member_name') }}.
+                </div>
+                <form method="POST" action="{{ route('member.impersonation.stop') }}">
+                    @csrf
+                    <button type="submit" class="inline-flex items-center gap-2 rounded-lg bg-slate-950 px-3 py-1.5 text-xs font-black text-white transition hover:bg-slate-800">
+                        Return to admin
+                        <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 18 6-6-6-6" /></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    @endif
     
     <!-- Navbar -->
     <x-public.navbar />

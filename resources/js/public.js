@@ -101,7 +101,63 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // g) Neural network canvas animation
+    // g) Membership form enhancements
+    const phoneInputs = document.querySelectorAll('[data-phone-input]');
+    phoneInputs.forEach(input => {
+        input.addEventListener('input', () => {
+            const startsWithPlus = input.value.trimStart().startsWith('+');
+            const digits = input.value.replace(/\D/g, '').slice(0, 15);
+            input.value = `${startsWithPlus ? '+' : ''}${digits}`;
+        });
+    });
+
+    const categoryTriggers = document.querySelectorAll('[data-category-select]');
+    categoryTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const category = trigger.dataset.categorySelect;
+            const radio = [...document.querySelectorAll('input[name="category"]')]
+                .find(input => input.value === category);
+
+            if (radio) {
+                radio.checked = true;
+                radio.dispatchEvent(new Event('change', { bubbles: true }));
+                window.setTimeout(() => radio.focus({ preventScroll: true }), 350);
+            }
+        });
+    });
+
+    const categoryRadios = [...document.querySelectorAll('input[name="category"]')];
+    const organizationInput = document.querySelector('[data-organization-input]');
+    const organizationRequirement = document.querySelector('[data-organization-requirement]');
+    const organizationHelp = document.querySelector('[data-organization-help]');
+    const syncOrganizationRequirement = () => {
+        if (!organizationInput) return;
+
+        const selectedCategory = categoryRadios.find(input => input.checked)?.value;
+        const isRequired = ['institution', 'industry', 'student'].includes(selectedCategory);
+
+        organizationInput.required = isRequired;
+        organizationInput.setAttribute('aria-required', isRequired ? 'true' : 'false');
+
+        if (organizationRequirement) {
+            organizationRequirement.textContent = isRequired ? 'Required' : 'Optional';
+            organizationRequirement.classList.toggle('bg-amber-400/10', isRequired);
+            organizationRequirement.classList.toggle('text-amber-300', isRequired);
+            organizationRequirement.classList.toggle('bg-slate-800', !isRequired);
+            organizationRequirement.classList.toggle('text-slate-500', !isRequired);
+        }
+
+        if (organizationHelp) {
+            organizationHelp.textContent = isRequired
+                ? 'Required for the selected membership category.'
+                : 'Optional for individual memberships.';
+        }
+    };
+
+    categoryRadios.forEach(radio => radio.addEventListener('change', syncOrganizationRequirement));
+    syncOrganizationRequirement();
+
+    // h) Neural network canvas animation
     const canvas = document.getElementById('neural-canvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');

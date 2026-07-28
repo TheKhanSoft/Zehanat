@@ -76,7 +76,7 @@
                     </div>
                 </div>
 
-                <a href="/faq" class="nav-link text-sm font-medium text-slate-300 hover:text-teal-400 transition-colors px-3 py-2 rounded-md hover:bg-slate-800/50">FAQ</a>
+                {{-- <a href="/faq" class="nav-link text-sm font-medium text-slate-300 hover:text-teal-400 transition-colors px-3 py-2 rounded-md hover:bg-slate-800/50">FAQ</a> --}}
                 <a href="/contact" class="nav-link text-sm font-medium text-slate-300 hover:text-teal-400 transition-colors px-3 py-2 rounded-md hover:bg-slate-800/50">Contact</a>
             </div>
 

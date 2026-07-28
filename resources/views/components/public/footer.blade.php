@@ -79,9 +79,9 @@
             <p class="text-sm text-slate-500">
                 &copy; {{ date('Y') }} Zehanat Society. All rights reserved.
             </p>
-            <p class="text-sm text-slate-500">
+            {{-- <p class="text-sm text-slate-500">
                 Developed by <span class="text-slate-300 font-medium">Kashif Ahmad Khan</span> & <span class="text-slate-300 font-medium">Dr. Muhammad Ilyas Khalil</span>, Directorate of IT
-            </p>
+            </p> --}}
         </div>
     </div>
 </footer>

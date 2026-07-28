@@ -11,13 +11,16 @@ class AdminMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param  Closure(Request): (Response)  $next
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->check() || !auth()->user()->hasRole('admin')) {
-            abort(403, 'Unauthorized. Admin access required.');
+        $user = $request->user();
+
+        if (! $user || ! $user->roles()->exists()) {
+            abort(403, 'Unauthorized. A staff role is required for admin panel access.');
         }
+
         return $next($request);
     }
 }

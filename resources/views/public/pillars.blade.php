@@ -298,8 +298,8 @@
 
     <!-- Section 4: CTA Banner -->
     <x-public.cta-banner title="Support Our Pillars" subtitle="Your involvement helps us translate these principles into province-wide action.">
-        <x-public.btn variant="primary" size="lg" href="/membership">Become a Member</x-public.btn>
-        <x-public.btn variant="outline" size="lg" href="/contact">Partner With Us</x-public.btn>
+        <x-public.btn variant="secondary" size="lg" href="/membership">Become a Member</x-public.btn>
+        <x-public.btn variant="outline2" size="lg" href="/contact">Partner With Us</x-public.btn>
     </x-public.cta-banner>
 
 @endsection

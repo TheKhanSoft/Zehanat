@@ -103,27 +103,34 @@ The key directories and files customized for the public website:
 - `resources/views/layouts/public.blade.php`: The main layout wrapper for public pages.
 - `resources/views/components/public/`: Contains all reusable UI components.
 - `resources/css/public.css`: Custom styles, animations, and Tailwind directives.
-- `resources/js/public.js`: Vanilla JavaScript for interactivity (menu, animations, canvas).
-- `app/Http/Controllers/Admin/` - Admin panel controllers
-- `app/Models/` - Eloquent models (Member, Faq, NewsEvent, ContactMessage)
-- `resources/views/admin/` - Admin panel page views
-- `resources/views/components/admin/` - Reusable admin UI components
-- `resources/views/emails/` - Email templates
-- `resources/css/admin.css` - Admin panel styles
-- `app/Http/Middleware/AdminMiddleware.php` - Admin access control
+- `resources/js/public.js`: Vanilla JavaScript for interactivity.
+- `app/Livewire/Admin/` - Livewire component classes for the Admin Panel managers.
+- `app/Models/` - Eloquent models (Member, Faq, NewsEvent, ContactMessage, EmailTemplate, etc.)
+- `resources/views/livewire/admin/` - Admin panel Livewire views (Glassmorphism design).
+- `resources/views/components/admin/` - Reusable admin UI components.
+- `resources/views/emails/` - Email templates including managed dynamic templates.
+- `resources/css/admin.css` - Admin panel styles.
+- `app/Http/Middleware/AdminMiddleware.php` - Admin access control.
 
 ## Admin Panel
 
+The Admin Panel has been rebuilt as a reactive, SPA-like interface using **Livewire 3**, featuring a modern dark-mode glassmorphism design.
+
 - **Access**: Navigate to `/admin` after logging in.
 - **Default Credentials**: Email: `admin@zehanat.org`, Password: `password` (change after first login)
-- **Features**:
-  - Dashboard with key statistics (members, messages, news)
-  - Member management (view, approve, reject membership applications)
-  - FAQ management (full CRUD - create, read, update, delete)
-  - News & Events management (full CRUD)
-  - Contact message management (view, mark as read)
-- **Roles & Permissions**: Uses [Spatie Laravel Permission](https://spatie.be/docs/laravel-permission) for role-based access control. Default roles: `admin`, `editor`.
-- **Email Notifications**: Members receive a beautifully designed welcome email upon registration.
+- **Core Modules**:
+  - **Dashboard**: Real-time statistics (members, messages, news).
+  - **Member Management**: Approve/reject applications, organization validation, user impersonation, import/export.
+  - **Knowledge Base (FAQ)**: Full CRUD with active/inactive toggles.
+  - **News & Events**: Full CRUD with WYSIWYG support.
+  - **Communications**: Contact messages and dynamic email template management.
+- **Roles & Permissions (RBAC)**: Powered by [Spatie Laravel Permission](https://spatie.be/docs/laravel-permission). The UI and backend dynamically adapt to granular permissions (e.g., `create members`, `delete faqs`). 
+- **Security & Profile**: 
+  - Integrated with **Laravel Fortify** for complete Profile Settings management.
+  - **Two-Factor Authentication (2FA)** with QR code and Recovery Codes.
+  - Email Verification enforcement (`MustVerifyEmail`).
+  - Passkey and secure password management.
+- **Email Notifications**: Members receive beautifully designed welcome emails and managed templates based on status changes.
 
 ## Development Guidelines
 

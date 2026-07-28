@@ -1,47 +1,137 @@
+[x-cloak] {
+    display: none !important;
+}
+
+.admin-body {
+    background:
+        radial-gradient(circle at 82% -10%, rgba(20, 184, 166, 0.11), transparent 30rem),
+        radial-gradient(circle at 8% 35%, rgba(6, 182, 212, 0.06), transparent 26rem),
+        #020617;
+}
+
+.admin-panel {
+    border: 1px solid rgba(51, 65, 85, 0.66);
+    border-radius: 1.5rem;
+    background: linear-gradient(145deg, rgba(15, 23, 42, 0.84), rgba(15, 23, 42, 0.62));
+    box-shadow: 0 24px 60px rgba(2, 6, 23, 0.18);
+    backdrop-filter: blur(18px);
+}
+
+.admin-quick-action {
+    display: flex;
+    min-height: 7rem;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+    border: 1px solid rgba(51, 65, 85, 0.65);
+    border-radius: 1rem;
+    background: rgba(2, 6, 23, 0.36);
+    padding: 0.875rem;
+    color: #cbd5e1;
+    font-size: 0.75rem;
+    font-weight: 700;
+    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.admin-quick-action:hover {
+    transform: translateY(-2px);
+    border-color: rgba(45, 212, 191, 0.28);
+    background: rgba(30, 41, 59, 0.7);
+    color: #fff;
+}
+
 /* Admin sidebar */
 .admin-sidebar {
     width: 260px;
     transition: width 0.3s ease;
 }
+
 .admin-sidebar.collapsed {
-    width: 72px;
+    width: 80px;
 }
+
 .admin-sidebar.collapsed .sidebar-label {
+    display: none;
+}
+
+.admin-sidebar.collapsed .sidebar-logo-section {
+    justify-content: center;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.admin-sidebar.collapsed .sidebar-link {
+    justify-content: center;
+    gap: 0;
+}
+
+.admin-sidebar.collapsed .sidebar-group-label {
     display: none;
 }
 
 /* Admin content area */
 .admin-content {
-    margin-left: 0px;
-    transition: margin-left 0.3s ease;
-}
-.admin-sidebar.collapsed ~ .admin-content {
-    margin-left: 72px;
+    min-width: 0;
 }
 
 /* Table styles */
+.admin-table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
 .admin-table th {
-    text-transform: uppercase;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    color: #94a3b8;
     font-size: 0.75rem;
     letter-spacing: 0.05em;
-    color: #94a3b8;
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    text-transform: uppercase;
 }
+
 .admin-table td {
     padding: 0.75rem 1rem;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     color: #cbd5e1;
 }
+
 .admin-table tr:hover td {
-    background: rgba(255,255,255,0.02);
+    background: rgba(30, 41, 59, 0.34);
 }
 
 /* Status badges */
-.badge-pending { background: rgba(245,158,11,0.15); color: #fbbf24; }
-.badge-approved { background: rgba(16,185,129,0.15); color: #34d399; }
-.badge-rejected { background: rgba(239,68,68,0.15); color: #f87171; }
-.badge-unread { background: rgba(20,184,166,0.15); color: #2dd4bf; }
+.badge-pending { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+.badge-approved { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+.badge-rejected { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+.badge-unread { background: rgba(20, 184, 166, 0.15); color: #2dd4bf; }
+
+/* Consistent keyboard and scroll experiences */
+.admin-body :focus-visible {
+    outline: 2px solid rgba(45, 212, 191, 0.9);
+    outline-offset: 2px;
+}
+
+.admin-body * {
+    scrollbar-color: rgba(71, 85, 105, 0.8) transparent;
+    scrollbar-width: thin;
+}
+
+.admin-body *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.admin-body *::-webkit-scrollbar-thumb {
+    border: 2px solid transparent;
+    border-radius: 999px;
+    background: rgba(71, 85, 105, 0.72);
+    background-clip: padding-box;
+}
+
+.admin-body *::-webkit-scrollbar-track {
+    background: transparent;
+}
 
 /* Mobile overlay for sidebar */
 @media (max-width: 768px) {
@@ -49,22 +139,29 @@
         position: fixed;
         left: -260px;
         z-index: 50;
+        width: 260px;
         height: 100vh;
     }
+
     .admin-sidebar.mobile-open {
         left: 0;
+        box-shadow: 24px 0 70px rgba(2, 6, 23, 0.7);
     }
+
     .admin-content {
         margin-left: 0;
     }
+
     .sidebar-overlay {
         display: none;
     }
+
     .admin-sidebar.mobile-open ~ .sidebar-overlay {
-        display: block;
         position: fixed;
         inset: 0;
-        background: rgba(0,0,0,0.5);
         z-index: 40;
+        display: block;
+        background: rgba(2, 6, 23, 0.72);
+        backdrop-filter: blur(4px);
     }
 }
