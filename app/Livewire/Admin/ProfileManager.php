@@ -15,13 +15,20 @@ use Laravel\Fortify\Actions\DisableTwoFactorAuthentication;
 use Laravel\Fortify\Actions\EnableTwoFactorAuthentication;
 use Laravel\Fortify\Actions\GenerateNewRecoveryCodes;
 use Laravel\Fortify\Features;
+use Laravel\Passkeys\Actions\DeletePasskey;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Locked;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 
 class ProfileManager extends Component
 {
+    #[Url]
     public string $activeTab = 'profile'; // 'profile' or 'security'
+
+    // Sudo Mode State
+    public bool $showSudoModal = false;
+    public string $sudoPassword = '';
 
     // Profile State
     public string $name = '';
@@ -52,6 +59,17 @@ class ProfileManager extends Component
 
     public bool $showRecoveryCodes = false;
 
+    // Passkeys State
+    #[Locked]
+    public bool $canManagePasskeys = false;
+    #[Locked]
+    public array $passkeys = [];
+    public bool $showDeletePasskeyModal = false;
+    #[Locked]
+    public ?int $deletingPasskeyId = null;
+    #[Locked]
+    public string $deletingPasskeyName = '';
+
     public function mount()
     {
         $user = Auth::user();
@@ -70,11 +88,46 @@ class ProfileManager extends Component
                 $this->twoFactorEnabled = false;
             }
         }
+
+        $this->canManagePasskeys = Features::canManagePasskeys();
+        if ($this->canManagePasskeys) {
+            $this->loadPasskeys();
+        }
     }
 
     public function switchTab($tab)
     {
+        if ($tab === 'security' && $this->activeTab !== 'security') {
+            $confirmedAt = request()->session()->get('auth.password_confirmed_at', 0);
+            $timeout = config('auth.password_timeout', 10800);
+            
+            if (time() - $confirmedAt > $timeout) {
+                // Require confirmation
+                url()->setIntendedUrl(route('admin.profile', ['activeTab' => 'security']));
+                $this->sudoPassword = '';
+                $this->resetErrorBag('sudoPassword');
+                $this->showSudoModal = true;
+                return;
+            }
+        }
+
         $this->activeTab = $tab;
+    }
+
+    public function confirmSudoPassword()
+    {
+        $this->validate([
+            'sudoPassword' => ['required', 'string'],
+        ]);
+
+        if (Hash::check($this->sudoPassword, Auth::user()->password)) {
+            request()->session()->put('auth.password_confirmed_at', time());
+            $this->showSudoModal = false;
+            $this->activeTab = 'security';
+            $this->sudoPassword = '';
+        } else {
+            $this->addError('sudoPassword', 'This password does not match our records.');
+        }
     }
 
     // ==========================================
@@ -217,6 +270,51 @@ class ProfileManager extends Component
     public function recoveryCodes()
     {
         return Auth::user()->recoveryCodes();
+    }
+
+    // ==========================================
+    // PASSKEYS
+    // ==========================================
+
+    public function loadPasskeys()
+    {
+        $this->passkeys = Auth::user()->passkeys()
+            ->select(['id', 'name', 'credential', 'created_at', 'last_used_at'])
+            ->latest()
+            ->get()
+            ->map(fn ($passkey) => [
+                'id' => $passkey->id,
+                'name' => $passkey->name,
+                'authenticator' => $passkey->authenticator,
+                'created_at_diff' => $passkey->created_at->diffForHumans(),
+                'last_used_at_diff' => $passkey->last_used_at?->diffForHumans(),
+            ])
+            ->all();
+    }
+
+    public function confirmDeletePasskey(int $passkeyId)
+    {
+        $passkey = Auth::user()->passkeys()->findOrFail($passkeyId);
+        $this->deletingPasskeyId = $passkey->id;
+        $this->deletingPasskeyName = $passkey->name;
+        $this->showDeletePasskeyModal = true;
+    }
+
+    public function deletePasskey(DeletePasskey $deletePasskey)
+    {
+        if (! $this->deletingPasskeyId) {
+            return;
+        }
+
+        $user = Auth::user();
+        $passkey = $user->passkeys()->findOrFail($this->deletingPasskeyId);
+
+        $deletePasskey($user, $passkey);
+
+        $this->showDeletePasskeyModal = false;
+        $this->deletingPasskeyId = null;
+        $this->deletingPasskeyName = '';
+        $this->loadPasskeys();
     }
 
     // ==========================================

@@ -183,6 +183,63 @@
                 </div>
                 @endif
                 
+                <!-- Passkeys Card -->
+                @if($canManagePasskeys)
+                <div class="bg-slate-800/50 rounded-3xl border border-slate-700/50 backdrop-blur-sm shadow-xl overflow-hidden mt-8">
+                    <div class="border-b border-slate-700/50 bg-slate-900/50 px-6 py-5">
+                        <h3 class="text-lg font-bold text-white">Passkeys</h3>
+                        <p class="mt-1 text-sm text-slate-400">Manage your passkeys for passwordless sign-in.</p>
+                    </div>
+                    <div class="p-6 space-y-6">
+                        <div class="border rounded-xl border-slate-700/50 overflow-hidden bg-slate-900/30">
+                            @forelse ($passkeys as $passkey)
+                                <div class="flex items-center justify-between p-4 {{ ! $loop->last ? 'border-b border-slate-700/50' : '' }}">
+                                    <div class="flex items-center gap-4">
+                                        <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-800 border border-slate-700/50">
+                                            <svg class="h-5 w-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" /></svg>
+                                        </div>
+                                        <div class="space-y-1">
+                                            <div class="flex items-center gap-2.5">
+                                                <p class="font-medium text-white tracking-tight">{{ $passkey['name'] }}</p>
+                                                @if ($passkey['authenticator'])
+                                                    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-700 text-slate-300">
+                                                        {{ $passkey['authenticator'] }}
+                                                    </span>
+                                                @endif
+                                            </div>
+                                            <p class="text-slate-400 text-xs">
+                                                Added {{ $passkey['created_at_diff'] }}
+                                                @if ($passkey['last_used_at_diff'])
+                                                    <span class="opacity-50 mx-1">/</span>
+                                                    Last used {{ $passkey['last_used_at_diff'] }}
+                                                @endif
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" wire:click="confirmDeletePasskey({{ $passkey['id'] }})" class="text-rose-400 hover:text-rose-300 transition-colors p-2 rounded-lg hover:bg-rose-500/10">
+                                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                                    </button>
+                                </div>
+                            @empty
+                                <div class="p-8 text-center">
+                                    <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-800 border border-slate-700/50">
+                                        <svg class="h-7 w-7 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" /></svg>
+                                    </div>
+                                    <p class="font-medium text-white">No passkeys yet</p>
+                                    <p class="mt-1 text-sm text-slate-400">Add a passkey to sign in without a password</p>
+                                </div>
+                            @endforelse
+                        </div>
+
+                        <!-- Use standard passkey registration component -->
+                        <div class="mt-4">
+                            <x-passkey-registration />
+                        </div>
+                    </div>
+                </div>
+                @endif
+                
             @endif
 
         </div>
@@ -263,6 +320,81 @@
                     </button>
                 </div>
             </form>
+        </div>
+    </x-admin.modal>
+
+    <!-- Delete Passkey Modal -->
+    <x-admin.modal model="showDeletePasskeyModal" maxWidth="md" :showFooter="false" :plain="true">
+        <div class="p-6">
+            <div class="flex items-center justify-between mb-5">
+                <h2 class="text-xl font-bold text-white">Remove Passkey</h2>
+                <button type="button" wire:click="$set('showDeletePasskeyModal', false)" class="text-slate-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            
+            <p class="text-sm text-slate-300 mb-6">
+                Are you sure you want to remove the passkey "{{ $deletingPasskeyName }}"? You will no longer be able to use it to sign in.
+            </p>
+
+            <div class="mt-6 flex justify-end gap-3">
+                <button type="button" wire:click="$set('showDeletePasskeyModal', false)" class="inline-flex items-center justify-center rounded-xl bg-slate-800 px-4 py-2.5 text-sm font-medium text-white hover:bg-slate-700 transition-colors">
+                    Cancel
+                </button>
+                <button type="button" wire:click="deletePasskey" class="inline-flex items-center justify-center gap-2 rounded-xl bg-rose-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-rose-500 transition-colors">
+                    Remove Passkey
+                    <div wire:loading wire:target="deletePasskey" class="ml-2 h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+                </button>
+            </div>
+        </div>
+    </x-admin.modal>
+
+    <!-- Sudo / Password Confirmation Modal -->
+    <x-admin.modal model="showSudoModal" maxWidth="md" :showFooter="false" :plain="true">
+        <div class="p-6">
+            <div class="flex flex-col gap-4">
+                <div class="flex items-center gap-4 text-amber-500">
+                    <div class="h-10 w-10 flex-shrink-0 flex items-center justify-center rounded-full bg-amber-500/10">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Confirm Password</h3>
+                </div>
+                
+                <p class="text-sm text-slate-300">
+                    This is a secure area of the application. Please confirm your password before continuing.
+                </p>
+
+                <!-- Passkey Verification -->
+                @if(Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::passkeys()))
+                <div class="mt-4">
+                    <x-passkey-verify
+                        options-route="passkey.confirm-options"
+                        submit-route="passkey.confirm"
+                        label="Confirm with Passkey"
+                        loading-label="Confirming..."
+                        separator="Or confirm with password"
+                    />
+                </div>
+                @endif
+
+                <form wire:submit="confirmSudoPassword" class="mt-4">
+                    <x-admin.form-group label="Password" name="sudoPassword" required>
+                        <input type="password" wire:model="sudoPassword" required class="block w-full rounded-xl border border-slate-700/50 bg-slate-950/50 py-2.5 px-4 text-sm text-white focus:border-amber-500 focus:ring-1 focus:ring-amber-500" placeholder="Enter your password" autofocus />
+                    </x-admin.form-group>
+
+                    <div class="mt-6 flex justify-end gap-3">
+                        <button type="button" wire:click="$set('showSudoModal', false)" class="inline-flex items-center justify-center rounded-xl bg-slate-800 px-4 py-2.5 text-sm font-medium text-white hover:bg-slate-700 transition-colors">
+                            Cancel
+                        </button>
+                        <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-xl bg-amber-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-amber-500 transition-colors">
+                            Confirm
+                            <div wire:loading wire:target="confirmSudoPassword" class="ml-2 h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </x-admin.modal>
 </div>
