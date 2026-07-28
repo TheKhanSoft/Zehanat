@@ -36,7 +36,7 @@ return new class extends Migration
     ];
 
     private const DEFAULT_USERS = [
-        'super-admin@zehanat.org' => ['name' => 'Super Admin', 'role' => 'super-admin'],
+        'super-admin@thekhansoft.com' => ['name' => 'Super Admin', 'role' => 'super-admin'],
         'admin@zehanat.org' => ['name' => 'Admin', 'role' => 'admin'],
         'editor@zehanat.org' => ['name' => 'Editor', 'role' => 'editor'],
         'viewer@zehanat.org' => ['name' => 'Viewer', 'role' => 'viewer'],
