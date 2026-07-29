@@ -14,10 +14,10 @@
     
     <title>@yield('title', 'Zehanat — KP Society for AI in Education')</title>
     
-    <!-- Google Fonts: Inter -->
+    <!-- Google Fonts: Montserrat & Nunito Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Nunito+Sans:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Vite Assets -->
     @vite(['resources/css/app.css', 'resources/css/public.css', 'resources/js/public.js'])
@@ -28,7 +28,7 @@
     <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
     @stack('head')
 </head>
-<body class="bg-slate-950 text-slate-200 font-['Inter'] antialiased min-h-screen flex flex-col">
+<body class="bg-[#0b0f19] text-slate-200 font-['Nunito_Sans',sans-serif] antialiased min-h-screen flex flex-col selection:bg-blue-600 selection:text-white">
     <x-user-impersonation-banner />
     @if(session()->has('member_impersonation') && auth()->check())
         <div class="sticky top-0 z-[100] border-b border-amber-300/20 bg-amber-400 px-4 py-2 text-slate-950 shadow-xl shadow-amber-950/20">

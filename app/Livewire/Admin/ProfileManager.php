@@ -20,12 +20,12 @@ use Laravel\Fortify\Features;
 use Laravel\Passkeys\Actions\DeletePasskey;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Locked;
-use Livewire\Attributes\Url;
+use Livewire\Attributes\Url as LivewireUrl;
 use Livewire\Component;
 
 class ProfileManager extends Component
 {
-    #[Url]
+    #[LivewireUrl]
     public string $activeTab = 'profile'; // 'profile' or 'security'
 
     // Sudo Mode State

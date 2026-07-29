@@ -1,191 +1,221 @@
 @extends('layouts.public')
 
-@section('title', 'Home - Zehanat')
-@section('meta_description', 'Zehanat - The Khyber Pakhtunkhwa Society for AI in Education')
+@section('title', 'Home - Zehanat | KP Society for AI in Education')
+@section('meta_description', 'Zehanat - The Khyber Pakhtunkhwa Society for AI in Education. Bringing Artificial Intelligence to Every Classroom.')
 
 @section('content')
     <!-- Section 1: Hero -->
     <x-public.hero 
-        title="Transforming Education with Artificial Intelligence" 
+        title="Transforming Education Through Artificial Intelligence" 
         subtitle="The Khyber Pakhtunkhwa Society for AI in Education" 
-        tagline="Empowering educators and students across the province.">
+        tagline="Empowering educators, students, researchers and institutions across KP under Abdul Wali Khan University Mardan.">
         <x-public.btn variant="primary" size="lg" href="/membership">Become a Member</x-public.btn>
-        <x-public.btn variant="outline" size="lg" href="/programs">Explore Programs</x-public.btn>
+        <x-public.btn variant="primary2" size="lg" href="/programs">Explore Programs</x-public.btn>
     </x-public.hero>
 
-    <!-- Section 2: Welcome Note -->
-    <section class="py-20 md:py-28 bg-slate-950">
+    <!-- Section 2: Welcome Note & Leadership Vision -->
+    <section class="py-20 lg:py-28 bg-[#0b0f19] relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="animate-fade-up stagger-1">
-                    <x-public.section-heading title="Welcome to Zehanat" subtitle="Closing the AI Knowledge Gap in Khyber Pakhtunkhwa" align="left" />
-                    <div class="prose prose-invert prose-lg text-slate-300 mt-6">
-                        <p class="mb-4">Artificial Intelligence is no longer a distant idea. It is already shaping how the world learns, works, farms, heals and governs. Across Pakistan, and here in Khyber Pakhtunkhwa, institutions are eager to take the lead — but enthusiasm alone is not enough. What most of our schools, colleges and even universities lack is not ambition; it is education about AI itself: what it is, what it can genuinely do, where its limits lie, and how to adopt it responsibly.</p>
-                        <p class="mb-4">Zehanat exists to close that gap. We are a community of educators, researchers, students, administrators and industry partners, working under the academic leadership of Abdul Wali Khan University Mardan, to make AI understandable, practical and beneficial for every level of education in our province — from the primary classroom in a village school to the research laboratory of a university.</p>
-                        <p>Whether you are a headteacher wondering what AI means for your school, a college principal planning new courses, a university officer looking to modernise administration, or an industrialist exploring automation — Zehanat is your forum. Join us.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Text Column -->
+                <div class="lg:col-span-7 animate-fade-up">
+                    <x-public.section-heading 
+                        tag="ABOUT ZEHANAT"
+                        title="Closing the AI Knowledge Gap in Khyber Pakhtunkhwa" 
+                        align="left" 
+                    />
+                    
+                    <div class="prose prose-invert text-slate-300 mt-6 space-y-4 text-sm sm:text-base leading-relaxed">
+                        <p>
+                            Artificial Intelligence is no longer a distant idea — it is already reshaping how the world learns, works, and innovates. Across Pakistan and here in Khyber Pakhtunkhwa, educational institutions are eager to lead, but enthusiasm alone is not enough. What our schools, colleges, and universities need is deep AI literacy: understanding what AI is, its real capabilities, its limitations, and how to adopt it ethically.
+                        </p>
+                        <p>
+                            <strong>Zehanat</strong> exists to bridge that critical gap. Under the academic leadership of Abdul Wali Khan University Mardan (AWKUM), we bring together educators, researchers, students, and industry partners to make AI understandable, practical, and beneficial across all levels of education.
+                        </p>
+                    </div>
+
+                    <div class="mt-8 flex flex-wrap items-center gap-4">
+                        <x-public.btn variant="primary" size="md" href="/about">Read Our Story</x-public.btn>
+                        <a href="tel:+929379230640" class="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-[#141a29] border border-slate-800 text-xs font-heading font-extrabold uppercase text-slate-300 hover:text-[#43baff] transition-colors">
+                            <svg class="w-4 h-4 text-[#43baff]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            Direct Helpline: +92 937 9230640
+                        </a>
                     </div>
                 </div>
-                <div class="animate-fade-up stagger-2">
-                    <div class="glass-card p-8 rounded-2xl border border-white/10 bg-slate-900/40 backdrop-blur-md relative overflow-hidden shadow-2xl">
-                        <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-teal-500/20 rounded-full blur-3xl"></div>
-                        <div class="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-amber-500/20 rounded-full blur-3xl"></div>
-                        <div class="relative z-10 flex flex-col gap-6">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center text-teal-400 text-2xl">🏫</div>
-                                <div><h4 class="text-xl font-semibold text-white">Schools & Colleges</h4><p class="text-slate-400 text-sm">Empowering the next generation</p></div>
+
+                <!-- Right Column: Engitech Leadership Card Box -->
+                <div class="lg:col-span-5 animate-fade-up stagger-2">
+                    <div class="engitech-icon-box bg-[#141a29] p-8 border border-slate-800 shadow-2xl relative">
+                        <div class="flex items-center gap-4 mb-6 pb-6 border-b border-slate-800">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0c5adb] to-[#43baff] flex items-center justify-center text-white text-2xl font-black shadow-lg">
+                                VC
                             </div>
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-400 text-2xl">🎓</div>
-                                <div><h4 class="text-xl font-semibold text-white">Universities</h4><p class="text-slate-400 text-sm">Leading research and innovation</p></div>
+                            <div>
+                                <h4 class="font-heading font-bold text-white text-lg">Patron & Founder</h4>
+                                <p class="text-[#43baff] text-xs font-semibold">Vice Chancellor, AWKUM</p>
                             </div>
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 text-2xl">🤝</div>
-                                <div><h4 class="text-xl font-semibold text-white">Industry Partners</h4><p class="text-slate-400 text-sm">Bridging theory and practice</p></div>
-                            </div>
-                            <div class="mt-4 pt-4 border-t border-slate-700/50">
-                                <p class="text-slate-300 italic">"Making AI understandable, practical and beneficial for every level of education."</p>
-                            </div>
+                        </div>
+
+                        <div class="space-y-4 text-slate-300 text-sm leading-relaxed italic">
+                            <p>
+                                "Whether you are a headteacher wondering what AI means for your school, a college principal planning modern curricula, or a university researcher — Zehanat is your collaborative forum."
+                            </p>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 font-heading font-bold">
+                            <span>AWKUM ACADEMIC LEADERSHIP</span>
+                            <span class="text-[#43baff]">Mardan, KP</span>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Section 3: Our Six Pillars Preview -->
-    <section class="py-20 md:py-28 bg-slate-900/50">
+    <!-- Section 3: Our Six Pillars -->
+    <section class="py-20 lg:py-28 bg-[#0e1424] border-y border-slate-800/60 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="animate-fade-up">
-                <x-public.section-heading title="Our Six Pillars" subtitle="The foundation of our mission" align="center" />
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            <x-public.section-heading 
+                tag="OUR FOUNDATION"
+                title="The Six Pillars of Zehanat" 
+                subtitle="Structuring our mission to empower education across Khyber Pakhtunkhwa." 
+                align="center" 
+            />
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-14">
                 <div class="animate-fade-up stagger-1">
-                    <x-public.pillar-card number="1" icon="🎓" title="AI Literacy & Awareness" description="Building foundational understanding of AI concepts, capabilities, and limitations across all educational levels." />
+                    <x-public.pillar-card number="1" icon="🎓" title="AI Literacy & Awareness" description="Building foundational understanding of AI capabilities, tools, and limitations across schools, colleges, and universities." link="/pillars#literacy" />
                 </div>
                 <div class="animate-fade-up stagger-2">
-                    <x-public.pillar-card number="2" icon="📚" title="Curriculum Integration" description="Embedding AI knowledge and skills into existing curricula from primary school through university." />
+                    <x-public.pillar-card number="2" icon="📚" title="Curriculum Integration" description="Embedding AI knowledge and skills into existing educational curricula from primary school through higher education." link="/pillars#curriculum" />
                 </div>
                 <div class="animate-fade-up stagger-3">
-                    <x-public.pillar-card number="3" icon="👩‍🏫" title="Teacher & Faculty Training" description="Empowering educators with the knowledge and tools to teach AI effectively and use it in their practice." />
+                    <x-public.pillar-card number="3" icon="👩‍🏫" title="Teacher & Faculty Training" description="Empowering educators with practical AI tools, modern teaching methods, and classroom integration strategies." link="/pillars#training" />
                 </div>
                 <div class="animate-fade-up stagger-4">
-                    <x-public.pillar-card number="4" icon="🔬" title="Research & Innovation" description="Fostering AI research tailored to local needs and encouraging innovative educational applications." />
+                    <x-public.pillar-card number="4" icon="🔬" title="Research & Innovation" description="Fostering applied AI research tailored to local regional needs and encouraging educational technology innovation." link="/pillars#research" />
                 </div>
                 <div class="animate-fade-up stagger-5">
-                    <x-public.pillar-card number="5" icon="⚖️" title="Ethical & Responsible AI" description="Promoting awareness of AI ethics, bias, privacy, and responsible deployment in educational settings." />
+                    <x-public.pillar-card number="5" icon="⚖️" title="Ethical & Responsible AI" description="Promoting awareness of AI ethics, data privacy, fairness, and responsible AI deployment in academic settings." link="/pillars#ethics" />
                 </div>
                 <div class="animate-fade-up stagger-6">
-                    <x-public.pillar-card number="6" icon="🤝" title="Industry–Academia Partnership" description="Bridging the gap between academic learning and industry needs through collaboration and practical exposure." />
+                    <x-public.pillar-card number="6" icon="🤝" title="Industry–Academia Partnership" description="Bridging the gap between academic learning and industry demand through practical exposure and joint projects." link="/pillars#industry" />
                 </div>
             </div>
-            <div class="mt-12 text-center animate-fade-up stagger-7">
-                <x-public.btn variant="outline" size="md" href="/pillars">Learn More About Our Pillars</x-public.btn>
+
+            <div class="mt-12 text-center">
+                <x-public.btn variant="outline" size="md" href="/pillars">Explore All Pillars</x-public.btn>
             </div>
         </div>
     </section>
 
-    <!-- Section 4: Calls for Membership -->
-    <section class="py-20 md:py-28 bg-slate-950 relative overflow-hidden">
-        <!-- Background accents -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full opacity-30 pointer-events-none">
-            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-600/20 rounded-full blur-[100px]"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-600/20 rounded-full blur-[100px]"></div>
-        </div>
+    <!-- Section 4: Target Sectors / Membership Calls -->
+    <section class="py-20 lg:py-28 bg-[#0b0f19]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <x-public.section-heading 
+                tag="JOIN THE MOVEMENT"
+                title="Be Part of Khyber Pakhtunkhwa's AI Revolution" 
+                align="center" 
+            />
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="animate-fade-up">
-                <x-public.section-heading title="Join the Movement" subtitle="Be part of Khyber Pakhtunkhwa's AI in Education revolution" align="center" />
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mt-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
                 <!-- Card 1 -->
-                <div class="glass-card p-6 rounded-2xl border border-white/10 bg-slate-900/60 hover:bg-slate-800/80 transition-all duration-300 flex flex-col h-full animate-fade-up stagger-1 group">
-                    <div class="w-16 h-16 rounded-xl bg-teal-500/20 flex items-center justify-center text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">🧑‍🤝‍🧑</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Become a Member</h3>
-                    <p class="text-slate-400 text-sm flex-grow mb-6">Join as an individual educator, researcher, student, or professional. Shape the future of AI in education.</p>
-                    <a href="/membership" class="inline-flex items-center justify-center px-4 py-2 bg-teal-500 hover:bg-teal-600 text-white font-medium rounded-lg transition-colors w-full">Join Now</a>
+                <div class="engitech-icon-box flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-600/20 text-[#43baff] flex items-center justify-center text-2xl mb-5">🧑‍🤝‍🧑</div>
+                        <h3 class="text-lg font-heading font-bold text-white mb-2">Individual Members</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Join as an educator, researcher, student, or professional to shape AI adoption.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800">
+                        <a href="/membership" class="w-full inline-flex items-center justify-center py-2.5 bg-[#0c5adb] hover:bg-[#43baff] text-white text-xs font-heading font-extrabold uppercase rounded-lg transition-colors">Join Now</a>
+                    </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="glass-card p-6 rounded-2xl border border-white/10 bg-slate-900/60 hover:bg-slate-800/80 transition-all duration-300 flex flex-col h-full animate-fade-up stagger-2 group">
-                    <div class="w-16 h-16 rounded-xl bg-amber-500/20 flex items-center justify-center text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">🏫</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Register Your Institution</h3>
-                    <p class="text-slate-400 text-sm flex-grow mb-6">Bring your school, college, or university into the Zehanat network. Access resources and training.</p>
-                    <a href="/membership#institutions" class="inline-flex items-center justify-center px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white font-medium rounded-lg transition-colors w-full border border-slate-600">Register</a>
+                <div class="engitech-icon-box flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-600/20 text-[#43baff] flex items-center justify-center text-2xl mb-5">🏫</div>
+                        <h3 class="text-lg font-heading font-bold text-white mb-2">Institutional Partners</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Bring your school, college, or university into the official Zehanat network.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800">
+                        <a href="/membership#institutions" class="w-full inline-flex items-center justify-center py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-heading font-extrabold uppercase rounded-lg transition-colors">Register</a>
+                    </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="glass-card p-6 rounded-2xl border border-white/10 bg-slate-900/60 hover:bg-slate-800/80 transition-all duration-300 flex flex-col h-full animate-fade-up stagger-3 group">
-                    <div class="w-16 h-16 rounded-xl bg-purple-500/20 flex items-center justify-center text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">🎉</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Attend Our Launch Event</h3>
-                    <p class="text-slate-400 text-sm flex-grow mb-6">Be part of our inaugural event. Connect with pioneers, learn from experts, and celebrate the beginning.</p>
-                    <a href="/news-events" class="inline-flex items-center justify-center px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white font-medium rounded-lg transition-colors w-full border border-slate-600">Learn More</a>
+                <div class="engitech-icon-box flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-amber-600/20 text-amber-400 flex items-center justify-center text-2xl mb-5">🎉</div>
+                        <h3 class="text-lg font-heading font-bold text-white mb-2">Inaugural Launch</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Be part of our grand launch event at Abdul Wali Khan University Mardan.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800">
+                        <a href="/news-events" class="w-full inline-flex items-center justify-center py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-heading font-extrabold uppercase rounded-lg transition-colors">Learn More</a>
+                    </div>
                 </div>
 
                 <!-- Card 4 -->
-                <div class="glass-card p-6 rounded-2xl border border-white/10 bg-slate-900/60 hover:bg-slate-800/80 transition-all duration-300 flex flex-col h-full animate-fade-up stagger-4 group">
-                    <div class="w-16 h-16 rounded-xl bg-blue-500/20 flex items-center justify-center text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">📋</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Explore Our Programs</h3>
-                    <p class="text-slate-400 text-sm flex-grow mb-6">Discover tailored programs for schools, colleges, universities, industry, and the public.</p>
-                    <a href="/programs" class="inline-flex items-center justify-center px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white font-medium rounded-lg transition-colors w-full border border-slate-600">View Programs</a>
+                <div class="engitech-icon-box flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-red-600/20 text-[#ff4b2b] flex items-center justify-center text-2xl mb-5">📋</div>
+                        <h3 class="text-lg font-heading font-bold text-white mb-2">Explore Programs</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Discover tailored AI programs for schools, colleges, universities, and industry.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800">
+                        <a href="/programs" class="w-full inline-flex items-center justify-center py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-heading font-extrabold uppercase rounded-lg transition-colors">View Programs</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Section 5: Stats Counter Bar -->
-    <section class="py-12 bg-gradient-to-r from-slate-900 via-teal-950 to-slate-900 border-y border-teal-900/50">
+    <section class="py-16 bg-[#141a29] border-y border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-teal-800/50">
-                <div class="animate-fade-up stagger-1 text-center px-4">
-                    <x-public.stat-counter number="50" label="Partner Institutions" suffix="+" />
-                </div>
-                <div class="animate-fade-up stagger-2 text-center px-4">
-                    <x-public.stat-counter number="500" label="Members" suffix="+" />
-                </div>
-                <div class="animate-fade-up stagger-3 text-center px-4">
-                    <x-public.stat-counter number="30" label="Programs Planned" suffix="+" />
-                </div>
-                <div class="animate-fade-up stagger-4 text-center px-4">
-                    <x-public.stat-counter number="5" label="Regions Covered" suffix="" />
-                </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <x-public.stat-counter number="50" label="Partner Institutions" suffix="+" />
+                <x-public.stat-counter number="500" label="Active Members" suffix="+" />
+                <x-public.stat-counter number="30" label="Planned Workshops" suffix="+" />
+                <x-public.stat-counter number="6" label="Core AI Pillars" suffix="" />
             </div>
         </div>
     </section>
 
     <!-- Section 6: Latest News & Events -->
-    <section class="py-20 md:py-28 bg-slate-900/50">
+    <section class="py-20 lg:py-28 bg-[#0b0f19]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-end mb-12 animate-fade-up">
-                <x-public.section-heading title="News & Events" subtitle="Stay updated with the latest happenings" align="left" />
-                <div class="hidden md:block">
-                    <x-public.btn variant="ghost" size="md" href="/news-events">View All Events &rarr;</x-public.btn>
-                </div>
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+                <x-public.section-heading 
+                    tag="HAPPENINGS"
+                    title="News & Events" 
+                    align="left" 
+                />
+                <x-public.btn variant="ghost" size="md" href="/news-events">View All Events &rarr;</x-public.btn>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="animate-fade-up stagger-1">
-                    <x-public.event-card date="TBD" month="2025" title="Zehanat Launch Event" description="The official launch of the Khyber Pakhtunkhwa Society for AI in Education at AWKUM." link="/news-events" />
+                    <x-public.event-card date="TBD" month="2026" title="Zehanat Launch Event" description="The official launch of the Khyber Pakhtunkhwa Society for AI in Education at AWKUM." link="/news-events" />
                 </div>
                 <div class="animate-fade-up stagger-2">
-                    <x-public.event-card date="TBD" month="2025" title="AI in Education Workshop" description="Introductory workshop for educators on understanding and using AI tools." link="/news-events" />
+                    <x-public.event-card date="TBD" month="2026" title="AI in Education Workshop" description="Introductory workshop for educators on understanding and using AI tools effectively." link="/news-events" />
                 </div>
                 <div class="animate-fade-up stagger-3">
-                    <x-public.event-card date="TBD" month="2025" title="Member Registration Opens" description="Open registration for individual members and institutional partners." link="/news-events" />
+                    <x-public.event-card date="TBD" month="2026" title="Member Registration Drive" description="Open registration for individual members and institutional partners across KP." link="/news-events" />
                 </div>
-            </div>
-            
-            <div class="mt-8 text-center md:hidden animate-fade-up stagger-4">
-                <x-public.btn variant="outline" size="md" href="/news-events">View All Events</x-public.btn>
             </div>
         </div>
     </section>
 
     <!-- Section 7: CTA Banner -->
-    <x-public.cta-banner title="Ready to Shape the Future of Education?" subtitle="Join Zehanat today and be part of the AI revolution in Khyber Pakhtunkhwa's classrooms.">
-        <x-public.btn variant="secondary" size="lg" href="/membership">Become a Member</x-public.btn>
-        <a href="/contact" class="inline-flex items-center justify-center px-7 py-3 bg-white/20 hover:bg-white/30 text-white border border-white/30 rounded-full font-semibold transition-all duration-300 backdrop-blur-sm">Contact Us</a>
+    <x-public.cta-banner 
+        title="Ready to Shape the Future of AI in Education?" 
+        subtitle="Join Zehanat today and lead the AI revolution in Khyber Pakhtunkhwa's classrooms.">
+        <x-public.btn variant="primary2" size="lg" href="/membership">Become a Member</x-public.btn>
+        <a href="/contact" class="inline-flex items-center justify-center px-7 py-3 bg-white/10 hover:bg-white/20 text-white font-heading font-extrabold text-xs uppercase tracking-wider rounded-xl border border-white/20 transition-all">Contact Us</a>
     </x-public.cta-banner>
 
 @endsection
