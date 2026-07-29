@@ -252,5 +252,72 @@ document.addEventListener('DOMContentLoaded', () => {
     if (sidePanelBtn) sidePanelBtn.addEventListener('click', openSidePanel);
     if (sidePanelClose) sidePanelClose.addEventListener('click', closeSidePanel);
     if (sidePanelOverlay) sidePanelOverlay.addEventListener('click', closeSidePanel);
+
+    // j) Hero Dynamic Carousel Slider
+    const slides = document.querySelectorAll('[data-hero-slide]');
+    const dots = document.querySelectorAll('[data-hero-dot]');
+    const prevBtn = document.getElementById('hero-prev-btn');
+    const nextBtn = document.getElementById('hero-[#next-btn]') || document.getElementById('hero-next-btn');
+    const currentNumEl = document.getElementById('hero-slide-current');
+    
+    if (slides.length > 0) {
+        let currentSlideIndex = 0;
+        let slideInterval = null;
+
+        const showSlide = (index) => {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('bg-[#0c5adb]', i === index);
+                dot.classList.toggle('w-8', i === index);
+                dot.classList.toggle('bg-slate-300', i !== index);
+                dot.classList.toggle('w-3', i !== index);
+            });
+            if (currentNumEl) {
+                currentNumEl.textContent = String(index + 1).padStart(2, '0');
+            }
+            currentSlideIndex = index;
+        };
+
+        const nextSlide = () => {
+            const nextIndex = (currentSlideIndex + 1) % slides.length;
+            showSlide(nextIndex);
+        };
+
+        const prevSlide = () => {
+            const prevIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+            showSlide(prevIndex);
+        };
+
+        const startAutoPlay = () => {
+            stopAutoPlay();
+            slideInterval = setInterval(nextSlide, 6000);
+        };
+
+        const stopAutoPlay = () => {
+            if (slideInterval) clearInterval(slideInterval);
+        };
+
+        if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); startAutoPlay(); });
+        if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); startAutoPlay(); });
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                showSlide(i);
+                startAutoPlay();
+            });
+        });
+
+        const heroContainer = document.getElementById('hero-slider-wrapper');
+        if (heroContainer) {
+            heroContainer.addEventListener('mouseenter', stopAutoPlay);
+            heroContainer.addEventListener('mouseleave', startAutoPlay);
+        }
+
+        showSlide(0);
+        startAutoPlay();
+    }
 });
+
 

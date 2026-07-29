@@ -1,15 +1,15 @@
 /* ==========================================================================
-   Engitech Theme Design System (Light / Clean White Theme)
-   Color Palette:
-   - Primary Electric Blue: #0c5adb
+   Engitech Theme Design System (Standard Light Theme Default)
+   Purged of legacy dark tokens. All public pages strictly follow these tokens:
+   - Primary Royal Blue: #0c5adb
    - Primary Cyan Highlight: #43baff
-   - Dark Heading Text: #182433 / #1b1d21
-   - Slate Body Text: #5e6278 / #606e7b
-   - Light Gray Section Bg: #f4f6f9 / #f8f9fa
-   - Clean White Container Bg: #ffffff
+   - Dark Heading Text: #101928
+   - Slate Body Text: #606e7b
+   - Light Section Bg: #f4f6f9
+   - Clean Container Bg: #ffffff
    - Coral Accent: #ff4b2b
-   - Top Strip Off-White: #f4f5f9
-   - Dark Contrast Section (Footer & CTA): #1b1d21
+   - Footer Dark Navy Bg: #0e121e
+   - Footer Box / Social Box Bg: #1a2130 (Border: #263147)
    ========================================================================== */
 
 /* Google Fonts Import */
@@ -20,16 +20,20 @@
     --font-body: 'Nunito Sans', sans-serif;
     --color-primary: #0c5adb;
     --color-primary-light: #43baff;
-    --color-heading: #182433;
-    --color-body: #5e6278;
+    --color-heading: #101928;
+    --color-body: #606e7b;
     --color-bg-light: #f4f6f9;
+    --color-bg-white: #ffffff;
     --color-accent: #ff4b2b;
+    --color-footer-bg: #0e121e;
+    --color-footer-box: #1a2130;
+    --color-footer-border: #263147;
 }
 
 body {
     font-family: var(--font-body);
     color: var(--color-body);
-    background-color: #ffffff;
+    background-color: var(--color-bg-white);
 }
 
 h1, h2, h3, h4, h5, h6, .font-heading {
@@ -37,7 +41,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
     color: var(--color-heading);
 }
 
-/* Neural network hero canvas */
+/* Canvas overlay */
 #neural-canvas {
     position: absolute;
     inset: 0;
@@ -97,8 +101,6 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 .stagger-2 { transition-delay: 0.16s; }
 .stagger-3 { transition-delay: 0.24s; }
 .stagger-4 { transition-delay: 0.32s; }
-.stagger-5 { transition-delay: 0.40s; }
-.stagger-6 { transition-delay: 0.48s; }
 
 /* Floating animation */
 @keyframes float {
@@ -180,6 +182,22 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 }
 .engitech-side-panel.active {
     transform: translateX(0);
+}
+
+/* Hero Dynamic Carousel Slider Styles */
+.hero-slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+.hero-slide {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+.hero-slide.active {
+    display: block;
+    opacity: 1;
 }
 
 /* Smooth scroll */

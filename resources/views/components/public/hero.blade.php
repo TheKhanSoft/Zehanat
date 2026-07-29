@@ -1,118 +1,226 @@
 @props([
-    'title' => 'Zehanat',
-    'subtitle' => 'The Khyber Pakhtunkhwa Society for AI in Education',
-    'tagline' => 'Bringing Artificial Intelligence to Every Classroom in Khyber Pakhtunkhwa.',
     'showParticles' => true,
 ])
 
-<section class="relative min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#f4f6f9] pt-20 pb-16">
-    <!-- Neural network canvas -->
+<section id="hero-slider-wrapper" class="relative min-h-[88vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#f4f6f9] pt-16 pb-20">
+    <!-- Canvas overlay -->
     @if($showParticles)
     <canvas id="neural-canvas" class="absolute inset-0 z-0 opacity-15"></canvas>
     @endif
-    
-    <!-- Engitech Background Decorative Shapes -->
+
+    <!-- Engitech Background Decorative Soft Glows -->
     <div class="absolute top-1/4 -left-32 w-96 h-96 bg-[#0c5adb]/10 rounded-full blur-[100px] pointer-events-none"></div>
     <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-[#43baff]/15 rounded-full blur-[100px] pointer-events-none"></div>
-    
-    <!-- Container -->
+
+    <!-- Main Carousel Slides Container -->
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <!-- Left Column: Hero Text & Actions -->
-            <div class="lg:col-span-7 text-left space-y-6">
-                <!-- Tagline Badge -->
-                <div class="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-full px-4 py-1.5 text-xs text-[#5e6278] shadow-sm">
-                    <span class="w-2 h-2 bg-[#0c5adb] rounded-full animate-ping"></span>
-                    <span class="font-heading font-extrabold uppercase text-[#0c5adb] tracking-wider text-[11px]">KP AI Society</span>
-                    <span class="text-slate-300">|</span>
-                    <span>AWKUM Leadership</span>
-                </div>
-                
-                <!-- Main Title -->
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-[#182433] tracking-tight leading-[1.15]">
-                    {!! str_replace('Artificial Intelligence', '<span class="text-gradient">Artificial Intelligence</span>', $title) !!}
-                </h1>
-                
-                <!-- Urdu Script Sub-Badge -->
-                <div class="flex items-center gap-3">
-                    <span class="text-2xl text-[#0c5adb] font-normal" dir="rtl">ذہانت</span>
-                    <span class="text-[#5e6278] text-sm font-medium">{{ $subtitle }}</span>
-                </div>
-                
-                <!-- Description -->
-                <p class="text-base sm:text-lg text-[#5e6278] max-w-2xl leading-relaxed">
-                    {{ $tagline }}
-                </p>
-                
-                <!-- CTA Buttons -->
-                <div class="pt-4 flex flex-wrap items-center gap-4">
-                    {{ $slot }}
-                </div>
-            </div>
+        <div class="hero-slider-container">
 
-            <!-- Right Column: Engitech Impact Card Box -->
-            <div class="lg:col-span-5 relative">
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-2xl relative z-10">
-                    <div class="space-y-6">
-                        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
-                            <span class="font-heading font-extrabold text-xs text-[#0c5adb] uppercase tracking-wider">// Quick Impact</span>
-                            <span class="text-xs text-slate-400 font-semibold">2026 Roadmap</span>
+            <!-- SLIDE 1 -->
+            <div data-hero-slide="0" class="hero-slide active">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 text-left space-y-6">
+                        <div class="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-full px-4 py-1.5 text-xs text-[#606e7b] shadow-sm">
+                            <span class="w-2 h-2 bg-[#0c5adb] rounded-full animate-ping"></span>
+                            <span class="font-heading font-extrabold uppercase text-[#0c5adb] tracking-wider text-[11px]">KP AI Society</span>
+                            <span class="text-slate-300">|</span>
+                            <span>AWKUM Leadership</span>
                         </div>
 
-                        <!-- Stat Row 1 -->
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 text-xl font-bold">
-                                🏫
-                            </div>
-                            <div>
-                                <h4 class="font-heading font-bold text-[#182433] text-base">50+ Institutions</h4>
-                                <p class="text-slate-400 text-xs">Schools, Colleges & Universities</p>
-                            </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-[#101928] tracking-tight leading-[1.15]">
+                            Transforming Education Through <span class="text-gradient">Artificial Intelligence</span>
+                        </h1>
+
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl text-[#0c5adb] font-normal" dir="rtl">ذہانت</span>
+                            <span class="text-[#606e7b] text-sm font-medium">The Khyber Pakhtunkhwa Society for AI in Education</span>
                         </div>
 
-                        <!-- Stat Row 2 -->
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-2xl bg-cyan-50 border border-cyan-100 flex items-center justify-center text-cyan-600 text-xl font-bold">
-                                🧑‍🎓
-                            </div>
-                            <div>
-                                <h4 class="font-heading font-bold text-[#182433] text-base">500+ Active Members</h4>
-                                <p class="text-slate-400 text-xs">Educators, Researchers & Students</p>
-                            </div>
-                        </div>
+                        <p class="text-base sm:text-lg text-[#606e7b] max-w-2xl leading-relaxed">
+                            Empowering educators, students, researchers and institutions across KP under Abdul Wali Khan University Mardan.
+                        </p>
 
-                        <!-- Stat Row 3 -->
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-2xl bg-red-50 border border-red-100 flex items-center justify-center text-red-600 text-xl font-bold">
-                                ⚡
-                            </div>
-                            <div>
-                                <h4 class="font-heading font-bold text-[#182433] text-base">6 Core AI Pillars</h4>
-                                <p class="text-slate-400 text-xs">From AI Literacy to Ethics & Research</p>
-                            </div>
+                        <div class="pt-4 flex flex-wrap items-center gap-4">
+                            <x-public.btn variant="primary" size="lg" href="/membership">Become a Member</x-public.btn>
+                            <x-public.btn variant="outline2" size="lg" href="/programs">Explore Programs</x-public.btn>
                         </div>
+                    </div>
 
-                        <!-- Quote Badge -->
-                        <div class="pt-4 border-t border-slate-100">
-                            <p class="text-[#5e6278] text-xs italic leading-relaxed">
-                                "Closing the AI knowledge gap in classrooms across Khyber Pakhtunkhwa."
-                            </p>
+                    <!-- Slide 1 Graphic Card -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-2xl relative z-10">
+                            <div class="space-y-6">
+                                <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                                    <span class="font-heading font-extrabold text-xs text-[#0c5adb] uppercase tracking-wider">// Quick Impact</span>
+                                    <span class="text-xs text-slate-400 font-semibold">2026 Roadmap</span>
+                                </div>
+
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 text-xl font-bold">🏫</div>
+                                    <div>
+                                        <h4 class="font-heading font-bold text-[#101928] text-base">50+ Partner Institutions</h4>
+                                        <p class="text-[#606e7b] text-xs">Schools, Colleges & Universities</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-2xl bg-cyan-50 border border-cyan-100 flex items-center justify-center text-cyan-600 text-xl font-bold">🧑‍🎓</div>
+                                    <div>
+                                        <h4 class="font-heading font-bold text-[#101928] text-base">500+ Active Members</h4>
+                                        <p class="text-[#606e7b] text-xs">Educators, Researchers & Students</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-2xl bg-red-50 border border-red-100 flex items-center justify-center text-red-600 text-xl font-bold">⚡</div>
+                                    <div>
+                                        <h4 class="font-heading font-bold text-[#101928] text-base">6 Core AI Pillars</h4>
+                                        <p class="text-[#606e7b] text-xs">From AI Literacy to Ethics & Research</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Floating Decor Badge -->
-                <div class="absolute -bottom-6 -left-6 bg-[#0c5adb] text-white p-4 rounded-2xl shadow-xl z-20 hidden sm:block animate-float">
-                    <div class="flex items-center gap-3">
-                        <span class="text-2xl font-black font-heading">#1</span>
-                        <div class="text-[11px] leading-tight font-bold uppercase tracking-wider">
-                            AI Society in KP<br><span class="opacity-80 font-normal">Established at AWKUM</span>
+            <!-- SLIDE 2 -->
+            <div data-hero-slide="1" class="hero-slide">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 text-left space-y-6">
+                        <div class="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-full px-4 py-1.5 text-xs text-[#606e7b] shadow-sm">
+                            <span class="w-2 h-2 bg-[#43baff] rounded-full animate-ping"></span>
+                            <span class="font-heading font-extrabold uppercase text-[#0c5adb] tracking-wider text-[11px]">AI Literacy & Pedagogy</span>
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-[#101928] tracking-tight leading-[1.15]">
+                            Bringing AI Into Every <span class="text-gradient">Classroom & Lecture Hall</span>
+                        </h1>
+
+                        <p class="text-base sm:text-lg text-[#606e7b] max-w-2xl leading-relaxed">
+                            Demystifying artificial intelligence concepts for primary, secondary, and higher education across Khyber Pakhtunkhwa.
+                        </p>
+
+                        <div class="pt-4 flex flex-wrap items-center gap-4">
+                            <x-public.btn variant="primary" size="lg" href="/pillars">Our Six Pillars</x-public.btn>
+                            <x-public.btn variant="outline2" size="lg" href="/about">Read Our Story</x-public.btn>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 Graphic Card -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-2xl relative z-10">
+                            <div class="space-y-6">
+                                <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                                    <span class="font-heading font-extrabold text-xs text-[#0c5adb] uppercase tracking-wider">// Classroom Roadmap</span>
+                                    <span class="text-xs text-slate-400 font-semibold">Capacity Building</span>
+                                </div>
+
+                                <div class="p-4 rounded-2xl bg-blue-50 border border-blue-100">
+                                    <h4 class="font-heading font-bold text-[#101028] text-sm">Teacher Training Modules</h4>
+                                    <p class="text-xs text-[#606e7b] mt-1">Practical lesson planning with Generative AI tools.</p>
+                                </div>
+
+                                <div class="p-4 rounded-2xl bg-cyan-50 border border-cyan-100">
+                                    <h4 class="font-heading font-bold text-[#101028] text-sm">Curriculum Integration</h4>
+                                    <p class="text-xs text-[#606e7b] mt-1">Aligning AI skills with provincial educational boards.</p>
+                                </div>
+
+                                <div class="p-4 rounded-2xl bg-red-50 border border-red-100">
+                                    <h4 class="font-heading font-bold text-[#101028] text-sm">Ethical AI Guidelines</h4>
+                                    <p class="text-xs text-[#606e7b] mt-1">Student data privacy and academic integrity standards.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3 -->
+            <div data-hero-slide="2" class="hero-slide">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 text-left space-y-6">
+                        <div class="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-full px-4 py-1.5 text-xs text-[#606e7b] shadow-sm">
+                            <span class="w-2 h-2 bg-[#ff4b2b] rounded-full animate-ping"></span>
+                            <span class="font-heading font-extrabold uppercase text-[#ff4b2b] tracking-wider text-[11px]">Applied Research & Industry</span>
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-[#101928] tracking-tight leading-[1.15]">
+                            Fostering Applied Research & <span class="text-gradient">Future Tech Skills</span>
+                        </h1>
+
+                        <p class="text-base sm:text-lg text-[#606e7b] max-w-2xl leading-relaxed">
+                            Connecting academic research at AWKUM with regional industry demands to build KP's next generation of AI innovators.
+                        </p>
+
+                        <div class="pt-4 flex flex-wrap items-center gap-4">
+                            <x-public.btn variant="primary" size="lg" href="/programs">View Programs</x-public.btn>
+                            <x-public.btn variant="outline2" size="lg" href="/contact">Contact Team</x-public.btn>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 Graphic Card -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-2xl relative z-10">
+                            <div class="space-y-6">
+                                <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                                    <span class="font-heading font-extrabold text-xs text-[#0c5adb] uppercase tracking-wider">// Innovation Hub</span>
+                                    <span class="text-xs text-slate-400 font-semibold">AWKUM Ecosystem</span>
+                                </div>
+
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 text-xl font-bold">🔬</div>
+                                    <div>
+                                        <h4 class="font-heading font-bold text-[#101928] text-base">Regional AI Research</h4>
+                                        <p class="text-[#606e7b] text-xs">Agriculture, Healthcare & Pashto NLP</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-600 text-xl font-bold">🤝</div>
+                                    <div>
+                                        <h4 class="font-heading font-bold text-[#101928] text-base">Industry Partnerships</h4>
+                                        <p class="text-[#606e7b] text-xs">Joint projects & student internships</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
         </div>
+
+        <!-- Slider Controls: Prev/Next & Dots & Counter -->
+        <div class="mt-12 flex items-center justify-between pt-6 border-t border-slate-200/80">
+            <!-- Left: Slide Numbers (01 / 03) -->
+            <div class="flex items-center gap-3 font-heading font-extrabold text-sm text-[#101928]">
+                <span id="hero-slide-current" class="text-lg text-[#0c5adb]">01</span>
+                <span class="text-slate-300">/</span>
+                <span class="text-slate-400">03</span>
+            </div>
+
+            <!-- Center: Pagination Dots -->
+            <div class="flex items-center space-x-2">
+                <button data-hero-dot="0" class="h-3 w-8 rounded-full bg-[#0c5adb] transition-all" aria-label="Slide 1"></button>
+                <button data-hero-dot="1" class="h-3 w-3 rounded-full bg-slate-300 transition-all hover:bg-[#0c5adb]" aria-label="Slide 2"></button>
+                <button data-hero-dot="2" class="h-3 w-3 rounded-full bg-slate-300 transition-all hover:bg-[#0c5adb]" aria-label="Slide 3"></button>
+            </div>
+
+            <!-- Right: Arrow Prev / Next Buttons -->
+            <div class="flex items-center space-x-3">
+                <button id="hero-prev-btn" class="w-10 h-10 rounded-xl bg-white border border-slate-200 hover:bg-[#0c5adb] hover:text-white text-[#101928] flex items-center justify-center transition-colors shadow-sm" aria-label="Previous Slide">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <button id="hero-next-btn" class="w-10 h-10 rounded-xl bg-white border border-slate-200 hover:bg-[#0c5adb] hover:text-white text-[#101928] flex items-center justify-center transition-colors shadow-sm" aria-label="Next Slide">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
     </div>
 </section>
