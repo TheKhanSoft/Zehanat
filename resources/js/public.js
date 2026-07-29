@@ -253,27 +253,45 @@ document.addEventListener('DOMContentLoaded', () => {
     if (sidePanelClose) sidePanelClose.addEventListener('click', closeSidePanel);
     if (sidePanelOverlay) sidePanelOverlay.addEventListener('click', closeSidePanel);
 
-    // j) Hero Dynamic Carousel Slider
+    // j) Hero Dynamic Carousel Slider (6 Slides Replica)
     const slides = document.querySelectorAll('[data-hero-slide]');
     const dots = document.querySelectorAll('[data-hero-dot]');
     const prevBtn = document.getElementById('hero-prev-btn');
-    const nextBtn = document.getElementById('hero-[#next-btn]') || document.getElementById('hero-next-btn');
+    const nextBtn = document.getElementById('hero-next-btn');
     const currentNumEl = document.getElementById('hero-slide-current');
+    const totalNumEl = document.getElementById('hero-slide-total');
     
     if (slides.length > 0) {
         let currentSlideIndex = 0;
         let slideInterval = null;
 
+        if (totalNumEl) {
+            totalNumEl.textContent = String(slides.length).padStart(2, '0');
+        }
+
         const showSlide = (index) => {
             slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
+                const isActive = i === index;
+                slide.classList.toggle('active', isActive);
+                if (isActive) {
+                    // Force DOM reflow to re-trigger layer CSS animations
+                    const animatedLayers = slide.querySelectorAll('.layer-tag, .layer-title, .layer-subtext, .layer-actions, .layer-card');
+                    animatedLayers.forEach(el => {
+                        el.style.animation = 'none';
+                        void el.offsetHeight;
+                        el.style.animation = '';
+                    });
+                }
             });
+
             dots.forEach((dot, i) => {
-                dot.classList.toggle('bg-[#0c5adb]', i === index);
-                dot.classList.toggle('w-8', i === index);
-                dot.classList.toggle('bg-slate-300', i !== index);
-                dot.classList.toggle('w-3', i !== index);
+                const isActive = i === index;
+                dot.classList.toggle('bg-[#0c5adb]', isActive);
+                dot.classList.toggle('w-8', isActive);
+                dot.classList.toggle('bg-slate-300', !isActive);
+                dot.classList.toggle('w-3', !isActive);
             });
+
             if (currentNumEl) {
                 currentNumEl.textContent = String(index + 1).padStart(2, '0');
             }
@@ -319,5 +337,6 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoPlay();
     }
 });
+
 
 
