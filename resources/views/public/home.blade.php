@@ -4,7 +4,7 @@
 @section('meta_description', 'Zehanat - The Khyber Pakhtunkhwa Society for AI in Education. Bringing Artificial Intelligence to Every Classroom.')
 
 @section('content')
-    <!-- Section 1: Hero -->
+    <!-- Section 1: Engitech Light Hero -->
     <x-public.hero 
         title="Transforming Education Through Artificial Intelligence" 
         subtitle="The Khyber Pakhtunkhwa Society for AI in Education" 
@@ -14,7 +14,7 @@
     </x-public.hero>
 
     <!-- Section 2: Welcome Note & Leadership Vision -->
-    <section class="py-20 lg:py-28 bg-[#0b0f19] relative">
+    <section class="py-20 lg:py-28 bg-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
@@ -26,19 +26,19 @@
                         align="left" 
                     />
                     
-                    <div class="prose prose-invert text-slate-300 mt-6 space-y-4 text-sm sm:text-base leading-relaxed">
+                    <div class="text-[#5e6278] mt-6 space-y-4 text-sm sm:text-base leading-relaxed">
                         <p>
-                            Artificial Intelligence is no longer a distant idea — it is already reshaping how the world learns, works, and innovates. Across Pakistan and here in Khyber Pakhtunkhwa, educational institutions are eager to lead, but enthusiasm alone is not enough. What our schools, colleges, and universities need is deep AI literacy: understanding what AI is, its real capabilities, its limitations, and how to adopt it ethically.
+                            Artificial Intelligence is no longer a distant idea — it is already reshaping how the world learns, works, and innovates. Across Pakistan and here in Khyber Pakhtunkhwa, educational institutions are eager to lead, but enthusiasm alone is not enough. What our schools, colleges, and universities need is deep AI literacy.
                         </p>
                         <p>
-                            <strong>Zehanat</strong> exists to bridge that critical gap. Under the academic leadership of Abdul Wali Khan University Mardan (AWKUM), we bring together educators, researchers, students, and industry partners to make AI understandable, practical, and beneficial across all levels of education.
+                            <strong class="text-[#182433]">Zehanat</strong> exists to bridge that critical gap. Hosted by Abdul Wali Khan University Mardan (AWKUM), we bring together educators, researchers, students, and industry partners to make AI understandable, practical, and beneficial across all levels of education.
                         </p>
                     </div>
 
                     <div class="mt-8 flex flex-wrap items-center gap-4">
                         <x-public.btn variant="primary" size="md" href="/about">Read Our Story</x-public.btn>
-                        <a href="tel:+929379230640" class="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-[#141a29] border border-slate-800 text-xs font-heading font-extrabold uppercase text-slate-300 hover:text-[#43baff] transition-colors">
-                            <svg class="w-4 h-4 text-[#43baff]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        <a href="tel:+929379230640" class="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-[#f4f6f9] border border-slate-200 text-xs font-heading font-extrabold uppercase text-[#182433] hover:text-[#0c5adb] transition-colors">
+                            <svg class="w-4 h-4 text-[#0c5adb]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                             Direct Helpline: +92 937 9230640
                         </a>
                     </div>
@@ -46,26 +46,26 @@
 
                 <!-- Right Column: Engitech Leadership Card Box -->
                 <div class="lg:col-span-5 animate-fade-up stagger-2">
-                    <div class="engitech-icon-box bg-[#141a29] p-8 border border-slate-800 shadow-2xl relative">
-                        <div class="flex items-center gap-4 mb-6 pb-6 border-b border-slate-800">
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0c5adb] to-[#43baff] flex items-center justify-center text-white text-2xl font-black shadow-lg">
+                    <div class="engitech-icon-box bg-white p-8 border border-slate-100 shadow-xl relative">
+                        <div class="flex items-center gap-4 mb-6 pb-6 border-b border-slate-100">
+                            <div class="w-14 h-14 rounded-2xl bg-[#0c5adb] flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-blue-600/20">
                                 VC
                             </div>
                             <div>
-                                <h4 class="font-heading font-bold text-white text-lg">Patron & Founder</h4>
-                                <p class="text-[#43baff] text-xs font-semibold">Vice Chancellor, AWKUM</p>
+                                <h4 class="font-heading font-bold text-[#182433] text-lg">Patron & Founder</h4>
+                                <p class="text-[#0c5adb] text-xs font-semibold">Vice Chancellor, AWKUM</p>
                             </div>
                         </div>
 
-                        <div class="space-y-4 text-slate-300 text-sm leading-relaxed italic">
+                        <div class="space-y-4 text-[#5e6278] text-sm leading-relaxed italic">
                             <p>
                                 "Whether you are a headteacher wondering what AI means for your school, a college principal planning modern curricula, or a university researcher — Zehanat is your collaborative forum."
                             </p>
                         </div>
 
-                        <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 font-heading font-bold">
+                        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400 font-heading font-bold">
                             <span>AWKUM ACADEMIC LEADERSHIP</span>
-                            <span class="text-[#43baff]">Mardan, KP</span>
+                            <span class="text-[#0c5adb]">Mardan, KP</span>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
     </section>
 
     <!-- Section 3: Our Six Pillars -->
-    <section class="py-20 lg:py-28 bg-[#0e1424] border-y border-slate-800/60 relative">
+    <section class="py-20 lg:py-28 bg-[#f4f6f9] border-y border-slate-200/60 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <x-public.section-heading 
                 tag="OUR FOUNDATION"
@@ -111,8 +111,8 @@
         </div>
     </section>
 
-    <!-- Section 4: Target Sectors / Membership Calls -->
-    <section class="py-20 lg:py-28 bg-[#0b0f19]">
+    <!-- Section 4: Target Sectors -->
+    <section class="py-20 lg:py-28 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <x-public.section-heading 
                 tag="JOIN THE MOVEMENT"
@@ -124,48 +124,48 @@
                 <!-- Card 1 -->
                 <div class="engitech-icon-box flex flex-col justify-between group">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-blue-600/20 text-[#43baff] flex items-center justify-center text-2xl mb-5">🧑‍🤝‍🧑</div>
-                        <h3 class="text-lg font-heading font-bold text-white mb-2">Individual Members</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed">Join as an educator, researcher, student, or professional to shape AI adoption.</p>
+                        <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#0c5adb] flex items-center justify-center text-2xl mb-5">🧑‍🤝‍🧑</div>
+                        <h3 class="text-lg font-heading font-bold text-[#182433] mb-2">Individual Members</h3>
+                        <p class="text-[#5e6278] text-xs leading-relaxed">Join as an educator, researcher, student, or professional to shape AI adoption.</p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-slate-800">
-                        <a href="/membership" class="w-full inline-flex items-center justify-center py-2.5 bg-[#0c5adb] hover:bg-[#43baff] text-white text-xs font-heading font-extrabold uppercase rounded-lg transition-colors">Join Now</a>
+                    <div class="mt-6 pt-4 border-t border-slate-100">
+                        <a href="/membership" class="w-full inline-flex items-center justify-center py-2.5 bg-[#0c5adb] hover:bg-[#43baff] text-white text-xs font-heading font-extrabold uppercase rounded-xl transition-colors">Join Now</a>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
                 <div class="engitech-icon-box flex flex-col justify-between group">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-cyan-600/20 text-[#43baff] flex items-center justify-center text-2xl mb-5">🏫</div>
-                        <h3 class="text-lg font-heading font-bold text-white mb-2">Institutional Partners</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed">Bring your school, college, or university into the official Zehanat network.</p>
+                        <div class="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-2xl mb-5">🏫</div>
+                        <h3 class="text-lg font-heading font-bold text-[#182433] mb-2">Institutional Partners</h3>
+                        <p class="text-[#5e6278] text-xs leading-relaxed">Bring your school, college, or university into the official Zehanat network.</p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-slate-800">
-                        <a href="/membership#institutions" class="w-full inline-flex items-center justify-center py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-heading font-extrabold uppercase rounded-lg transition-colors">Register</a>
+                    <div class="mt-6 pt-4 border-t border-slate-100">
+                        <a href="/membership#institutions" class="w-full inline-flex items-center justify-center py-2.5 bg-slate-100 hover:bg-[#0c5adb] hover:text-white text-[#182433] text-xs font-heading font-extrabold uppercase rounded-xl transition-colors">Register</a>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
                 <div class="engitech-icon-box flex flex-col justify-between group">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-amber-600/20 text-amber-400 flex items-center justify-center text-2xl mb-5">🎉</div>
-                        <h3 class="text-lg font-heading font-bold text-white mb-2">Inaugural Launch</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed">Be part of our grand launch event at Abdul Wali Khan University Mardan.</p>
+                        <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl mb-5">🎉</div>
+                        <h3 class="text-lg font-heading font-bold text-[#182433] mb-2">Inaugural Launch</h3>
+                        <p class="text-[#5e6278] text-xs leading-relaxed">Be part of our grand launch event at Abdul Wali Khan University Mardan.</p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-slate-800">
-                        <a href="/news-events" class="w-full inline-flex items-center justify-center py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-heading font-extrabold uppercase rounded-lg transition-colors">Learn More</a>
+                    <div class="mt-6 pt-4 border-t border-slate-100">
+                        <a href="/news-events" class="w-full inline-flex items-center justify-center py-2.5 bg-slate-100 hover:bg-[#0c5adb] hover:text-white text-[#182433] text-xs font-heading font-extrabold uppercase rounded-xl transition-colors">Learn More</a>
                     </div>
                 </div>
 
                 <!-- Card 4 -->
                 <div class="engitech-icon-box flex flex-col justify-between group">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-red-600/20 text-[#ff4b2b] flex items-center justify-center text-2xl mb-5">📋</div>
-                        <h3 class="text-lg font-heading font-bold text-white mb-2">Explore Programs</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed">Discover tailored AI programs for schools, colleges, universities, and industry.</p>
+                        <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center text-2xl mb-5">📋</div>
+                        <h3 class="text-lg font-heading font-bold text-[#182433] mb-2">Explore Programs</h3>
+                        <p class="text-[#5e6278] text-xs leading-relaxed">Discover tailored AI programs for schools, colleges, universities, and industry.</p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-slate-800">
-                        <a href="/programs" class="w-full inline-flex items-center justify-center py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-heading font-extrabold uppercase rounded-lg transition-colors">View Programs</a>
+                    <div class="mt-6 pt-4 border-t border-slate-100">
+                        <a href="/programs" class="w-full inline-flex items-center justify-center py-2.5 bg-slate-100 hover:bg-[#0c5adb] hover:text-white text-[#182433] text-xs font-heading font-extrabold uppercase rounded-xl transition-colors">View Programs</a>
                     </div>
                 </div>
             </div>
@@ -173,7 +173,7 @@
     </section>
 
     <!-- Section 5: Stats Counter Bar -->
-    <section class="py-16 bg-[#141a29] border-y border-slate-800">
+    <section class="py-16 bg-[#f4f6f9] border-y border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <x-public.stat-counter number="50" label="Partner Institutions" suffix="+" />
@@ -185,7 +185,7 @@
     </section>
 
     <!-- Section 6: Latest News & Events -->
-    <section class="py-20 lg:py-28 bg-[#0b0f19]">
+    <section class="py-20 lg:py-28 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
                 <x-public.section-heading 

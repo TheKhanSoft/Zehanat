@@ -12,12 +12,12 @@
     </div>
 
     <!-- Main Section Title -->
-    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white tracking-tight leading-tight">
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-[#182433] tracking-tight leading-tight">
         {{ $title }}
     </h2>
 
     @if($subtitle && !$tag)
-        <p class="text-base sm:text-lg text-slate-400 mt-4 leading-relaxed {{ $align === 'center' ? 'mx-auto max-w-2xl' : 'max-w-2xl' }}">
+        <p class="text-base sm:text-lg text-[#5e6278] mt-4 leading-relaxed {{ $align === 'center' ? 'mx-auto max-w-2xl' : 'max-w-2xl' }}">
             {{ $subtitle }}
         </p>
     @endif

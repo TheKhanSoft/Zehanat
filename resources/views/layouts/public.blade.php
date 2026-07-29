@@ -28,7 +28,7 @@
     <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
     @stack('head')
 </head>
-<body class="bg-[#0b0f19] text-slate-200 font-['Nunito_Sans',sans-serif] antialiased min-h-screen flex flex-col selection:bg-blue-600 selection:text-white">
+<body class="bg-white text-[#5e6278] font-['Nunito_Sans',sans-serif] antialiased min-h-screen flex flex-col selection:bg-[#0c5adb] selection:text-white">
     <x-user-impersonation-banner />
     @if(session()->has('member_impersonation') && auth()->check())
         <div class="sticky top-0 z-[100] border-b border-amber-300/20 bg-amber-400 px-4 py-2 text-slate-950 shadow-xl shadow-amber-950/20">

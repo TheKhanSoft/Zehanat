@@ -1,12 +1,15 @@
 /* ==========================================================================
-   Engitech Theme Design System (Public Website)
+   Engitech Theme Design System (Light / Clean White Theme)
    Color Palette:
    - Primary Electric Blue: #0c5adb
    - Primary Cyan Highlight: #43baff
-   - Dark Tech Background: #0f172a / #0b0f19
-   - Top Strip Dark Navy: #141a29
+   - Dark Heading Text: #182433 / #1b1d21
+   - Slate Body Text: #5e6278 / #606e7b
+   - Light Gray Section Bg: #f4f6f9 / #f8f9fa
+   - Clean White Container Bg: #ffffff
    - Coral Accent: #ff4b2b
-   - Soft Tech Gray: #f8f9fa / #1e293b
+   - Top Strip Off-White: #f4f5f9
+   - Dark Contrast Section (Footer & CTA): #1b1d21
    ========================================================================== */
 
 /* Google Fonts Import */
@@ -17,17 +20,21 @@
     --font-body: 'Nunito Sans', sans-serif;
     --color-primary: #0c5adb;
     --color-primary-light: #43baff;
-    --color-dark-bg: #0b0f19;
-    --color-card-dark: #141a29;
+    --color-heading: #182433;
+    --color-body: #5e6278;
+    --color-bg-light: #f4f6f9;
     --color-accent: #ff4b2b;
 }
 
 body {
     font-family: var(--font-body);
+    color: var(--color-body);
+    background-color: #ffffff;
 }
 
 h1, h2, h3, h4, h5, h6, .font-heading {
     font-family: var(--font-heading);
+    color: var(--color-heading);
 }
 
 /* Neural network hero canvas */
@@ -35,7 +42,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
     position: absolute;
     inset: 0;
     z-index: 0;
-    opacity: 0.25;
+    opacity: 0.12;
 }
 
 /* Engitech Section Tag Style (// TAG) */
@@ -45,14 +52,14 @@ h1, h2, h3, h4, h5, h6, .font-heading {
     text-transform: uppercase;
     letter-spacing: 0.12em;
     font-size: 0.8125rem;
-    color: #43baff;
+    color: #0c5adb;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
 }
 .engitech-tag::before {
     content: "//";
-    color: #0c5adb;
+    color: #43baff;
     font-weight: 900;
 }
 
@@ -85,14 +92,13 @@ h1, h2, h3, h4, h5, h6, .font-heading {
     transform: scale(1);
 }
 
-/* Stagger delay for grid items */
+/* Stagger delays */
 .stagger-1 { transition-delay: 0.08s; }
 .stagger-2 { transition-delay: 0.16s; }
 .stagger-3 { transition-delay: 0.24s; }
 .stagger-4 { transition-delay: 0.32s; }
 .stagger-5 { transition-delay: 0.40s; }
 .stagger-6 { transition-delay: 0.48s; }
-.stagger-7 { transition-delay: 0.56s; }
 
 /* Floating animation */
 @keyframes float {
@@ -103,52 +109,23 @@ h1, h2, h3, h4, h5, h6, .font-heading {
     animation: float 4s ease-in-out infinite;
 }
 
-/* Pulse glow for accent elements */
-@keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 20px rgba(67, 186, 255, 0.3); }
-    50% { box-shadow: 0 0 40px rgba(12, 90, 219, 0.6); }
-}
-.animate-pulse-glow {
-    animation: pulse-glow 2.5s ease-in-out infinite;
-}
-
 /* Engitech Gradient text utility */
 .text-gradient {
-    background: linear-gradient(135deg, #43baff 0%, #0c5adb 100%);
+    background: linear-gradient(135deg, #0c5adb 0%, #43baff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-.text-gradient-amber {
-    background: linear-gradient(135deg, #ff4b2b 0%, #ff8c00 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/* Engitech Glassmorphism card */
-.glass-card {
-    background: rgba(20, 26, 41, 0.7);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.glass-card:hover {
-    background: rgba(20, 26, 41, 0.95);
-    border-color: rgba(67, 186, 255, 0.4);
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(12, 90, 219, 0.15);
-}
-
-/* Engitech Icon Box Card (Style 2) */
+/* Engitech Icon Box Card (Style 2 - Light Theme) */
 .engitech-icon-box {
     position: relative;
-    background: #141a29;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: #ffffff;
+    border: 1px solid #e9ecef;
     border-radius: 1rem;
-    padding: 2rem;
-    transition: all 0.35s ease;
+    padding: 2.25rem;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
     overflow: hidden;
 }
 .engitech-icon-box::before {
@@ -163,12 +140,46 @@ h1, h2, h3, h4, h5, h6, .font-heading {
     transition: opacity 0.35s ease;
 }
 .engitech-icon-box:hover {
-    border-color: rgba(67, 186, 255, 0.3);
+    border-color: rgba(12, 90, 219, 0.3);
     transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 20px 40px rgba(12, 90, 219, 0.12);
 }
 .engitech-icon-box:hover::before {
     opacity: 1;
+}
+
+/* Right Off-Canvas Sidebar / Panel Drawer */
+.engitech-side-panel-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background-color: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+.engitech-side-panel-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.engitech-side-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 420px;
+    z-index: 101;
+    background-color: #ffffff;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
+}
+.engitech-side-panel.active {
+    transform: translateX(0);
 }
 
 /* Smooth scroll */
@@ -181,49 +192,12 @@ html {
     width: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: #0b0f19;
+    background: #f4f6f9;
 }
 ::-webkit-scrollbar-thumb {
-    background: #1e293b;
+    background: #cbd5e1;
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
     background: #0c5adb;
-}
-
-/* Accordion animation */
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out, padding 0.3s ease;
-}
-.accordion-content.open {
-    max-height: 500px;
-}
-
-/* Mobile menu slide */
-.mobile-menu {
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-}
-.mobile-menu.open {
-    transform: translateX(0);
-}
-
-/* Dropdown animation */
-.nav-dropdown {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-8px);
-    transition: all 0.2s ease;
-}
-.nav-item:hover .nav-dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-/* Counter number styling */
-.counter-number {
-    font-variant-numeric: tabular-nums;
 }

@@ -9,13 +9,13 @@
 $baseClasses = 'font-heading font-extrabold uppercase tracking-wider transition-all duration-300 inline-flex items-center justify-center gap-2.5 rounded-xl text-xs';
 
 $variantClasses = match($variant) {
-    'primary' => 'bg-gradient-to-r from-[#0c5adb] to-[#43baff] text-white shadow-lg shadow-blue-600/30 hover:scale-[1.02] hover:shadow-blue-600/50',
-    'primary2' => 'bg-[#141a29] border border-slate-700/80 text-white hover:border-[#43baff] hover:text-[#43baff] shadow-lg',
-    'secondary' => 'bg-[#ff4b2b] hover:bg-[#ff6045] text-white shadow-lg shadow-red-600/30 hover:scale-[1.02]',
-    'outline' => 'border-2 border-[#0c5adb] text-[#43baff] hover:bg-[#0c5adb] hover:text-white hover:border-[#0c5adb]',
-    'outline2' => 'border-2 border-slate-700 text-slate-300 hover:border-[#43baff] hover:text-[#43baff] hover:bg-[#141a29]',
-    'ghost' => 'text-[#43baff] hover:bg-blue-600/10 hover:text-white',
-    default => 'bg-gradient-to-r from-[#0c5adb] to-[#43baff] text-white shadow-lg shadow-blue-600/30 hover:scale-[1.02]',
+    'primary' => 'bg-[#0c5adb] hover:bg-[#43baff] text-white shadow-lg shadow-blue-600/20 hover:scale-[1.02]',
+    'primary2' => 'bg-[#182433] hover:bg-[#0c5adb] text-white shadow-md',
+    'secondary' => 'bg-[#ff4b2b] hover:bg-[#ff6045] text-white shadow-lg shadow-red-600/20 hover:scale-[1.02]',
+    'outline' => 'border-2 border-[#0c5adb] text-[#0c5adb] hover:bg-[#0c5adb] hover:text-white',
+    'outline2' => 'border-2 border-slate-300 text-[#182433] hover:border-[#0c5adb] hover:text-[#0c5adb] hover:bg-slate-50',
+    'ghost' => 'text-[#0c5adb] hover:bg-blue-50',
+    default => 'bg-[#0c5adb] hover:bg-[#43baff] text-white shadow-lg shadow-blue-600/20 hover:scale-[1.02]',
 };
 
 $sizeClasses = match($size) {

@@ -4,7 +4,6 @@
 ])
 
 <section class="relative py-20 overflow-hidden bg-gradient-to-r from-[#0c5adb] via-blue-700 to-[#43baff] rounded-3xl mx-4 sm:mx-6 lg:mx-8 my-16 shadow-2xl shadow-blue-600/30">
-    <!-- Tech Grid Overlay -->
     <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 28px 28px;"></div>
     
     <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">

@@ -230,4 +230,27 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         animateCanvas();
     }
+
+    // i) Right Off-Canvas Sidebar Panel toggle
+    const sidePanelBtn = document.getElementById('side-panel-btn');
+    const sidePanelClose = document.getElementById('side-panel-close');
+    const sidePanelOverlay = document.getElementById('side-panel-overlay');
+    const sidePanel = document.getElementById('side-panel');
+
+    const openSidePanel = () => {
+        if (sidePanel) sidePanel.classList.add('active');
+        if (sidePanelOverlay) sidePanelOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeSidePanel = () => {
+        if (sidePanel) sidePanel.classList.remove('active');
+        if (sidePanelOverlay) sidePanelOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    if (sidePanelBtn) sidePanelBtn.addEventListener('click', openSidePanel);
+    if (sidePanelClose) sidePanelClose.addEventListener('click', closeSidePanel);
+    if (sidePanelOverlay) sidePanelOverlay.addEventListener('click', closeSidePanel);
 });
+
