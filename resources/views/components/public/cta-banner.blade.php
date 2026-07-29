@@ -1,28 +1,39 @@
 @props([
     'title',
     'subtitle' => null,
+    'bgClass' => 'bg-[#1b1d21]',
+    'titleClass' => '!text-white',
+    'subtitleClass' => '!text-slate-400',
+    'badgeText' => 'JOIN KHYBER PAKHTUNKHWA AI MOVEMENT',
 ])
 
-<section class="relative py-20 overflow-hidden bg-gradient-to-r from-[#0c5adb] via-blue-700 to-[#43baff] rounded-3xl mx-4 sm:mx-6 lg:mx-8 my-16 shadow-2xl shadow-blue-600/30">
-    <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 28px 28px;"></div>
+<section class="relative py-20 overflow-hidden {{ $bgClass }} rounded-3xl mx-4 sm:mx-6 lg:mx-8 my-16 shadow-2xl">
+    <!-- Grid Pattern Background -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
+    
+    <!-- Accent Gradient Orbs -->
+    <div class="absolute -top-40 -right-40 w-96 h-96 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+    <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
     
     <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-heading font-extrabold text-white uppercase tracking-wider mb-4 border border-white/20">
-            // JOIN KHYBER PAKHTUNKHWA AI MOVEMENT
+        @if($badgeText)
+        <div class="inline-flex items-center gap-2 bg-slate-800/80 backdrop-blur-md px-4 py-1.5 rounded-full text-[11px] font-heading font-bold text-primary uppercase tracking-[0.15em] mb-6 border border-slate-700/50 shadow-sm">
+            // {{ $badgeText }}
         </div>
+        @endif
 
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white tracking-tight leading-tight">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold {{ $titleClass }} tracking-tight leading-tight">
             {{ $title }}
         </h2>
         
         @if($subtitle)
-            <p class="text-base sm:text-lg text-blue-100 mt-4 max-w-2xl mx-auto font-medium leading-relaxed">
+            <p class="text-base sm:text-lg {{ $subtitleClass }} mt-5 max-w-2xl mx-auto font-medium leading-relaxed">
                 {{ $subtitle }}
             </p>
         @endif
         
         @if(isset($slot) && $slot->isNotEmpty())
-            <div class="flex flex-wrap items-center justify-center gap-4 mt-8">
+            <div class="flex flex-wrap items-center justify-center gap-4 mt-10">
                 {{ $slot }}
             </div>
         @endif

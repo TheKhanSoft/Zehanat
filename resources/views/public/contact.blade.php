@@ -19,7 +19,7 @@
                     <p class="text-[#5e6278] text-xs sm:text-sm mt-2 mb-8">Fill out the form below and our administrative team will get back to you promptly.</p>
                     
                     @if(session('success'))
-                        <div class="mb-6 p-4 rounded-xl bg-blue-50 border border-blue-100 text-[#0c5adb] text-sm font-semibold">
+                        <div class="mb-6 p-4 rounded-xl bg-blue-50 border border-blue-100 text-[#43baff] text-sm font-semibold">
                             {{ session('success') }}
                         </div>
                     @endif
@@ -27,26 +27,26 @@
                     <form method="POST" action="{{ route('contact.store') }}" class="space-y-6">
                         @csrf
                         <div>
-                            <label for="name" class="block text-xs font-heading font-bold uppercase tracking-wider text-[#182433] mb-2">Full Name</label>
-                            <input type="text" name="name" id="name" value="{{ old('name') }}" placeholder="Your Name" class="w-full bg-[#f4f6f9] border border-slate-200 rounded-xl px-4 py-3 text-[#182433] text-sm placeholder-slate-400 focus:border-[#0c5adb] focus:ring-1 focus:ring-[#0c5adb] outline-none transition-colors">
+                            <label for="name" class="block text-xs font-heading font-bold uppercase tracking-wider text-[#1b1d21] mb-2">Full Name</label>
+                            <input type="text" name="name" id="name" value="{{ old('name') }}" placeholder="Your Name" class="w-full bg-[#f4f6f9] border border-slate-200 rounded-xl px-4 py-3 text-[#1b1d21] text-sm placeholder-slate-400 focus:border-[#43baff] focus:ring-1 focus:ring-[#43baff] outline-none transition-colors">
                             @error('name')<span class="text-red-500 text-xs mt-1 block">{{ $message }}</span>@enderror
                         </div>
                         
                         <div>
-                            <label for="email" class="block text-xs font-heading font-bold uppercase tracking-wider text-[#182433] mb-2">Email Address</label>
-                            <input type="email" name="email" id="email" value="{{ old('email') }}" placeholder="your.name@example.com" class="w-full bg-[#f4f6f9] border border-slate-200 rounded-xl px-4 py-3 text-[#182433] text-sm placeholder-slate-400 focus:border-[#0c5adb] focus:ring-1 focus:ring-[#0c5adb] outline-none transition-colors">
+                            <label for="email" class="block text-xs font-heading font-bold uppercase tracking-wider text-[#1b1d21] mb-2">Email Address</label>
+                            <input type="email" name="email" id="email" value="{{ old('email') }}" placeholder="your.name@example.com" class="w-full bg-[#f4f6f9] border border-slate-200 rounded-xl px-4 py-3 text-[#1b1d21] text-sm placeholder-slate-400 focus:border-[#43baff] focus:ring-1 focus:ring-[#43baff] outline-none transition-colors">
                             @error('email')<span class="text-red-500 text-xs mt-1 block">{{ $message }}</span>@enderror
                         </div>
                         
                         <div>
-                            <label for="subject" class="block text-xs font-heading font-bold uppercase tracking-wider text-[#182433] mb-2">Subject</label>
-                            <input type="text" name="subject" id="subject" value="{{ old('subject') }}" placeholder="Subject / Inquiry Topic" class="w-full bg-[#f4f6f9] border border-slate-200 rounded-xl px-4 py-3 text-[#182433] text-sm placeholder-slate-400 focus:border-[#0c5adb] focus:ring-1 focus:ring-[#0c5adb] outline-none transition-colors">
+                            <label for="subject" class="block text-xs font-heading font-bold uppercase tracking-wider text-[#1b1d21] mb-2">Subject</label>
+                            <input type="text" name="subject" id="subject" value="{{ old('subject') }}" placeholder="Subject / Inquiry Topic" class="w-full bg-[#f4f6f9] border border-slate-200 rounded-xl px-4 py-3 text-[#1b1d21] text-sm placeholder-slate-400 focus:border-[#43baff] focus:ring-1 focus:ring-[#43baff] outline-none transition-colors">
                             @error('subject')<span class="text-red-500 text-xs mt-1 block">{{ $message }}</span>@enderror
                         </div>
                         
                         <div>
-                            <label for="message" class="block text-xs font-heading font-bold uppercase tracking-wider text-[#182433] mb-2">Message</label>
-                            <textarea name="message" id="message" rows="5" placeholder="Write your message here..." class="w-full bg-[#f4f6f9] border border-slate-200 rounded-xl px-4 py-3 text-[#182433] text-sm placeholder-slate-400 focus:border-[#0c5adb] focus:ring-1 focus:ring-[#0c5adb] outline-none transition-colors resize-none">{{ old('message') }}</textarea>
+                            <label for="message" class="block text-xs font-heading font-bold uppercase tracking-wider text-[#1b1d21] mb-2">Message</label>
+                            <textarea name="message" id="message" rows="5" placeholder="Write your message here..." class="w-full bg-[#f4f6f9] border border-slate-200 rounded-xl px-4 py-3 text-[#1b1d21] text-sm placeholder-slate-400 focus:border-[#43baff] focus:ring-1 focus:ring-[#43baff] outline-none transition-colors resize-none">{{ old('message') }}</textarea>
                             @error('message')<span class="text-red-500 text-xs mt-1 block">{{ $message }}</span>@enderror
                         </div>
                         
@@ -61,11 +61,11 @@
             <div class="lg:col-span-5 animate-fade-up stagger-1 space-y-6">
                 <div class="engitech-icon-box p-6 bg-white border border-slate-100">
                     <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0c5adb] shrink-0 text-xl">
+                        <div class="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#43baff] shrink-0 text-xl">
                             📍
                         </div>
                         <div>
-                            <h4 class="font-heading font-bold text-[#182433] text-base mb-1">Official Address</h4>
+                            <h4 class="font-heading font-bold text-[#1b1d21] text-base mb-1">Official Address</h4>
                             <p class="text-[#5e6278] text-xs leading-relaxed">
                                 Abdul Wali Khan University Mardan, Khyber Pakhtunkhwa, Pakistan
                             </p>
@@ -75,12 +75,12 @@
 
                 <div class="engitech-icon-box p-6 bg-white border border-slate-100">
                     <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 rounded-2xl bg-cyan-50 border border-cyan-100 flex items-center justify-center text-[#0c5adb] shrink-0 text-xl">
+                        <div class="w-12 h-12 rounded-2xl bg-cyan-50 border border-cyan-100 flex items-center justify-center text-[#43baff] shrink-0 text-xl">
                             ✉️
                         </div>
                         <div>
-                            <h4 class="font-heading font-bold text-[#182433] text-base mb-1">Email Address</h4>
-                            <a href="mailto:zehanat@awkum.edu.pk" class="text-[#5e6278] text-xs hover:text-[#0c5adb] transition-colors">
+                            <h4 class="font-heading font-bold text-[#1b1d21] text-base mb-1">Email Address</h4>
+                            <a href="mailto:zehanat@awkum.edu.pk" class="text-[#5e6278] text-xs hover:text-[#43baff] transition-colors">
                                 zehanat@awkum.edu.pk
                             </a>
                         </div>
@@ -93,8 +93,8 @@
                             📞
                         </div>
                         <div>
-                            <h4 class="font-heading font-bold text-[#182433] text-base mb-1">Phone Helpline</h4>
-                            <a href="tel:+929379230640" class="text-[#5e6278] text-xs hover:text-[#0c5adb] transition-colors">
+                            <h4 class="font-heading font-bold text-[#1b1d21] text-base mb-1">Phone Helpline</h4>
+                            <a href="tel:+929379230640" class="text-[#5e6278] text-xs hover:text-[#43baff] transition-colors">
                                 +92 937 9230640
                             </a>
                         </div>
@@ -107,7 +107,7 @@
                             🕒
                         </div>
                         <div>
-                            <h4 class="font-heading font-bold text-[#182433] text-base mb-1">Office Hours</h4>
+                            <h4 class="font-heading font-bold text-[#1b1d21] text-base mb-1">Office Hours</h4>
                             <p class="text-[#5e6278] text-xs">Monday - Friday: 8:00 AM - 4:00 PM</p>
                         </div>
                     </div>

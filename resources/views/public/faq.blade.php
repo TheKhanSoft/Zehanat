@@ -24,7 +24,7 @@
 
         <div class="mt-16">
             <div class="engitech-icon-box p-10 bg-white text-center border border-slate-100 shadow-xl">
-                <h3 class="text-2xl font-heading font-extrabold text-[#182433] mb-3">Still Have Questions?</h3>
+                <h3 class="text-2xl font-heading font-extrabold text-[#1b1d21] mb-3">Still Have Questions?</h3>
                 <p class="text-[#5e6278] text-xs sm:text-sm mb-6 max-w-xl mx-auto leading-relaxed">
                     Our team is ready to provide you with all the information you need regarding programs, membership, and events.
                 </p>

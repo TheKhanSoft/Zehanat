@@ -20,28 +20,28 @@
             <div class="engitech-icon-box p-8 bg-white border border-slate-100 flex flex-col justify-between">
                 <div>
                     <div class="text-4xl mb-4">📖</div>
-                    <h3 class="text-lg font-heading font-bold text-[#182433] mb-2">Introduction to AI for Educators</h3>
+                    <h3 class="text-lg font-heading font-bold text-[#1b1d21] mb-2">Introduction to AI for Educators</h3>
                     <p class="text-xs text-slate-400 leading-relaxed mb-6">A beginner-friendly guide to understanding core AI concepts and classroom integration.</p>
                 </div>
-                <span class="inline-block px-3 py-1 bg-blue-50 text-[#0c5adb] text-[11px] font-heading font-extrabold uppercase rounded-full border border-blue-100 w-max">Coming Soon</span>
+                <span class="inline-block px-3 py-1 bg-blue-50 text-[#43baff] text-[11px] font-heading font-extrabold uppercase rounded-full border border-blue-100 w-max">Coming Soon</span>
             </div>
 
             <div class="engitech-icon-box p-8 bg-white border border-slate-100 flex flex-col justify-between">
                 <div>
                     <div class="text-4xl mb-4">📖</div>
-                    <h3 class="text-lg font-heading font-bold text-[#182433] mb-2">AI in the Classroom: Practical Guide</h3>
+                    <h3 class="text-lg font-heading font-bold text-[#1b1d21] mb-2">AI in the Classroom: Practical Guide</h3>
                     <p class="text-xs text-slate-400 leading-relaxed mb-6">Step-by-step instructions for incorporating AI tools into everyday lesson planning.</p>
                 </div>
-                <span class="inline-block px-3 py-1 bg-blue-50 text-[#0c5adb] text-[11px] font-heading font-extrabold uppercase rounded-full border border-blue-100 w-max">Coming Soon</span>
+                <span class="inline-block px-3 py-1 bg-blue-50 text-[#43baff] text-[11px] font-heading font-extrabold uppercase rounded-full border border-blue-100 w-max">Coming Soon</span>
             </div>
 
             <div class="engitech-icon-box p-8 bg-white border border-slate-100 flex flex-col justify-between">
                 <div>
                     <div class="text-4xl mb-4">📖</div>
-                    <h3 class="text-lg font-heading font-bold text-[#182433] mb-2">AI Glossary for Education</h3>
+                    <h3 class="text-lg font-heading font-bold text-[#1b1d21] mb-2">AI Glossary for Education</h3>
                     <p class="text-xs text-slate-400 leading-relaxed mb-6">Common AI terms and technical terminology explained in simple, clear language.</p>
                 </div>
-                <span class="inline-block px-3 py-1 bg-blue-50 text-[#0c5adb] text-[11px] font-heading font-extrabold uppercase rounded-full border border-blue-100 w-max">Coming Soon</span>
+                <span class="inline-block px-3 py-1 bg-blue-50 text-[#43baff] text-[11px] font-heading font-extrabold uppercase rounded-full border border-blue-100 w-max">Coming Soon</span>
             </div>
         </div>
     </div>

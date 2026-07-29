@@ -27,21 +27,21 @@
                     
                     <div class="space-y-8">
                         <div class="relative pl-16">
-                            <div class="absolute left-0 top-1 w-14 h-14 rounded-2xl bg-white border-2 border-[#0c5adb] flex items-center justify-center z-10 shadow-md">
-                                <span class="text-xs font-heading font-extrabold text-[#0c5adb]">2026</span>
+                            <div class="absolute left-0 top-1 w-14 h-14 rounded-2xl bg-white border-2 border-[#43baff] flex items-center justify-center z-10 shadow-md">
+                                <span class="text-xs font-heading font-extrabold text-[#43baff]">2026</span>
                             </div>
                             <div class="engitech-icon-box p-6 bg-white border border-slate-100">
-                                <h4 class="text-lg font-heading font-bold text-[#182433] mb-1">Society Founded</h4>
+                                <h4 class="text-lg font-heading font-bold text-[#1b1d21] mb-1">Society Founded</h4>
                                 <p class="text-slate-400 text-xs">The vision takes shape with the establishment of Zehanat.</p>
                             </div>
                         </div>
                         
                         <div class="relative pl-16">
                             <div class="absolute left-0 top-1 w-14 h-14 rounded-2xl bg-white border-2 border-[#43baff] flex items-center justify-center z-10 shadow-md">
-                                <span class="text-xs font-heading font-extrabold text-[#182433]">AWKUM</span>
+                                <span class="text-xs font-heading font-extrabold text-[#1b1d21]">AWKUM</span>
                             </div>
                             <div class="engitech-icon-box p-6 bg-white border border-slate-100">
-                                <h4 class="text-lg font-heading font-bold text-[#182433] mb-1">Hosted by AWKUM</h4>
+                                <h4 class="text-lg font-heading font-bold text-[#1b1d21] mb-1">Hosted by AWKUM</h4>
                                 <p class="text-slate-400 text-xs">Academic leadership and operational foundation established at Mardan.</p>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                                 <span class="text-xs font-heading font-extrabold text-[#ff4b2b]">GOAL</span>
                             </div>
                             <div class="engitech-icon-box p-6 bg-white border border-slate-100">
-                                <h4 class="text-lg font-heading font-bold text-[#182433] mb-1">Provincial Rollout</h4>
+                                <h4 class="text-lg font-heading font-bold text-[#1b1d21] mb-1">Provincial Rollout</h4>
                                 <p class="text-slate-400 text-xs">Expanding workshops, curriculum integration, and research across KP.</p>
                             </div>
                         </div>
@@ -67,11 +67,11 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-5 animate-fade-up">
                     <div class="engitech-icon-box bg-white p-8 border border-slate-100 shadow-xl">
-                        <div class="w-16 h-16 rounded-2xl bg-[#0c5adb] flex items-center justify-center text-white text-2xl font-black mb-4 shadow-lg shadow-blue-600/20">
-                            VC
+                        <div class="mb-6">
+                            <img src="{{ asset('images/vc.jpg') }}" alt="Prof. Dr. Jamil Ahmad" class="w-24 h-24 rounded-full object-cover border-4 border-primary/20 shadow-lg">
                         </div>
-                        <h3 class="text-xl font-heading font-bold text-[#182433] mb-1">Patron & Founder</h3>
-                        <p class="text-[#0c5adb] text-xs font-semibold uppercase tracking-wider mb-4">Vice Chancellor, AWKUM</p>
+                        <h3 class="text-xl font-heading font-bold text-[#1b1d21] mb-1">Prof. Dr. Jamil Ahmad</h3>
+                        <p class="text-[#43baff] text-xs font-semibold uppercase tracking-wider mb-4">Patron & Founder, Vice Chancellor AWKUM</p>
                         <p class="text-[#5e6278] text-xs leading-relaxed">
                             Leading the institutional vision to position Abdul Wali Khan University Mardan as a pioneer in AI-enabled higher education and research.
                         </p>

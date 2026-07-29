@@ -22,10 +22,12 @@
     <!-- Vite Assets -->
     @vite(['resources/css/app.css', 'resources/css/public.css', 'resources/js/public.js'])
     
-    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
-    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
+    <!-- Swiper.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <link rel="icon" type="image/jpeg" href="{{ asset('favicon.jpg') }}">
+    <link rel="apple-touch-icon" href="{{ asset('favicon.jpg') }}">
     @stack('head')
 </head>
 <body class="bg-white text-[#5e6278] font-['Nunito_Sans',sans-serif] antialiased min-h-screen flex flex-col selection:bg-[#0c5adb] selection:text-white">

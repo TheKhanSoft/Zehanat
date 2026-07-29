@@ -286,10 +286,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             dots.forEach((dot, i) => {
                 const isActive = i === index;
-                dot.classList.toggle('bg-[#0c5adb]', isActive);
-                dot.classList.toggle('w-8', isActive);
-                dot.classList.toggle('bg-slate-300', !isActive);
-                dot.classList.toggle('w-3', !isActive);
+                if (isActive) {
+                    dot.className = 'h-3 w-3 rounded-full bg-white transition-all transform scale-150 shadow-[0_0_10px_rgba(67,186,255,0.8)]';
+                } else {
+                    dot.className = 'h-3 w-3 rounded-full bg-white/30 transition-all hover:bg-white';
+                }
             });
 
             if (currentNumEl) {
