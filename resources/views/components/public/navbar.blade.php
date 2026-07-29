@@ -13,16 +13,16 @@
             </div>
 
             <!-- Desktop Nav Links -->
-            <div class="hidden xl:flex items-center gap-9 font-heading text-[15px] font-bold text-[#1b1d21] h-full">
+            <div class="hidden xl:flex items-stretch gap-9 font-heading text-[15px] font-bold text-[#1b1d21] h-full">
                 
-                <div class="relative group h-full flex items-center">
-                    <a href="/" class="flex items-center gap-1 {{ request()->is('/') ? 'text-primary' : '' }} hover:text-primary transition-colors duration-200">
+                <div class="relative group h-full flex items-stretch">
+                    <a href="/" class="flex items-center gap-1 h-full border-b-[3px] border-transparent {{ request()->is('/') ? 'text-primary !border-primary' : '' }} hover:text-primary hover:border-primary transition-colors duration-200">
                         Home
                     </a>
                 </div>
                 
-                <div class="relative group h-full flex items-center">
-                    <button class="flex items-center gap-1 {{ request()->is('about*') ? 'text-primary' : '' }} hover:text-primary transition-colors duration-200">
+                <div class="relative group h-full flex items-stretch">
+                    <button class="flex items-center gap-1 h-full border-b-[3px] border-transparent {{ request()->is('about*') ? 'text-primary !border-primary' : '' }} hover:text-primary hover:border-primary transition-colors duration-200">
                         About <svg class="w-3.5 h-3.5 mt-0.5 text-slate-400 group-hover:text-primary transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
                     </button>
                     <!-- Simple Dropdown -->
@@ -33,14 +33,14 @@
                     </div>
                 </div>
 
-                <div class="relative group h-full flex items-center">
-                    <a href="/pillars" class="flex items-center gap-1 {{ request()->is('pillars*') ? 'text-primary' : '' }} hover:text-primary transition-colors duration-200">
+                <div class="relative group h-full flex items-stretch">
+                    <a href="/pillars" class="flex items-center gap-1 h-full border-b-[3px] border-transparent {{ request()->is('pillars*') ? 'text-primary !border-primary' : '' }} hover:text-primary hover:border-primary transition-colors duration-200">
                         Our Six Pillars
                     </a>
                 </div>
 
-                <div class="relative group h-full flex items-center">
-                    <button class="flex items-center gap-1 {{ request()->is('programs*') ? 'text-primary' : '' }} hover:text-primary transition-colors duration-200">
+                <div class="relative group h-full flex items-stretch">
+                    <button class="flex items-center gap-1 h-full border-b-[3px] border-transparent {{ request()->is('programs*') ? 'text-primary !border-primary' : '' }} hover:text-primary hover:border-primary transition-colors duration-200">
                         Programs <svg class="w-3.5 h-3.5 mt-0.5 text-slate-400 group-hover:text-primary transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
                     </button>
                     <!-- Mega Menu -->
@@ -64,8 +64,8 @@
                     </div>
                 </div>
 
-                <div class="relative group h-full flex items-center">
-                    <button class="flex items-center gap-1 {{ request()->is('membership*') ? 'text-primary' : '' }} hover:text-primary transition-colors duration-200">
+                <div class="relative group h-full flex items-stretch">
+                    <button class="flex items-center gap-1 h-full border-b-[3px] border-transparent {{ request()->is('membership*') ? 'text-primary !border-primary' : '' }} hover:text-primary hover:border-primary transition-colors duration-200">
                         Membership <svg class="w-3.5 h-3.5 mt-0.5 text-slate-400 group-hover:text-primary transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
                     </button>
                     <!-- Simple Dropdown -->
@@ -75,14 +75,14 @@
                     </div>
                 </div>
 
-                <div class="relative group h-full flex items-center">
-                    <a href="/news-events" class="flex items-center gap-1 {{ request()->is('news-events*') ? 'text-primary' : '' }} hover:text-primary transition-colors duration-200">
+                <div class="relative group h-full flex items-stretch">
+                    <a href="/news-events" class="flex items-center gap-1 h-full border-b-[3px] border-transparent {{ request()->is('news-events*') ? 'text-primary !border-primary' : '' }} hover:text-primary hover:border-primary transition-colors duration-200">
                         News & Events
                     </a>
                 </div>
                 
-                <div class="relative group h-full flex items-center">
-                    <a href="/contact" class="flex items-center gap-1 {{ request()->is('contact*') ? 'text-primary' : '' }} hover:text-primary transition-colors duration-200">
+                <div class="relative group h-full flex items-stretch">
+                    <a href="/contact" class="flex items-center gap-1 h-full border-b-[3px] border-transparent {{ request()->is('contact*') ? 'text-primary !border-primary' : '' }} hover:text-primary hover:border-primary transition-colors duration-200">
                         Contact
                     </a>
                 </div>
@@ -92,17 +92,17 @@
             <div class="hidden sm:flex items-center gap-6 ml-4">
                 
                 <!-- Search Icon -->
-                <button class="text-[#1b1d21] hover:text-primary transition-colors">
+                <button id="search-btn" class="text-[#1b1d21] hover:text-primary transition-colors" aria-label="Open Search">
                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 </button>
 
                 <!-- User/Dashboard (Instead of Cart) -->
-                <a href="{{ route('admin.dashboard') }}" class="relative text-[#1b1d21] hover:text-primary transition-colors">
+                <!-- <a href="{{ route('admin.dashboard') }}" class="relative text-[#1b1d21] hover:text-primary transition-colors">
                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
                     @auth
                     <span class="absolute -top-2 -right-2 w-4 h-4 bg-primary text-white text-[9px] font-black rounded-full flex items-center justify-center">1</span>
                     @endauth
-                </a>
+                </a> -->
 
                 <!-- Off-Canvas Sidebar Trigger (Grid Icon) -->
                 <button id="side-panel-btn" class="text-[#1b1d21] hover:text-primary transition-colors ml-2" aria-label="Open Side Panel">
@@ -226,3 +226,64 @@
         </div>
     </div>
 </div>
+
+<!-- Full Screen Search Overlay -->
+<div id="search-overlay" class="fixed inset-0 z-[1000] bg-white/95 backdrop-blur-md flex-col items-center justify-center transition-all duration-300 opacity-0 invisible flex">
+    <button id="search-close" class="absolute top-10 right-10 p-2 text-[#1b1d21] hover:text-primary transition-transform hover:rotate-90">
+        <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+    </button>
+    <div class="w-full max-w-4xl px-4 transform translate-y-8 transition-transform duration-500" id="search-container">
+        <form action="{{ route('search') }}" method="GET" class="relative border-b-2 border-slate-200 focus-within:border-primary transition-colors pb-2">
+            <input type="text" name="q" id="search-input" placeholder="Search Zehanat..." class="w-full bg-transparent py-2 text-4xl sm:text-5xl font-heading font-extrabold text-[#1b1d21] placeholder-slate-300 outline-none">
+            <button type="submit" class="absolute right-2 top-1/2 -translate-y-1/2 text-[#1b1d21] hover:text-primary transition-colors">
+                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </button>
+        </form>
+        <p class="mt-6 text-slate-500 font-medium text-center">Press <kbd class="px-2 py-1 bg-slate-100 rounded text-sm">Enter</kbd> to search or <kbd class="px-2 py-1 bg-slate-100 rounded text-sm">ESC</kbd> to close</p>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchBtn = document.getElementById('search-btn');
+        const searchOverlay = document.getElementById('search-overlay');
+        const searchClose = document.getElementById('search-close');
+        const searchInput = document.getElementById('search-input');
+        const searchContainer = document.getElementById('search-container');
+
+        if (searchBtn && searchOverlay) {
+            const openSearch = () => {
+                searchOverlay.classList.remove('invisible', 'opacity-0');
+                searchOverlay.classList.add('visible', 'opacity-100');
+                searchContainer.classList.remove('translate-y-8');
+                searchContainer.classList.add('translate-y-0');
+                setTimeout(() => searchInput.focus(), 100);
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeSearch = () => {
+                searchOverlay.classList.remove('visible', 'opacity-100');
+                searchOverlay.classList.add('invisible', 'opacity-0');
+                searchContainer.classList.remove('translate-y-0');
+                searchContainer.classList.add('translate-y-8');
+                document.body.style.overflow = '';
+            };
+
+            searchBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openSearch();
+            });
+
+            searchClose.addEventListener('click', closeSearch);
+
+            // Close on ESC key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && searchOverlay.classList.contains('visible')) {
+                    closeSearch();
+                }
+            });
+        }
+    });
+</script>

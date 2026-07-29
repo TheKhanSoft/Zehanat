@@ -26,7 +26,7 @@
                         <li class="flex items-center gap-2"><span>&check;</span> Event & workshop invitations</li>
                     </ul>
                 </div>
-                <x-public.btn variant="outline" size="sm" href="#join" class="w-full justify-center">Join As Individual</x-public.btn>
+                <x-public.btn variant="outline" size="sm" href="#join" class="w-full justify-center" data-select-category="individual">Join As Individual</x-public.btn>
             </div>
 
             <!-- Institutional Member -->
@@ -45,7 +45,7 @@
                         <li class="flex items-center gap-2"><span>&check;</span> Official Zehanat network badge</li>
                     </ul>
                 </div>
-                <x-public.btn variant="primary" size="sm" href="#join" class="w-full justify-center">Register Institution</x-public.btn>
+                <x-public.btn variant="primary" size="sm" href="#join" class="w-full justify-center" data-select-category="institution">Register Institution</x-public.btn>
             </div>
 
             <!-- Industry Partner -->
@@ -61,7 +61,7 @@
                         <li class="flex items-center gap-2"><span>&check;</span> Brand visibility at events</li>
                     </ul>
                 </div>
-                <x-public.btn variant="outline" size="sm" href="#join" class="w-full justify-center">Partner With Us</x-public.btn>
+                <x-public.btn variant="outline" size="sm" href="#join" class="w-full justify-center" data-select-category="industry">Partner With Us</x-public.btn>
             </div>
 
             <!-- Student Chapter -->
@@ -77,47 +77,48 @@
                         <li class="flex items-center gap-2"><span>&check;</span> Hackathon support</li>
                     </ul>
                 </div>
-                <x-public.btn variant="outline" size="sm" href="#join" class="w-full justify-center">Start A Chapter</x-public.btn>
+                <x-public.btn variant="outline" size="sm" href="#join" class="w-full justify-center" data-select-category="student">Start A Chapter</x-public.btn>
             </div>
         </div>
     </div>
 </section>
 
 <!-- RESTORED ADVANCED MEMBERSHIP FORM -->
-<section id="join" class="py-20 md:py-28 bg-[#1b1d21]">
+<!-- RESTORED ADVANCED MEMBERSHIP FORM -->
+<section id="join" class="py-20 md:py-28 bg-white border-t border-slate-100">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="animate-fade-up">
+        <div class="animate-fade-up mb-12">
             <x-public.section-heading title="Join Now" subtitle="Fill out the form below to register your interest in joining Zehanat." align="center" />
         </div>
 
         @if(session('success'))
-            <div class="mb-6 p-4 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400">
+            <div class="mb-6 p-4 rounded-xl bg-green-50 border border-green-200 text-green-700">
                 {{ session('success') }}
             </div>
         @endif
 
-        <form method="POST" action="{{ route('membership.store') }}" class="glass-card p-8 md:p-10 rounded-2xl border border-slate-700 bg-slate-800/40 animate-fade-up stagger-2 shadow-2xl">
+        <form method="POST" action="{{ route('membership.store') }}" class="p-8 md:p-10 rounded-2xl border border-slate-100 bg-white animate-fade-up stagger-2 shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
             @csrf
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                    <label for="name" class="block text-sm font-medium text-slate-300 mb-1">Full Name</label>
-                    <input type="text" name="name" id="name" value="{{ old('name') }}" placeholder="John Doe" autocomplete="name" required class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-colors">
-                    @error('name')<span class="text-red-400 text-xs mt-1 block">{{ $message }}</span>@enderror
+                    <label for="name" class="block text-sm font-semibold text-[#1b1d21] mb-1">Full Name</label>
+                    <input type="text" name="name" id="name" value="{{ old('name') }}" placeholder="John Doe" autocomplete="name" required class="w-full bg-[#f4f6f9] border border-slate-200 rounded-xl px-4 py-3 text-[#1b1d21] placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors">
+                    @error('name')<span class="text-red-500 text-xs mt-1 block">{{ $message }}</span>@enderror
                 </div>
                 <div>
-                    <label for="email" class="block text-sm font-medium text-slate-300 mb-1">Email Address</label>
-                    <input type="email" name="email" id="email" value="{{ old('email') }}" placeholder="john@example.com" autocomplete="email" required class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-colors">
-                    @error('email')<span class="text-red-400 text-xs mt-1 block">{{ $message }}</span>@enderror
+                    <label for="email" class="block text-sm font-semibold text-[#1b1d21] mb-1">Email Address</label>
+                    <input type="email" name="email" id="email" value="{{ old('email') }}" placeholder="john@example.com" autocomplete="email" required class="w-full bg-[#f4f6f9] border border-slate-200 rounded-xl px-4 py-3 text-[#1b1d21] placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors">
+                    @error('email')<span class="text-red-500 text-xs mt-1 block">{{ $message }}</span>@enderror
                 </div>
             </div>
 
             <div class="mb-7">
                 <div class="flex items-center justify-between gap-3">
-                    <label for="phone" class="block text-sm font-semibold text-slate-200">Phone Number</label>
+                    <label for="phone" class="block text-sm font-semibold text-[#1b1d21]">Phone Number</label>
                     <span class="text-[11px] font-medium text-slate-500">Optional</span>
                 </div>
                 <div class="relative mt-2 max-w-xl">
-                    <span class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-slate-500">
+                    <span class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400">
                         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.362-.271.527-.734.417-1.173L6.963 3.102A1.125 1.125 0 0 0 5.872 2.25H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" /></svg>
                     </span>
                     <input
@@ -134,14 +135,14 @@
                         data-phone-input
                         aria-describedby="phone-help @error('phone') phone-error @enderror"
                         @error('phone') aria-invalid="true" @enderror
-                        class="w-full rounded-xl border bg-slate-800/50 py-3 pl-12 pr-4 text-white outline-none transition placeholder:text-slate-600 focus:ring-2 {{ $errors->has('phone') ? 'border-rose-400/70 focus:border-rose-400 focus:ring-rose-400/15' : 'border-slate-700 focus:border-teal-500 focus:ring-teal-500/15' }}"
+                        class="w-full rounded-xl border bg-[#f4f6f9] py-3 pl-12 pr-4 text-[#1b1d21] outline-none transition placeholder:text-slate-400 focus:ring-2 {{ $errors->has('phone') ? 'border-red-400 focus:border-red-500 focus:ring-red-200' : 'border-slate-200 focus:border-primary focus:ring-primary/20' }}"
                     >
                 </div>
                 <p id="phone-help" class="mt-2 flex items-center gap-1.5 text-xs text-slate-500">
                     <svg class="h-3.5 w-3.5 flex-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M11.25 11.25 11.291 11.23a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" /></svg>
                     Enter 7 to 15 digits. A leading + is allowed.
                 </p>
-                @error('phone')<p id="phone-error" class="mt-1.5 text-xs font-semibold text-rose-400">{{ $message }}</p>@enderror
+                @error('phone')<p id="phone-error" class="mt-1.5 text-xs font-semibold text-red-500">{{ $message }}</p>@enderror
             </div>
 
             @php
@@ -155,10 +156,10 @@
             <fieldset class="mb-7" aria-describedby="category-help @error('category') category-error @enderror">
                 <div class="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
                     <div>
-                        <legend class="text-sm font-semibold text-slate-200">Membership Category</legend>
+                        <legend class="text-sm font-semibold text-[#1b1d21]">Membership Category</legend>
                         <p id="category-help" class="mt-1 text-xs text-slate-500">Choose the option that best describes how you are joining Zehanat.</p>
                     </div>
-                    <span class="mt-1 text-[11px] font-bold uppercase tracking-[0.14em] text-teal-400 sm:mt-0">Required</span>
+                    <span class="mt-1 text-[11px] font-bold uppercase tracking-[0.14em] text-primary sm:mt-0">Required</span>
                 </div>
 
                 <div class="mt-4 grid gap-3 sm:grid-cols-2">
@@ -172,8 +173,8 @@
                                 required
                                 {{ old('category') === $value ? 'checked' : '' }}
                             >
-                            <span class="flex min-h-28 items-start gap-4 rounded-2xl border p-4 transition duration-200 hover:-translate-y-0.5 hover:border-slate-500 hover:bg-slate-800/70 peer-focus-visible:ring-2 peer-focus-visible:ring-teal-400 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-slate-900 peer-checked:border-teal-400 peer-checked:bg-teal-400/10 peer-checked:shadow-lg peer-checked:shadow-teal-950/20 {{ $errors->has('category') ? 'border-rose-400/40 bg-rose-400/5' : 'border-slate-700 bg-slate-900/45' }}">
-                                <span class="flex h-11 w-11 flex-none items-center justify-center rounded-xl border border-slate-700 bg-slate-800 text-slate-400 transition peer-checked:border-teal-400/30">
+                            <span class="flex min-h-28 items-start gap-4 rounded-2xl border p-4 transition duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:bg-[#f4f6f9] peer-focus-visible:ring-2 peer-focus-visible:ring-primary peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-white peer-checked:border-primary peer-checked:bg-blue-50 peer-checked:shadow-md {{ $errors->has('category') ? 'border-red-300 bg-red-50' : 'border-slate-200 bg-white' }}">
+                                <span class="flex h-11 w-11 flex-none items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-400 transition peer-checked:border-primary/30 peer-checked:text-primary">
                                     @if($value === 'individual')
                                         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.5 20.1a7.5 7.5 0 0 1 15 0" /></svg>
                                     @elseif($value === 'institution')
@@ -186,28 +187,30 @@
                                 </span>
                                 <span class="min-w-0 pr-8">
                                     <span class="flex flex-wrap items-center gap-2">
-                                        <span class="block text-sm font-black text-white">{{ $option['title'] }}</span>
+                                        <span class="block text-sm font-black text-[#1b1d21]">{{ $option['title'] }}</span>
                                         @if($value === 'institution')
-                                            <span class="rounded-full bg-amber-400/10 px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-amber-300">Recommended</span>
+                                            <span class="rounded-full bg-amber-100 px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-amber-600">Recommended</span>
                                         @endif
                                     </span>
                                     <span class="mt-1.5 block text-xs leading-5 text-slate-500">{{ $option['description'] }}</span>
                                 </span>
-                            </span>
-                            <span class="pointer-events-none absolute right-3.5 top-3.5 flex h-6 w-6 items-center justify-center rounded-full border border-slate-600 bg-slate-900 text-transparent opacity-0 transition peer-checked:border-teal-400 peer-checked:bg-teal-400 peer-checked:text-slate-950 peer-checked:opacity-100">
-                                <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                             </span>
+                            <span class="pointer-events-none absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full border-2 border-slate-300 bg-white opacity-0 transition-all duration-300 scale-75 peer-checked:scale-100 peer-checked:border-primary peer-checked:bg-primary peer-checked:opacity-100 shadow-md">
+                                <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7" />
+                                </svg>
                             </span>
                         </label>
                     @endforeach
                 </div>
-                @error('category')<p id="category-error" class="mt-2 text-xs font-semibold text-rose-400">{{ $message }}</p>@enderror
+                @error('category')<p id="category-error" class="mt-2 text-xs font-semibold text-red-500">{{ $message }}</p>@enderror
             </fieldset>
 
             @php($organizationRequired = in_array(old('category'), ['institution', 'industry', 'student'], true))
-            <div class="mb-6 rounded-2xl border p-4 transition-colors {{ $errors->has('institution') ? 'border-rose-400/40 bg-rose-400/5' : 'border-slate-700/70 bg-slate-900/30' }}" data-organization-field>
+            <div class="mb-6 rounded-2xl border p-4 transition-colors {{ $errors->has('institution') ? 'border-red-300 bg-red-50' : 'border-slate-200 bg-[#f4f6f9]' }}" data-organization-field>
                 <div class="mb-2 flex items-center justify-between gap-3">
-                    <label for="institution" class="block text-sm font-semibold text-slate-200">Institution/Organization Name</label>
-                    <span class="rounded-full px-2.5 py-1 text-[10px] font-black uppercase tracking-wider {{ $organizationRequired ? 'bg-amber-400/10 text-amber-300' : 'bg-slate-800 text-slate-500' }}" data-organization-requirement>
+                    <label for="institution" class="block text-sm font-semibold text-[#1b1d21]">Institution/Organization Name</label>
+                    <span class="rounded-full px-2.5 py-1 text-[10px] font-black uppercase tracking-wider {{ $organizationRequired ? 'bg-amber-100 text-amber-600' : 'bg-slate-200 text-slate-500' }}" data-organization-requirement>
                         {{ $organizationRequired ? 'Required' : 'Optional' }}
                     </span>
                 </div>
@@ -222,26 +225,41 @@
                     aria-describedby="institution-help @error('institution') institution-error @enderror"
                     {{ $organizationRequired ? 'required aria-required=true' : 'aria-required=false' }}
                     @error('institution') aria-invalid="true" @enderror
-                    class="w-full rounded-xl border bg-slate-800/50 px-4 py-3 text-white outline-none transition-colors placeholder:text-slate-600 {{ $errors->has('institution') ? 'border-rose-400/70 focus:border-rose-400 focus:ring-2 focus:ring-rose-400/15' : 'border-slate-700 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/15' }}"
+                    class="w-full rounded-xl border bg-white px-4 py-3 text-[#1b1d21] outline-none transition-colors placeholder:text-slate-400 {{ $errors->has('institution') ? 'border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-200' : 'border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20' }}"
                 >
                 <p id="institution-help" class="mt-2 text-xs leading-5 text-slate-500" data-organization-help>
                     {{ $organizationRequired ? 'Required for the selected membership category.' : 'Optional for individual memberships.' }}
                 </p>
-                @error('institution')<p id="institution-error" class="mt-1.5 text-xs font-semibold text-rose-400">{{ $message }}</p>@enderror
+                @error('institution')<p id="institution-error" class="mt-1.5 text-xs font-semibold text-red-500">{{ $message }}</p>@enderror
             </div>
 
             <div class="mb-8">
-                <label for="message" class="block text-sm font-medium text-slate-300 mb-1">Message/Reason for Joining</label>
-                <textarea name="message" id="message" rows="4" placeholder="Tell us a little bit about why you're joining..." class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-colors">{{ old('message') }}</textarea>
-                @error('message')<span class="text-red-400 text-xs mt-1 block">{{ $message }}</span>@enderror
+                <label for="message" class="block text-sm font-semibold text-[#1b1d21] mb-1">Message/Reason for Joining</label>
+                <textarea name="message" id="message" rows="4" placeholder="Tell us a little bit about why you're joining..." class="w-full bg-[#f4f6f9] border border-slate-200 rounded-xl px-4 py-3 text-[#1b1d21] placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors">{{ old('message') }}</textarea>
+                @error('message')<span class="text-red-500 text-xs mt-1 block">{{ $message }}</span>@enderror
             </div>
 
             <div class="text-right">
-                <button type="submit" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-slate-950 bg-teal-500 hover:bg-teal-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 focus:ring-offset-slate-950 transition-colors shadow-[0_0_20px_-5px_rgba(20,184,166,0.4)] hover:shadow-[0_0_25px_-5px_rgba(20,184,166,0.6)]">
-                    Submit Application
-                </button>
+                <x-public.btn variant="primary" size="lg" type="submit">Submit Application</x-public.btn>
             </div>
         </form>
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const selectButtons = document.querySelectorAll('[data-select-category]');
+        selectButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                const category = this.getAttribute('data-select-category');
+                const radio = document.querySelector(`input[name="category"][value="${category}"]`);
+                if(radio) {
+                    radio.checked = true;
+                    // Trigger change event for any other listeners
+                    radio.dispatchEvent(new Event('change', { bubbles: true }));
+                }
+            });
+        });
+    });
+</script>
 @endsection

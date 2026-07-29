@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\MemberImpersonationController;
 use App\Http\Controllers\Admin\UserImpersonationController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MembershipController;
+use App\Http\Controllers\SearchController;
 use App\Livewire\Admin\ContactManager;
 use App\Livewire\Admin\DashboardManager;
 use App\Livewire\Admin\DeleteAccountVerify;
@@ -20,6 +21,7 @@ use App\Models\NewsEvent;
 use Illuminate\Support\Facades\Route;
 
 // Public website routes
+Route::get('/search', [SearchController::class, 'index'])->name('search');
 Route::view('/', 'public.home')->name('home');
 Route::view('/about', 'public.about')->name('about');
 Route::view('/pillars', 'public.pillars')->name('pillars');
