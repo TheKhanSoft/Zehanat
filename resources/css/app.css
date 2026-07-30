@@ -26,6 +26,15 @@
     --color-accent: var(--color-neutral-800);
     --color-accent-content: var(--color-neutral-800);
     --color-accent-foreground: var(--color-white);
+
+    /* Zehanat Public Theme Colors */
+    --color-primary: #43baff;
+    --color-second: #7141b1;
+    --color-dark: #1b1d21;
+    
+    /* Zehanat Public Theme Fonts */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Nunito Sans', sans-serif;
 }
 
 @layer theme {
