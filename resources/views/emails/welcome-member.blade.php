@@ -178,8 +178,8 @@
         <table class="main" width="100%">
             <!-- Header -->
             <tr>
-                <td class="header">
-                    <p class="logo-text">Zehanat <span class="logo-urdu">ذہانت</span></p>
+                <td class="header" style="text-align: center;">
+                    <img src="{{ asset('images/brand/zehanat_logo_horizontal_dark_1800x600.png') }}" alt="Zehanat" style="max-height: 50px; width: auto; max-width: 100%; display: inline-block;">
                     <h1>Welcome to the Family!</h1>
                 </td>
             </tr>

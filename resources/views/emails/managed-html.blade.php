@@ -12,9 +12,9 @@
             <td align="center">
                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:640px;border:1px solid #1e293b;border-radius:24px;overflow:hidden;background:#0f172a;">
                     <tr>
-                        <td style="padding:24px 32px;border-bottom:1px solid #1e293b;background:#111c2f;">
-                            <div style="font-size:21px;font-weight:900;color:#f8fafc;">{{ config('app.name', 'Zehanat') }}</div>
-                            <div style="margin-top:4px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#2dd4bf;">Intelligence · Education · Impact</div>
+                        <td style="padding:24px 32px;border-bottom:1px solid #1e293b;background:#111c2f;text-align:center;">
+                            <img src="{{ asset('images/brand/zehanat_logo_horizontal_dark_1800x600.png') }}" alt="{{ config('app.name', 'Zehanat') }}" style="max-height: 45px; width: auto; max-width: 100%; display: inline-block;">
+                            <div style="margin-top:10px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#2dd4bf;">Intelligence · Education · Impact</div>
                         </td>
                     </tr>
                     <tr>
