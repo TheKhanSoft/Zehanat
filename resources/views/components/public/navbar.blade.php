@@ -7,7 +7,7 @@
             <!-- Brand Logo -->
             <div class="flex-shrink-0">
                 <a href="/" class="block">
-                    <img src="{{ asset('images/brand/zehanat_logo_horizontal.svg') }}" alt="Zehanat" class="h-[45px] w-auto">
+                    <img src="{{ asset('images/brand/zehanat_logo_horizontal.svg') }}" alt="Zehanat" class="h-[80px] w-auto">
                 </a>
             </div>
 
