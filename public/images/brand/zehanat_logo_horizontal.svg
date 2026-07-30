@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="600" viewBox="0 0 1800 600">
   <defs>
     <linearGradient id="fillGrad" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#aaf6f3"/>
@@ -28,8 +28,12 @@
       </feMerge>
     </filter>
   </defs>
-  <rect width="512" height="512" rx="112" fill="#061118"/>
-  <g transform="translate(44 42) scale(0.52)" filter="url(#outerGlow)">
-    <path d="M 14 693 L 411 694 L 471 625 L 156 623 L 496 214 L 214 214 L 212 212 L 271 145 L 636 145 L 640 147 L 445 376 L 257 604 L 590 604 L 644 543 L 661 550 L 690 551 L 706 546 L 721 537 L 737 520 L 747 499 L 750 475 L 744 450 L 734 433 L 715 416 L 693 407 L 667 406 L 648 411 L 634 419 L 614 441 L 607 455 L 604 468 L 604 489 L 610 509 L 574 549 L 391 550 L 389 548 L 607 295 L 799 77 L 243 77 L 71 277 L 359 277 L 360 279 Z M 667 443 L 684 442 L 697 447 L 706 455 L 713 467 L 714 486 L 710 496 L 698 509 L 687 514 L 669 514 L 657 509 L 647 499 L 642 489 L 641 470 L 646 458 L 656 448 Z" fill="url(#fillGrad)" fill-rule="evenodd" stroke="url(#strokeGrad)" stroke-width="9"/>
+  <rect width="1800" height="600" fill="transparent"/>
+  <g transform="translate(35,42) scale(0.63)">
+    
+    <path d="M 14 693 L 411 694 L 471 625 L 156 623 L 496 214 L 214 214 L 212 212 L 271 145 L 636 145 L 640 147 L 445 376 L 257 604 L 590 604 L 644 543 L 661 550 L 690 551 L 706 546 L 721 537 L 737 520 L 747 499 L 750 475 L 744 450 L 734 433 L 715 416 L 693 407 L 667 406 L 648 411 L 634 419 L 614 441 L 607 455 L 604 468 L 604 489 L 610 509 L 574 549 L 391 550 L 389 548 L 607 295 L 799 77 L 243 77 L 71 277 L 359 277 L 360 279 Z M 667 443 L 684 442 L 697 447 L 706 455 L 713 467 L 714 486 L 710 496 L 698 509 L 687 514 L 669 514 L 657 509 L 647 499 L 642 489 L 641 470 L 646 458 L 656 448 Z" fill="url(#fillGrad)" fill-rule="evenodd" stroke="url(#strokeGrad)" stroke-width="7"/>
+    
   </g>
+  <text x="640" y="360" font-family="DejaVu Sans, Arial, sans-serif" font-size="170"  fill="url(#fillGrad2)" style="letter-spacing:14px;font-weight:800;font-style:italic;">ZEHANAT</text>
+  <text x="645" y="432" font-family="DejaVu Sans, Arial, sans-serif" font-size="42" fill="#3f8ba0" letter-spacing="8">INTELLIGENCE • INNOVATION • IMPACT</text>
 </svg>

@@ -26,8 +26,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
-    <link rel="icon" type="image/jpeg" href="{{ asset('favicon.jpg') }}">
-    <link rel="apple-touch-icon" href="{{ asset('favicon.jpg') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ asset('safari-pinned-tab.svg') }}" color="#43baff">
+    <meta name="msapplication-TileColor" content="#43baff">
+    <meta name="theme-color" content="#ffffff">
     @stack('head')
 </head>
 <body class="bg-white text-[#5e6278] font-['Nunito_Sans',sans-serif] antialiased min-h-screen flex flex-col selection:bg-[#0c5adb] selection:text-white">

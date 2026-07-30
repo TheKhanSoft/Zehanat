@@ -7,9 +7,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <!-- Col 1: Brand & Overview -->
             <div class="space-y-6">
-                <a href="/" class="flex items-center gap-3">
-                    <img src="{{ asset('images/logo.jpg') }}" alt="Zehanat" class="h-10 w-auto">
-                    <span class="font-heading font-extrabold text-2xl text-white tracking-tight">Zehanat</span>
+                <a href="/" class="block">
+                    <img src="{{ asset('images/brand/zehanat_logo_horizontal_dark.svg') }}" alt="Zehanat" class="h-10 w-auto">
                 </a>
                 <p class="text-[15px] leading-loose text-[#a0a0a0]">
                     The Khyber Pakhtunkhwa Society for AI in Education — bridging artificial intelligence research, classroom pedagogy, and academic excellence under Abdul Wali Khan University Mardan.

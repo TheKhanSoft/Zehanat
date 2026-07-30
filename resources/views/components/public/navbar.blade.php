@@ -6,9 +6,8 @@
         <div class="flex items-center justify-between h-[100px]">
             <!-- Brand Logo -->
             <div class="flex-shrink-0">
-                <a href="/" class="flex items-center gap-3 group">
-                    <img src="{{ asset('images/logo.jpg') }}" alt="Zehanat" class="h-[50px] w-auto">
-                    <span class="font-heading font-extrabold text-[28px] text-[#1b1d21] tracking-tight">Zehanat</span>
+                <a href="/" class="block">
+                    <img src="{{ asset('images/brand/zehanat_logo_horizontal.svg') }}" alt="Zehanat" class="h-[45px] w-auto">
                 </a>
             </div>
 
@@ -138,9 +137,8 @@
     <div>
         <!-- Side Panel Header with Logo & Close Button -->
         <div class="flex items-center justify-between pb-6 mb-8 border-b border-slate-100">
-            <a href="/" class="flex items-center gap-3">
-                <img src="{{ asset('images/logo.jpg') }}" alt="Zehanat" class="h-10 w-auto rounded shadow-sm">
-                <span class="font-heading font-black text-2xl text-dark">Zehanat</span>
+            <a href="/" class="block">
+                <img src="{{ asset('images/brand/zehanat_logo_horizontal.svg') }}" alt="Zehanat" class="h-10 w-auto">
             </a>
             <button id="side-panel-close" class="w-10 h-10 hover:text-primary text-dark flex items-center justify-center transition-colors">
                 <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -202,9 +200,8 @@
 <!-- Mobile Menu Overlay -->
 <div id="mobile-menu" class="mobile-menu fixed inset-0 z-[100] bg-white hidden flex-col overflow-y-auto">
     <div class="flex items-center justify-between h-[90px] px-6 border-b border-slate-100">
-        <a href="/" class="flex items-center gap-3">
-            <img src="{{ asset('images/logo.jpg') }}" alt="Zehanat" class="h-10 w-auto rounded shadow-sm">
-            <span class="font-heading font-black text-2xl text-dark">Zehanat</span>
+        <a href="/" class="block">
+            <img src="{{ asset('images/brand/zehanat_logo_horizontal.svg') }}" alt="Zehanat" class="h-[40px] w-auto">
         </a>
         <button id="mobile-menu-close" class="text-dark hover:text-primary p-2">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">

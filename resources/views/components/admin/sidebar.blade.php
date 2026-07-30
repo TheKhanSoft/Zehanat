@@ -2,8 +2,8 @@
     <!-- Logo Section -->
     <div class="sidebar-logo-section flex h-16 items-center border-b border-slate-800/80 px-5">
         <a href="{{ route('admin.dashboard') ?? '/admin' }}" class="flex items-center gap-3 w-full group">
-            <div class="flex h-9 w-9 flex-none items-center justify-center rounded-xl bg-gradient-to-br from-teal-400 to-cyan-600 text-sm font-black text-white shadow-lg shadow-teal-500/25 transition-shadow group-hover:shadow-teal-500/40">
-                Z
+            <div class="flex h-10 w-10 flex-none items-center justify-center overflow-hidden transition-transform group-hover:scale-105">
+                <img src="{{ asset('images/brand/zehanat_symbol_glow.svg') }}" alt="Zehanat" class="w-full h-full object-contain">
             </div>
             <div class="flex flex-col sidebar-label">
                 <span class="text-sm font-black tracking-wide text-white">Zehanat ذہانت</span>
