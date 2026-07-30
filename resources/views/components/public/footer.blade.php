@@ -7,15 +7,15 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <!-- Col 1: Brand & Overview -->
             <div class="space-y-8">
-                <div class="flex gap-5 items-start">
-                    <a href="/" class="block flex-shrink-0 mt-1 transition-transform hover:scale-105 duration-300">
-                        <img src="{{ asset('images/brand/zehanat_symbol_glow.svg') }}" alt="Zehanat" class="w-[100px] h-auto drop-shadow-[0_0_15px_rgba(67,186,255,0.2)]">
+                <div class="clearfix">
+                    <a href="/" class="float-left mr-5 mb-2 mt-1 transition-transform hover:scale-105 duration-300 block">
+                        <img src="{{ asset('images/brand/zehanat_symbol_glow.svg') }}" alt="Zehanat" width="60" class="w-[60px] h-auto drop-shadow-[0_0_15px_rgba(67,186,255,0.2)]">
                     </a>
-                    <p class="text-[15px] leading-[1.8] text-[#a0a0a0] m-0">
+                    <p class="text-[15px] leading-[1.8] text-[#a0a0a0] m-0 text-justify">
                         The Khyber Pakhtunkhwa Society for AI in Education — bridging artificial intelligence research, classroom pedagogy, and academic excellence under Abdul Wali Khan University Mardan.
                     </p>
                 </div>
-                <div class="flex items-center space-x-3 text-white">
+                <div class="flex items-center space-x-2 text-white">
                     <a href="#" class="w-[42px] h-[42px] rounded-lg bg-white/5 border border-white/5 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white hover:-translate-y-1 hover:shadow-[0_8px_15px_rgba(67,186,255,0.25)] transition-all duration-300" aria-label="Facebook">
                         <svg class="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                     </a>
