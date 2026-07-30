@@ -135,7 +135,7 @@
     </div>
 
     <!-- Revolution Slider Controls (Positioned Bottom Left & Center) -->
-    <div class="absolute bottom-10 left-0 w-full z-20">
+    <div class="absolute bottom-10 left-0 w-full z-20 hidden md:block">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center justify-between">
             <!-- Left: Arrow Prev / Next Buttons -->
             <div class="flex items-center space-x-2">

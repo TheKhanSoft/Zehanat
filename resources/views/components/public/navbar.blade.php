@@ -213,13 +213,58 @@
         </button>
     </div>
     <div class="p-6 space-y-4 font-heading text-[15px] font-bold uppercase tracking-wider text-dark">
-        <a href="/" class="block hover:text-primary py-2 border-b border-slate-100">Home</a>
-        <a href="/about" class="block hover:text-primary py-2 border-b border-slate-100">About Us</a>
-        <a href="/pillars" class="block hover:text-primary py-2 border-b border-slate-100">Our Six Pillars</a>
-        <a href="/programs" class="block hover:text-primary py-2 border-b border-slate-100">Programs</a>
-        <a href="/membership" class="block hover:text-primary py-2 border-b border-slate-100">Membership</a>
-        <a href="/news-events" class="block hover:text-primary py-2 border-b border-slate-100">News & Events</a>
-        <a href="/contact" class="block hover:text-primary py-2 border-b border-slate-100">Contact Us</a>
+        <a href="/" class="block hover:text-primary py-3 border-b border-slate-100">Home</a>
+        
+        <!-- About Us Accordion -->
+        <div class="border-b border-slate-100">
+            <button class="accordion-trigger w-full flex items-center justify-between py-3 hover:text-primary transition-colors text-left">
+                <span>About Us</span>
+                <svg class="submenu-icon w-4 h-4 transition-transform text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="accordion-content hidden pl-4 pb-3 space-y-2">
+                <a href="/about#story" class="block text-sm text-slate-500 font-body font-medium hover:text-primary">Our Story</a>
+                <a href="/about#patron" class="block text-sm text-slate-500 font-body font-medium hover:text-primary">Patron's Message</a>
+                <a href="/about#governance" class="block text-sm text-slate-500 font-body font-medium hover:text-primary">Governance</a>
+            </div>
+        </div>
+
+        <a href="/pillars" class="block hover:text-primary py-3 border-b border-slate-100">Our Six Pillars</a>
+        
+        <!-- Programs Accordion -->
+        <div class="border-b border-slate-100">
+            <button class="accordion-trigger w-full flex items-center justify-between py-3 hover:text-primary transition-colors text-left">
+                <span>Programs</span>
+                <svg class="submenu-icon w-4 h-4 transition-transform text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="accordion-content hidden pl-4 pb-3 space-y-3">
+                <div class="space-y-2">
+                    <span class="block text-xs font-bold text-dark mb-1">Academic Sector</span>
+                    <a href="/programs#schools" class="block text-sm text-slate-500 font-body font-medium hover:text-primary">For Schools</a>
+                    <a href="/programs#colleges" class="block text-sm text-slate-500 font-body font-medium hover:text-primary">For Colleges</a>
+                    <a href="/programs#universities" class="block text-sm text-slate-500 font-body font-medium hover:text-primary">For Universities</a>
+                </div>
+                <div class="space-y-2 pt-2 border-t border-slate-50">
+                    <span class="block text-xs font-bold text-dark mb-1">Professional Sector</span>
+                    <a href="/programs#industry" class="block text-sm text-slate-500 font-body font-medium hover:text-primary">For Industry</a>
+                    <a href="/programs#public" class="block text-sm text-slate-500 font-body font-medium hover:text-primary">For the Public</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Membership Accordion -->
+        <div class="border-b border-slate-100">
+            <button class="accordion-trigger w-full flex items-center justify-between py-3 hover:text-primary transition-colors text-left">
+                <span>Membership</span>
+                <svg class="submenu-icon w-4 h-4 transition-transform text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="accordion-content hidden pl-4 pb-3 space-y-2">
+                <a href="/membership#categories" class="block text-sm text-slate-500 font-body font-medium hover:text-primary">Categories</a>
+                <a href="/membership#join" class="block text-sm text-slate-500 font-body font-medium hover:text-primary">Join Now</a>
+            </div>
+        </div>
+
+        <a href="/news-events" class="block hover:text-primary py-3 border-b border-slate-100">News & Events</a>
+        <a href="/contact" class="block hover:text-primary py-3 border-b border-slate-100">Contact Us</a>
 
         <div class="pt-6">
             <a href="/membership" class="engitech-btn w-full">Join Society Now</a>

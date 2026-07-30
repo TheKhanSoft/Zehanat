@@ -50,14 +50,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // d) Accordion toggle
     const accordionTriggers = document.querySelectorAll('.accordion-trigger');
     accordionTriggers.forEach(trigger => {
-        trigger.addEventListener('click', function() {
+        trigger.addEventListener('click', function(e) {
             const content = this.nextElementSibling;
             if (content && content.classList.contains('accordion-content')) {
-                content.classList.toggle('open');
+                e.preventDefault();
+                content.classList.toggle('hidden');
             }
-            const icon = this.querySelector('svg, i');
+            const icon = this.querySelector('.submenu-icon, svg');
             if (icon) {
-                icon.style.transform = content.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+                icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
                 icon.style.transition = 'transform 0.3s ease';
             }
         });
