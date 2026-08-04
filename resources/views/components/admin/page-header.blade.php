@@ -11,7 +11,7 @@
                 {{ $module }}
             </div>
 
-            <h1 class="text-2xl font-black tracking-tight text-white sm:text-3xl">
+            <h1 class="text-2xl font-black tracking-tight !text-white sm:text-3xl">
                 {{ $title }}
             </h1>
             <p class="mt-2 max-w-xl text-sm leading-6 text-slate-400 sm:text-base">

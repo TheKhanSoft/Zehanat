@@ -10,7 +10,7 @@
         </div>
     @endif
     @if($title)
-        <h3 class="text-xl font-semibold text-white mb-3">{{ $title }}</h3>
+        <h3 class="text-xl font-semibold text-white mb-3">{{ html_entity_decode($title) }}</h3>
     @endif
     <div class="text-slate-300">
         {{ $slot }}

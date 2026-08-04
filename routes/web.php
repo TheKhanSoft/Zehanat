@@ -15,6 +15,8 @@ use App\Livewire\Admin\NewsManager;
 use App\Livewire\Admin\PermissionManager;
 use App\Livewire\Admin\ProfileManager;
 use App\Livewire\Admin\RoleManager;
+use App\Livewire\Admin\HomepageManager;
+use App\Livewire\Admin\SettingManager;
 use App\Livewire\Admin\UserManager;
 use App\Models\Faq;
 use App\Models\NewsEvent;
@@ -32,6 +34,11 @@ Route::get('/news-events', function () {
 
     return view('public.news-events', compact('newsEvents'));
 })->name('news-events');
+Route::get('/news-events/{slug}', function ($slug) {
+    $newsEvent = NewsEvent::where('slug', $slug)->firstOrFail();
+
+    return view('public.news-event-show', compact('newsEvent'));
+})->name('news-events.show');
 Route::view('/resources', 'public.resources')->name('resources');
 Route::get('/faq', function () {
     $faqs = Faq::active()->orderBy('sort_order')->get();
@@ -80,6 +87,9 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::get('/contacts', ContactManager::class)->name('contacts.index');
 
     Route::get('/email-templates', EmailTemplateManager::class)->name('email-templates.index');
+
+    Route::get('/settings', SettingManager::class)->name('settings.index');
+    Route::get('/homepage', HomepageManager::class)->name('homepage.index');
 
     Route::get('/profile', ProfileManager::class)->name('profile');
     Route::get('/profile/delete/{user}/verify', DeleteAccountVerify::class)->name('profile.delete.verify')->middleware('signed');

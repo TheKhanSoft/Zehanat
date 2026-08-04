@@ -14,7 +14,7 @@
         
         <div class="flex items-center gap-4 border-t border-slate-700/50 pt-6">
             @if($image)
-                <img src="{{ $image }}" alt="{{ $name }}" class="w-12 h-12 rounded-full object-cover border border-slate-600">
+                <img src="{{ $image }}" alt="{{ html_entity_decode($name) }}" class="w-12 h-12 rounded-full object-cover border border-slate-600">
             @else
                 <div class="w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center text-teal-400 font-bold text-xl uppercase">
                     {{ substr($name, 0, 1) }}
@@ -22,7 +22,7 @@
             @endif
             
             <div>
-                <h4 class="text-white font-semibold">{{ $name }}</h4>
+                <h4 class="text-white font-semibold">{{ html_entity_decode($name) }}</h4>
                 @if($role)
                     <p class="text-slate-400 text-sm">{{ $role }}</p>
                 @endif

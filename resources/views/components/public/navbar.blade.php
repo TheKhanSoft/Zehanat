@@ -1,18 +1,26 @@
+@php
+    $navStyle = setting('theme_navbar_style', 'sticky_light');
+    $navBg = $navStyle === 'dark' ? 'bg-['.setting('theme_dark_color', '#1b1d21').']' : 'bg-white';
+    $textColor = $navStyle === 'dark' ? 'text-white' : 'text-[#1b1d21]';
+    $dropdownBg = $navStyle === 'dark' ? 'bg-slate-800' : 'bg-white';
+    $dropdownText = $navStyle === 'dark' ? 'text-slate-200' : 'text-[#5e6278]';
+    $logoUrl = $navStyle === 'dark' ? (setting('site_logo_light') ?: asset('images/brand/zehanat_logo_horizontal_light.svg')) : (setting('site_logo_dark') ?: asset('images/brand/zehanat_logo_horizontal.svg'));
+@endphp
 <x-public.top-strip />
 
-<!-- Main Clean White Sticky Navbar -->
-<nav id="navbar" class="sticky top-0 z-50 bg-white shadow-[0_5px_20px_rgba(0,0,0,0.05)] transition-all duration-300">
+<!-- Main Navbar -->
+<nav id="navbar" class="sticky top-0 z-50 {{ $navBg }} shadow-[0_5px_20px_rgba(0,0,0,0.05)] transition-all duration-300">
     <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-[100px]">
             <!-- Brand Logo -->
             <div class="flex-shrink-0">
                 <a href="/" class="block">
-                    <img src="{{ asset('images/brand/zehanat_logo_horizontal.svg') }}" alt="Zehanat" class="h-[80px] w-auto">
+                    <img src="{{ $logoUrl }}" alt="Zehanat" class="h-[80px] w-auto">
                 </a>
             </div>
 
             <!-- Desktop Nav Links -->
-            <div class="hidden xl:flex items-stretch gap-9 font-heading text-[15px] font-bold text-[#1b1d21] h-full">
+            <div class="hidden xl:flex items-stretch gap-9 font-heading text-[15px] font-bold {{ $textColor }} h-full">
                 
                 <div class="relative group h-full flex items-stretch">
                     <a href="/" class="flex items-center gap-1 h-full border-b-[3px] border-transparent {{ request()->is('/') ? 'text-primary !border-primary' : '' }} hover:text-primary hover:border-primary transition-colors duration-200">
@@ -25,10 +33,10 @@
                         About <svg class="w-3.5 h-3.5 mt-0.5 text-slate-400 group-hover:text-primary transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
                     </button>
                     <!-- Simple Dropdown -->
-                    <div class="absolute left-0 top-[100px] w-[220px] bg-white shadow-[0_10px_30px_rgba(0,0,0,0.1)] border-t-[3px] border-primary flex flex-col py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-3 group-hover:translate-y-0 before:absolute before:-top-4 before:left-0 before:right-0 before:h-4">
-                        <a href="/about#story" class="px-6 py-2.5 text-[14px] text-[#5e6278] font-body font-medium hover:text-primary hover:bg-slate-50 transition-colors">Our Story</a>
-                        <a href="/about#patron" class="px-6 py-2.5 text-[14px] text-[#5e6278] font-body font-medium hover:text-primary hover:bg-slate-50 transition-colors">Patron's Message</a>
-                        <a href="/about#governance" class="px-6 py-2.5 text-[14px] text-[#5e6278] font-body font-medium hover:text-primary hover:bg-slate-50 transition-colors">Governance</a>
+                    <div class="absolute left-0 top-[100px] w-[220px] {{ $dropdownBg }} shadow-[0_10px_30px_rgba(0,0,0,0.1)] border-t-[3px] border-primary flex flex-col py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-3 group-hover:translate-y-0 before:absolute before:-top-4 before:left-0 before:right-0 before:h-4">
+                        <a href="/about#story" class="px-6 py-2.5 text-[14px] {{ $dropdownText }} font-body font-medium hover:text-primary {{ $navStyle === 'dark' ? 'hover:bg-slate-700' : 'hover:bg-slate-50' }} transition-colors">Our Story</a>
+                        <a href="/about#patron" class="px-6 py-2.5 text-[14px] {{ $dropdownText }} font-body font-medium hover:text-primary {{ $navStyle === 'dark' ? 'hover:bg-slate-700' : 'hover:bg-slate-50' }} transition-colors">Patron's Message</a>
+                        <a href="/about#governance" class="px-6 py-2.5 text-[14px] {{ $dropdownText }} font-body font-medium hover:text-primary {{ $navStyle === 'dark' ? 'hover:bg-slate-700' : 'hover:bg-slate-50' }} transition-colors">Governance</a>
                     </div>
                 </div>
 
@@ -43,21 +51,21 @@
                         Programs <svg class="w-3.5 h-3.5 mt-0.5 text-slate-400 group-hover:text-primary transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
                     </button>
                     <!-- Mega Menu -->
-                    <div class="absolute left-1/2 -translate-x-1/2 top-[100px] w-[600px] bg-white shadow-[0_10px_30px_rgba(0,0,0,0.1)] border-t-[3px] border-primary p-8 flex gap-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-3 group-hover:translate-y-0 before:absolute before:-top-4 before:left-0 before:right-0 before:h-4">
+                    <div class="absolute left-1/2 -translate-x-1/2 top-[100px] w-[600px] {{ $dropdownBg }} shadow-[0_10px_30px_rgba(0,0,0,0.1)] border-t-[3px] border-primary p-8 flex gap-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-3 group-hover:translate-y-0 before:absolute before:-top-4 before:left-0 before:right-0 before:h-4">
                         <div class="flex-1">
-                            <h4 class="font-heading font-extrabold text-[#1b1d21] mb-5 text-[16px]">Academic Sector</h4>
+                            <h4 class="font-heading font-extrabold {{ $textColor }} mb-5 text-[16px]">Academic Sector</h4>
                             <ul class="space-y-4">
-                                <li><a href="/programs#schools" class="text-[14px] font-body font-medium text-[#5e6278] hover:text-primary transition-colors flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-primary/30"></div> For Schools</a></li>
-                                <li><a href="/programs#colleges" class="text-[14px] font-body font-medium text-[#5e6278] hover:text-primary transition-colors flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-primary/30"></div> For Colleges</a></li>
-                                <li><a href="/programs#universities" class="text-[14px] font-body font-medium text-[#5e6278] hover:text-primary transition-colors flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-primary/30"></div> For Universities</a></li>
+                                <li><a href="/programs#schools" class="text-[14px] font-body font-medium {{ $dropdownText }} hover:text-primary transition-colors flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-primary/30"></div> For Schools</a></li>
+                                <li><a href="/programs#colleges" class="text-[14px] font-body font-medium {{ $dropdownText }} hover:text-primary transition-colors flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-primary/30"></div> For Colleges</a></li>
+                                <li><a href="/programs#universities" class="text-[14px] font-body font-medium {{ $dropdownText }} hover:text-primary transition-colors flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-primary/30"></div> For Universities</a></li>
                             </ul>
                         </div>
-                        <div class="w-px bg-slate-100"></div>
+                        <div class="w-px {{ $navStyle === 'dark' ? 'bg-slate-700' : 'bg-slate-100' }}"></div>
                         <div class="flex-1">
-                            <h4 class="font-heading font-extrabold text-[#1b1d21] mb-5 text-[16px]">Professional Sector</h4>
+                            <h4 class="font-heading font-extrabold {{ $textColor }} mb-5 text-[16px]">Professional Sector</h4>
                             <ul class="space-y-4">
-                                <li><a href="/programs#industry" class="text-[14px] font-body font-medium text-[#5e6278] hover:text-primary transition-colors flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-primary/30"></div> For Industry</a></li>
-                                <li><a href="/programs#public" class="text-[14px] font-body font-medium text-[#5e6278] hover:text-primary transition-colors flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-primary/30"></div> For the Public</a></li>
+                                <li><a href="/programs#industry" class="text-[14px] font-body font-medium {{ $dropdownText }} hover:text-primary transition-colors flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-primary/30"></div> For Industry</a></li>
+                                <li><a href="/programs#public" class="text-[14px] font-body font-medium {{ $dropdownText }} hover:text-primary transition-colors flex items-center gap-3"><div class="w-2 h-2 rounded-sm bg-primary/30"></div> For the Public</a></li>
                             </ul>
                         </div>
                     </div>
@@ -68,9 +76,9 @@
                         Membership <svg class="w-3.5 h-3.5 mt-0.5 text-slate-400 group-hover:text-primary transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
                     </button>
                     <!-- Simple Dropdown -->
-                    <div class="absolute left-0 top-[100px] w-[220px] bg-white shadow-[0_10px_30px_rgba(0,0,0,0.1)] border-t-[3px] border-primary flex flex-col py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-3 group-hover:translate-y-0 before:absolute before:-top-4 before:left-0 before:right-0 before:h-4">
-                        <a href="/membership#categories" class="px-6 py-2.5 text-[14px] text-[#5e6278] font-body font-medium hover:text-primary hover:bg-slate-50 transition-colors">Categories</a>
-                        <a href="/membership#join" class="px-6 py-2.5 text-[14px] text-[#5e6278] font-body font-medium hover:text-primary hover:bg-slate-50 transition-colors">Join Now</a>
+                    <div class="absolute left-0 top-[100px] w-[220px] {{ $dropdownBg }} shadow-[0_10px_30px_rgba(0,0,0,0.1)] border-t-[3px] border-primary flex flex-col py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-3 group-hover:translate-y-0 before:absolute before:-top-4 before:left-0 before:right-0 before:h-4">
+                        <a href="/membership#categories" class="px-6 py-2.5 text-[14px] {{ $dropdownText }} font-body font-medium hover:text-primary {{ $navStyle === 'dark' ? 'hover:bg-slate-700' : 'hover:bg-slate-50' }} transition-colors">Categories</a>
+                        <a href="/membership#join" class="px-6 py-2.5 text-[14px] {{ $dropdownText }} font-body font-medium hover:text-primary {{ $navStyle === 'dark' ? 'hover:bg-slate-700' : 'hover:bg-slate-50' }} transition-colors">Join Now</a>
                     </div>
                 </div>
 
@@ -91,12 +99,12 @@
             <div class="hidden sm:flex items-center gap-6 ml-4">
                 
                 <!-- Search Icon -->
-                <button id="search-btn" class="text-[#1b1d21] hover:text-primary transition-colors" aria-label="Open Search">
+                <button id="search-btn" class="{{ $textColor }} hover:text-primary transition-colors" aria-label="Open Search">
                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 </button>
 
                 <!-- User/Dashboard (Instead of Cart) -->
-                <!-- <a href="{{ route('admin.dashboard') }}" class="relative text-[#1b1d21] hover:text-primary transition-colors">
+                <!-- <a href="{{ route('admin.dashboard') }}" class="relative {{ $textColor }} hover:text-primary transition-colors">
                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
                     @auth
                     <span class="absolute -top-2 -right-2 w-4 h-4 bg-primary text-white text-[9px] font-black rounded-full flex items-center justify-center">1</span>

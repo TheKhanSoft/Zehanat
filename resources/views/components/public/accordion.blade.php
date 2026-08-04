@@ -15,7 +15,7 @@
             icon.classList.remove('rotate-180', 'text-[#0c5adb]');
         }
     ">
-        <span class="text-base font-heading font-bold text-[#182433]">{{ $title }}</span>
+        <span class="text-base font-heading font-bold text-[#182433]">{{ html_entity_decode($title) }}</span>
         <svg class="w-5 h-5 text-slate-400 transition-transform duration-300 transform {{ $open ? 'rotate-180 text-[#0c5adb]' : '' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
         </svg>

@@ -1,17 +1,18 @@
 @props([
+    'bgImage' => '',
+    'overlayColor' => null,
+    'overlayOpacity' => '90',
     'tag' => 'CORE PILLARS',
     'title' => 'Our Core Focus Areas',
-    'bgImage' => '',
     'items' => [],
     'bgClass' => 'bg-[#1b1d21]',
     'headingClass' => '!text-white',
     'headingSubtitleClass' => '!text-slate-400',
 ])
 
-<section class="relative py-20 lg:py-28 overflow-hidden {{ $bgClass }}">
-    <!-- Background Image -->
+<section class="relative py-20 lg:py-28 overflow-hidden {{ $bgClass }}" style="{{ $overlayColor ? 'background-color: '.$overlayColor.';' : '' }}">
     @if($bgImage)
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('{{ $bgImage }}');"></div>
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none" style="background-image: url('{{ $bgImage }}'); opacity: {{ (100 - (int)$overlayOpacity) / 100 }}; z-index: 0;"></div>
     @endif
     
     <!-- Gradient Overlay -->

@@ -1,4 +1,7 @@
 @props([
+    'bgImage' => '',
+    'overlayColor' => null,
+    'overlayOpacity' => '90',
     'tag' => 'WHY CHOOSE US',
     'title' => 'Design the Concept of Your Business Idea Now',
     'features' => [],
@@ -7,8 +10,12 @@
     'headingSubtitleClass' => '!text-slate-500'
 ])
 
-<section class="py-20 lg:py-28 bg-[#171822]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="py-20 lg:py-28 relative overflow-hidden" style="{{ $overlayColor ? 'background-color: '.$overlayColor.';' : 'background-color: #171822;' }}">
+    @if($bgImage)
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none" style="background-image: url('{{ $bgImage }}'); opacity: {{ (100 - (int)$overlayOpacity) / 100 }}; z-index: 0;"></div>
+    @endif
+    <div class="absolute inset-0 bg-gradient-to-t from-[#1b1d21]/80 to-transparent pointer-events-none z-[1]"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
         <div class="text-center mb-16 max-w-3xl mx-auto">
             <div class="inline-flex items-center gap-2 text-[10px] font-heading font-extrabold {{ $headingSubtitleClass }} uppercase tracking-widest mb-4">

@@ -11,17 +11,17 @@
 <div class="animate-fade-up {{ $align === 'center' ? 'text-center' : 'text-left' }}">
     <!-- Engitech Tag Header -->
     <div class="engitech-tag mb-3 {{ $align === 'center' ? 'justify-center' : '' }} {{ $tagClass }}">
-        {{ $tag ?? ($subtitle ? strtoupper($subtitle) : 'ZEHANAT SOCIETY') }}
+        {!! html_entity_decode($tag ?? ($subtitle ? strtoupper($subtitle) : 'ZEHANAT SOCIETY')) !!}
     </div>
 
     <!-- Main Section Title -->
     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold tracking-tight leading-tight {{ $titleClass }}">
-        {!! nl2br(e($title)) !!}
+        {!! nl2br(e(html_entity_decode($title))) !!}
     </h2>
 
     @if($subtitle && !$tag)
         <p class="text-base sm:text-lg mt-4 leading-relaxed {{ $align === 'center' ? 'mx-auto max-w-2xl' : 'max-w-2xl' }} {{ $subtitleClass }}">
-            {{ $subtitle }}
+            {!! nl2br(e(html_entity_decode($subtitle))) !!}
         </p>
     @endif
 </div>

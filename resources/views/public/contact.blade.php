@@ -67,7 +67,7 @@
                         <div>
                             <h4 class="font-heading font-bold text-[#1b1d21] text-base mb-1">Official Address</h4>
                             <p class="text-[#5e6278] text-xs leading-relaxed">
-                                Abdul Wali Khan University Mardan, Khyber Pakhtunkhwa, Pakistan
+                                {{ setting('contact_address', 'Abdul Wali Khan University Mardan, Khyber Pakhtunkhwa, Pakistan') }}
                             </p>
                         </div>
                     </div>
@@ -80,8 +80,8 @@
                         </div>
                         <div>
                             <h4 class="font-heading font-bold text-[#1b1d21] text-base mb-1">Email Address</h4>
-                            <a href="mailto:zehanat@awkum.edu.pk" class="text-[#5e6278] text-xs hover:text-[#43baff] transition-colors">
-                                zehanat@awkum.edu.pk
+                            <a href="mailto:{{ setting('contact_email', 'zehanat@awkum.edu.pk') }}" class="text-[#5e6278] text-xs hover:text-[#43baff] transition-colors">
+                                {{ setting('contact_email', 'zehanat@awkum.edu.pk') }}
                             </a>
                         </div>
                     </div>
@@ -94,8 +94,8 @@
                         </div>
                         <div>
                             <h4 class="font-heading font-bold text-[#1b1d21] text-base mb-1">Phone Helpline</h4>
-                            <a href="tel:+929379230640" class="text-[#5e6278] text-xs hover:text-[#43baff] transition-colors">
-                                +92 937 9230640
+                            <a href="tel:{{ str_replace(' ', '', setting('contact_phone', '+92 937 9230640')) }}" class="text-[#5e6278] text-xs hover:text-[#43baff] transition-colors">
+                                {{ setting('contact_phone', '+92 937 9230640') }}
                             </a>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                         </div>
                         <div>
                             <h4 class="font-heading font-bold text-[#1b1d21] text-base mb-1">Office Hours</h4>
-                            <p class="text-[#5e6278] text-xs">Monday - Friday: 8:00 AM - 4:00 PM</p>
+                            <p class="text-[#5e6278] text-xs">{{ setting('contact_hours', 'Monday - Friday: 8:00 AM - 4:00 PM') }}</p>
                         </div>
                     </div>
                 </div>

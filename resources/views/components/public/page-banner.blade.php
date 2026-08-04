@@ -24,7 +24,7 @@
         @endif
 
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-[#182433] tracking-tight leading-tight">
-            {{ $title }}
+            {{ html_entity_decode($title) }}
         </h1>
 
         @if(isset($slot) && $slot->isNotEmpty())

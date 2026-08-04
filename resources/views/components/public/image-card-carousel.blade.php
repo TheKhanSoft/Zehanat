@@ -27,17 +27,17 @@
             <div class="swiper-wrapper">
                 @foreach($items as $item)
                     <div class="swiper-slide h-auto">
-                        <a href="{{ $item['link'] ?? '#' }}" class="group block h-full overflow-hidden transition-transform duration-300 rounded-xl shadow-lg border border-slate-100 hover:shadow-2xl">
+                        <a href="{{ html_entity_decode($item['link'] ?? '#') }}" class="group block h-full overflow-hidden transition-transform duration-300 rounded-xl shadow-lg border border-slate-100 hover:shadow-2xl">
                             <!-- Image Container -->
                             <div class="relative h-64 overflow-hidden bg-slate-200">
-                                <img src="{{ $item['image'] }}" alt="{{ $item['title'] }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <img src="{{ html_entity_decode($item['image'] ?? '') }}" alt="{{ html_entity_decode($item['title'] ?? '') }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             </div>
                             
                             <!-- Content Box -->
                             <div class="bg-white p-8 flex items-center justify-between transition-colors duration-300 group-hover:bg-primary">
                                 <div>
-                                    <p class="text-[11px] font-heading font-bold text-primary mb-2 uppercase tracking-wider transition-colors duration-300 group-hover:text-white/90">{{ $item['category'] }}</p>
-                                    <h3 class="text-[22px] font-heading font-extrabold text-[#1b1d21] transition-colors duration-300 group-hover:text-white">{{ $item['title'] }}</h3>
+                                    <p class="text-[11px] font-heading font-bold text-primary mb-2 uppercase tracking-wider transition-colors duration-300 group-hover:text-white/90">{{ html_entity_decode($item['category'] ?? '') }}</p>
+                                    <h3 class="text-[22px] font-heading font-extrabold text-[#1b1d21] transition-colors duration-300 group-hover:text-white">{{ html_entity_decode($item['title'] ?? '') }}</h3>
                                 </div>
                                 <div class="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-all duration-300 group-hover:bg-white/20 group-hover:text-white group-hover:-rotate-45">
                                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>

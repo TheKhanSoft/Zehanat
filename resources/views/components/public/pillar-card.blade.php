@@ -22,10 +22,10 @@
 
         <!-- Title & Description -->
         <h3 class="text-xl font-heading font-bold text-[#182433] mb-3 group-hover:text-[#0c5adb] transition-colors">
-            {{ $title }}
+            {{ html_entity_decode($title) }}
         </h3>
         <p class="text-[#5e6278] leading-relaxed text-sm">
-            {{ $description }}
+            {{ html_entity_decode($description) }}
         </p>
     </div>
 

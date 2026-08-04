@@ -14,12 +14,20 @@ class ConfirmationModal extends Component
     public array $actionParams = [];
 
     #[On('confirm-action')]
-    public function showModal(string $title, string $message, string $action, array $params = [])
+    public function showModal($title = 'Confirm Action', $message = 'Are you sure?', $action = '', $params = [])
     {
-        $this->title = $title;
-        $this->message = $message;
-        $this->confirmAction = $action;
-        $this->actionParams = $params;
+        // Handle if JS sends a single object payload
+        if (is_array($title) && isset($title['title'])) {
+            $this->message = $title['message'] ?? $message;
+            $this->confirmAction = $title['action'] ?? $action;
+            $this->actionParams = $title['params'] ?? [];
+            $this->title = $title['title'];
+        } else {
+            $this->title = $title;
+            $this->message = $message;
+            $this->confirmAction = $action;
+            $this->actionParams = is_array($params) ? $params : [$params];
+        }
         $this->show = true;
     }
 

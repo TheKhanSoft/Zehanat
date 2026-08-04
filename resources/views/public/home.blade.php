@@ -13,9 +13,29 @@
         <x-public.btn variant="primary2" size="lg" href="/programs">Explore Programs</x-public.btn>
     </x-public.hero>
 
+    @php
+    $sections = \App\Models\HomepageSection::enabled()->orderBy('sort_order')->get()->keyBy('layout_template');
+    
+    function getBgData($sectionKey, $sections) {
+        $section = $sections[$sectionKey] ?? null;
+        $content = $section ? ($section->content ?? []) : [];
+        $bgImage = !empty($content['bg_image']) ? (str_starts_with($content['bg_image'], 'http') ? $content['bg_image'] : asset('storage/' . $content['bg_image'])) : null;
+        $overlayColor = $content['bg_overlay_color'] ?? null;
+        $overlayOpacity = $content['bg_overlay_opacity'] ?? '90';
+        $opacityValue = ((100 - (int)$overlayOpacity) / 100);
+        
+        $bgStyle = $overlayColor ? 'background-color: ' . $overlayColor . ';' : '';
+        $bgHtml = $bgImage ? '<div class="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none" style="background-image: url(\''.$bgImage.'\'); opacity: '.$opacityValue.'; mix-blend-mode: normal; z-index: 0;"></div>' : '';
+        
+        return [$bgStyle, $bgHtml, $content, $bgImage, $overlayColor, $overlayOpacity];
+    }
+@endphp
+
     <!-- Section 2: Welcome Note & Leadership Vision -->
-    <section class="py-20 lg:py-28 bg-white relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    @php [$bgStyle, $bgHtml, $content, $bgImage, $overlayColor, $overlayOpacity] = getBgData('welcome', $sections); @endphp
+    <section class="py-20 lg:py-28 relative" style="{{ $bgStyle }}">
+                {!! $bgHtml !!}
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
                 <!-- Text Column -->
@@ -77,8 +97,9 @@
     </section>
 
     <!-- Section 3: Our Six Pillars -->
-    <section class="py-20 lg:py-28 bg-[#f4f6f9] border-y border-slate-200/60 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="py-20 lg:py-28 border-y border-slate-200/60 relative" style="{{ $bgStyle }}">
+                {!! $bgHtml !!}
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <x-public.section-heading 
                 tag="OUR FOUNDATION"
                 title="The Six Pillars of Zehanat" 
@@ -114,8 +135,9 @@
     </section>
 
     <!-- Section 4: Target Sectors -->
-    <section class="py-20 lg:py-28 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="py-20 lg:py-28 relative" style="{{ $bgStyle }}">
+                {!! $bgHtml !!}
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <x-public.section-heading 
                 tag="JOIN THE MOVEMENT"
                 title="Be Part of Khyber Pakhtunkhwa's AI Revolution" 
@@ -175,8 +197,10 @@
     </section>
 
     <!-- Section 5: Stats Counter Bar -->
-    <section class="py-16 bg-[#f4f6f9] border-y border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    @php [$bgStyle, $bgHtml, $content, $bgImage, $overlayColor, $overlayOpacity] = getBgData('stats', $sections); @endphp
+    <section class="py-16 border-y border-slate-200 relative" style="{{ $bgStyle }}">
+                {!! $bgHtml !!}
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <x-public.stat-counter number="50" label="Partner Institutions" suffix="+" />
                 <x-public.stat-counter number="500" label="Active Members" suffix="+" />
@@ -187,8 +211,10 @@
     </section>
 
     <!-- Section 6: Latest News & Events -->
-    <section class="py-20 lg:py-28 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    @php [$bgStyle, $bgHtml, $content, $bgImage, $overlayColor, $overlayOpacity] = getBgData('news_events', $sections); @endphp
+    <section class="py-20 lg:py-28 relative" style="{{ $bgStyle }}">
+                {!! $bgHtml !!}
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
                 <x-public.section-heading 
                     tag="HAPPENINGS"
@@ -222,6 +248,7 @@
     </section>
 
     <!-- Section 6.1: Image Card Carousel -->
+    @php [$bgStyle, $bgHtml, $content, $bgImage, $overlayColor, $overlayOpacity] = getBgData('initiatives', $sections); @endphp
     @php
         $carouselItems = [
             ['title' => 'AI Lab Setup', 'category' => 'Infrastructure', 'image' => asset('images/dummy/project_1.jpg'), 'link' => '#'],
@@ -233,6 +260,7 @@
     <x-public.image-card-carousel tag="OUR INITIATIVES" title="Recent Projects & Programs" :items="$carouselItems" />
 
     <!-- Section 6.2: Icon Overlay Grid -->
+    @php [$bgStyle, $bgHtml, $content, $bgImage, $overlayColor, $overlayOpacity] = getBgData('focus_areas', $sections); @endphp
     @php
         $iconItems = [
             ['label' => 'Research', 'icon' => '<svg class="w-8 h-8 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>', 'link' => '#'],
@@ -243,9 +271,10 @@
             ['label' => 'Community', 'icon' => '<svg class="w-8 h-8 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.514"/></svg>', 'link' => '#'],
         ];
     @endphp
-    <x-public.icon-overlay-grid tag="CORE PILLARS" title="Our Core Focus Areas" bgImage="{{ asset('images/dummy/tech_bg.jpg') }}" :items="$iconItems" />
+    <x-public.icon-overlay-grid tag="CORE PILLARS" title="Our Core Focus Areas" :bgImage="$bgImage ?: asset('images/dummy/tech_bg.jpg')" :overlayColor="$overlayColor" :overlayOpacity="$overlayOpacity" :items="$iconItems" />
 
     <!-- Section 6.3: Testimonial Slider -->
+    @php [$bgStyle, $bgHtml, $content, $bgImage, $overlayColor, $overlayOpacity] = getBgData('testimonials', $sections); @endphp
     @php
         $testiItems = [
             ['name' => 'Prof. Dr. Jamil Ahmad', 'role' => 'Vice Chancellor, AWKUM', 'quote' => 'Very well thought out and articulate communication. Clear milestones, deadlines and fast work. Patience. Infinite patience. No shortcuts. Even if the client is being careless. The best part...always solving problems with great original ideas!.', 'image' => null],
@@ -253,9 +282,10 @@
             ['name' => 'Sarah Khan', 'role' => 'High School Teacher', 'quote' => 'The resources provided by Zehanat have completely transformed how I approach teaching. The AI tools are intuitive and the community support is unmatched.', 'image' => null]
         ];
     @endphp
-    <x-public.testimonial-slider tag="TESTIMONIALS" title="What Educators Are Saying" :items="$testiItems" />
+    <x-public.testimonial-slider tag="TESTIMONIALS" title="What Educators Are Saying" :items="$testiItems"  :bgImage="$bgImage" :overlayColor="$overlayColor" :overlayOpacity="$overlayOpacity" />
 
     <!-- Section 6.4: Feature Stat Grid -->
+    @php [$bgStyle, $bgHtml, $content, $bgImage, $overlayColor, $overlayOpacity] = getBgData('features_stats', $sections); @endphp
     @php
         $gridFeatures = [
             ['title' => 'Curriculum Design', 'description' => 'Our curriculum design service lets you prototype, test and validate your ideas.', 'icon' => '<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>', 'link' => '#'],
@@ -268,12 +298,13 @@
             ['number' => '23', 'suffix' => 'k', 'title' => 'Happy Educators', 'description' => 'To succeed, every software solution must be deeply integrated into the existing tech environment.', 'image' => asset('images/dummy/stat_2.jpg')],
         ];
     @endphp
-    <x-public.feature-stat-grid tag="WHY CHOOSE US" title="Design the Concept of Your Business Idea Now" :features="$gridFeatures" :stats="$gridStats" />
+    <x-public.feature-stat-grid tag="WHY CHOOSE US" title="Design the Concept of Your Business Idea Now" :features="$gridFeatures" :stats="$gridStats"  :bgImage="$bgImage" :overlayColor="$overlayColor" :overlayOpacity="$overlayOpacity" />
 
     <!-- Section 7: CTA Banner -->
+    @php [$bgStyle, $bgHtml, $content, $bgImage, $overlayColor, $overlayOpacity] = getBgData('cta_banner', $sections); @endphp
     <x-public.cta-banner 
         title="Ready to Shape the Future of AI in Education?" 
-        subtitle="Join Zehanat today and lead the AI revolution in Khyber Pakhtunkhwa's classrooms.">
+        subtitle="Join Zehanat today and lead the AI revolution in Khyber Pakhtunkhwa's classrooms." :bgImage="$bgImage" :overlayColor="$overlayColor" :overlayOpacity="$overlayOpacity">
         <x-public.btn variant="primary" size="lg" href="/membership">Become a Member</x-public.btn>
         <a href="/contact" class="inline-flex items-center justify-center px-7 py-3 bg-white/10 hover:bg-white/20 text-white font-heading font-extrabold text-xs uppercase tracking-wider rounded-xl border border-white/20 transition-all">Contact Us</a>
     </x-public.cta-banner>

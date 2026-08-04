@@ -1,4 +1,7 @@
 @props([
+    'bgImage' => '',
+    'overlayColor' => null,
+    'overlayOpacity' => '90',
     'tag' => 'TESTIMONIALS',
     'title' => 'What Educators Are Saying',
     'items' => [],
@@ -11,7 +14,10 @@
     'headingSubtitleClass' => '!text-slate-500',
 ])
 
-<section class="relative py-20 lg:py-28 {{ $bgClass }} overflow-hidden">
+<section class="relative py-20 lg:py-28 overflow-hidden" style="{{ $overlayColor ? 'background-color: '.$overlayColor.';' : '' }}">
+    @if($bgImage)
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none" style="background-image: url('{{ $bgImage }}'); opacity: {{ (100 - (int)$overlayOpacity) / 100 }}; z-index: 0;"></div>
+    @endif
     <!-- World Map Background Pattern -->
     <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at center, #1b1d21 2px, transparent 2px); background-size: 32px 32px;"></div>
     

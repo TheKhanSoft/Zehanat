@@ -1,7 +1,7 @@
 <div>
     <div x-data="{ show: @entangle('show') }"
          x-show="show"
-         class="fixed inset-0 z-50 overflow-y-auto"
+         class="fixed inset-0 z-[110] overflow-y-auto"
          aria-labelledby="modal-title"
          role="dialog"
          aria-modal="true"
